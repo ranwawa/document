@@ -31,7 +31,6 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 具体的设置方法参考: https://www.jetbrains.com/help/webstorm/live-editing.html
 
 **踩中的坑**
-
 - `chomre`上安装了`JetBrains IDE Support`插件,但还是没效果
   - 点右键看看是否能够获取网页数据,不行的话重新安装就好了
 - 点`debug`蜘蛛,打开的是一个空网页,根本用不了,而点编辑器右上角的浏览器图标,又没办法激活`chorme`插件
@@ -55,3 +54,4 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 
 一直以来,都是手动调整CSS规则的属性,但是一些比较少用的属性顺序都是乱排的,比如动画,栅格的子属性及一些新的属性.自己去按照一些标准的规范把所有的顺序都记下来吧,也不现实,所以就利用IDE本身的`arrangement`自动格式化.这个确实很好用,在`HTML`和`CSS`文件都都能很好工作,但是在`VUE`里面就不生效了
 
+![](.WebStorm_images/GIF4.gif)
