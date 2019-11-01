@@ -78,6 +78,11 @@ find is easy, refactor is busy.
 ## 9.4 Map Preprocessed Code To Source Code
 ## 9.5 JS Debugging Reference
 ## 9.6 Snippets
+- 什么是代码片段
+
+- 为什么需要代码片段
+
+- 代码片段的增删改查
 ## 9.7 Sources Panel Overview
 ## 9.8 Guides
 

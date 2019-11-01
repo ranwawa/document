@@ -1,8 +1,7 @@
-# 开发中遇到的问题 webstorm
-
 1. [已解决2019-08-25]报错: ESLint: TypeError: this.cliEngine is not a constructor
 2. [已解决]静态页面实时预览
 3. settings repository无法同步github上的配置文件
+4. vue文件里面的style,在格式化时不能自动排序规则顺序
 
 ## [已解决2019-08-25]1. 报错: ESLint: TypeError: this.cliEngine is not a constructor
 **业务背景**
@@ -50,3 +49,9 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 尝试了重装软件，重启电脑都无效。确定仓库上的快捷键是有效的。
 
 之前也遇到过这个问题，但是不知道怎么的就出来了，所以就没做笔记，今天[2019-09-06]搞了一个多小时还是没出来。
+
+## 4. vue文件里面的style,在格式化时不能自动排序规则顺序
+**业务背景**
+
+一直以来,都是手动调整CSS规则的属性,但是一些比较少用的属性顺序都是乱排的,比如动画,栅格的子属性及一些新的属性.自己去按照一些标准的规范把所有的顺序都记下来吧,也不现实,所以就利用IDE本身的`arrangement`自动格式化.这个确实很好用,在`HTML`和`CSS`文件都都能很好工作,但是在`VUE`里面就不生效了
+
