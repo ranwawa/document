@@ -1,6 +1,7 @@
 ## 9.1 Get Started
 In short, breakpoints can help you find and fix bugs faster than the *console.log()* method
   - 也就是说,以后在代码调试的时候,尽量别用console.log了,把习惯改过来
+  
 ## 9.2 Pause Your Code With Breakpoints
 - When to use each type of breakpoint type
 
@@ -47,6 +48,7 @@ In short, breakpoints can help you find and fix bugs faster than the *console.lo
 - Function breakpoints
   - Call *debug(functionName)*
   - You can insert *debug()* into your code or call it from DevTools Console
+  
 ## 9.3 Find Unused JavaScript
 find is easy, refactor is busy.
 参考css相关笔记:https://juejin.im/post/5d76f8456fb9a06ad4516d73
@@ -75,8 +77,85 @@ find is easy, refactor is busy.
     - unnamed column
       - The red section of the bar is unused bytes
       - The green section of the bar is used bytes
+      
 ## 9.4 Map Preprocessed Code To Source Code
+- What is a preprocessor?
+  - A preprocessor takes an arbitrary source file and converts it into something that the browser understand.
+  - With CSS as output, notable examples are: sass ...
+  - With JavaScript as output, notable examples are: typescript ...
+- What are Source Maps?
+  - A source map is a JSON-based mapping format file
+  - That creates a relationship between a minified file and it's sources.
+- How Source Maps work?
+  - It produces for each file
+  - A preprocessor generates a source map file `.map` in addition to the compiled file
+  - Each compiled file contains an annotation that specifies the URL of it's source map file
+
+*source file `test.sass`*
+```sass
+$bg: 18px;
+div { font-size: $bg;}
+```
+*compiled file `test.css`*
+```css
+div {font-size: 18px;}
+/*# sourceMappingURL=test.css.map */
+```
+*source map `.map`*
+```
+{
+  "version": "3",
+  "mappings": "...",
+  "sources": "[path/test.sass]",
+  "file": "test.css"
+}
+```
+
+- Other preprocessors
+  - Transpiler: Babel
+  - Compiler: TypeScript
+  - Minifier: UglifyJS
+  
+- How to enable source maps in settings
+  - `ctrl + shift + p`, type settings
+  - Select *settings settings*
+  - Switch to *preference sources*
+  - Check *Enable JavaScript Source Maps* checkbox
+
+- Where are Source Maps showed?
+  - In the console
+  - Step through code  
 ## 9.5 JS Debugging Reference
+哎呀,不用英文记笔记了.我这个水平,读都还比较困难的时候,就写,确实有点操之过急了.还是先用中文记,快速的把技术知识掌握了才是当下最重要的事情.文档还是看英文的,写的能力等来年换工作后再做打算吧.现在是各种基础技术的积累.
+### 9.5.1 单步调试
+- 跳过函数![](_images/9_JavaScript_images/827853e7.png)
+- 进入函数![](_images/9_JavaScript_images/4b883c38.png)
+- 跳出函数![](_images/9_JavaScript_images/d0e60587.png)
+- 逐步执行![](_images/9_JavaScript_images/851a5b18.png)
+- 执行到下一个断点![](_images/9_JavaScript_images/07c8eca8.png)
+- 执行到指定行
+  - 在代码行号处点击右键选择
+  - 这个还是方便,经常在调试的时候会进入到第3方框架的压缩后的代码里面半天出不来.有了这个就可以直接跳到自己想要去的地方了
+  
+![](_images/9_JavaScript_images/ab7942a8.png)
+- 跳转到当前方法调用栈最开始的那个方法
+  - 在`Call Stack`面板里面点击右键选择
+  - 感觉这个没多大用啊...
+  
+![](_images/9_JavaScript_images/2a07c436.png)
+- 跳过所有断点
+  - 长按![](_images/9_JavaScript_images/07c8eca8.png),选择![](_images/9_JavaScript_images/f8d57954.png)
+- 更改上下文环境
+  - 在使用`webwork`时用到的,不过目前没用到过这个技术
+  - 在`Thread`面板选择
+  
+![](_images/9_JavaScript_images/0bfec2f3.png)
+### scope面板
+查看修改变量
+- 全局的
+- 函数作用域里的
+- 闭包里面的
+![](_images/9_JavaScript_images/b46f433f.png)
 ## 9.6 Snippets
 - 什么是代码片段
 
@@ -85,4 +164,29 @@ find is easy, refactor is busy.
 - 代码片段的增删改查
 ## 9.7 Sources Panel Overview
 ## 9.8 Guides
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
