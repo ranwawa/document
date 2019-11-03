@@ -1,6 +1,6 @@
 ![logo](_media/log.png)
 
-# 冉娃娃 <small>0.1</small>
+# 冉娃娃 <small>的</small>
 
 > 前端技术沉淀之路
 
