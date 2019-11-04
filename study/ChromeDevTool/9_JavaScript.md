@@ -214,8 +214,6 @@ div {font-size: 18px;}
   - 在里面操作就行了,非常简单
 
 ![](_images/9_JavaScript_images/1741aceb.png)
-## 9.7 Sources Panel Overview
-## 9.8 Guides
 
 
 

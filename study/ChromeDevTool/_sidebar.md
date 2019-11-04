@@ -8,3 +8,4 @@
   - [7_MobileSimulation](/study/ChromeDevTool/7_MobileSimulation.md)
   - [8_DOM](/study/ChromeDevTool/8_DOM.md)
   - [9_JavaScript](/study/ChromeDevTool/9_JavaScript.md)
+  - [13_Workspace](/study/ChromeDevTool/13_Workspace.md)
