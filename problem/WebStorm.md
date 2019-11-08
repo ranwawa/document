@@ -1,9 +1,5 @@
-1. [已解决2019-08-25]报错: ESLint: TypeError: this.cliEngine is not a constructor
-2. [已解决]静态页面实时预览
-3. settings repository无法同步github上的配置文件
-4. vue文件里面的style,在格式化时不能自动排序规则顺序
+## 1.[已解决]报错: ESLint: TypeError: this.cliEngine is not a constructor(190825)
 
-## [已解决2019-08-25]1. 报错: ESLint: TypeError: this.cliEngine is not a constructor
 **业务背景**
 
 更新了package.json里面的elint版本,重新下载了依赖包后,IDE就报这个错
@@ -50,8 +46,25 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 之前也遇到过这个问题，但是不知道怎么的就出来了，所以就没做笔记，今天[2019-09-06]搞了一个多小时还是没出来。
 
 ## 4. vue文件里面的style,在格式化时不能自动排序规则顺序
+
 **业务背景**
 
 一直以来,都是手动调整CSS规则的属性,但是一些比较少用的属性顺序都是乱排的,比如动画,栅格的子属性及一些新的属性.自己去按照一些标准的规范把所有的顺序都记下来吧,也不现实,所以就利用IDE本身的`arrangement`自动格式化.这个确实很好用,在`HTML`和`CSS`文件都都能很好工作,但是在`VUE`里面就不生效了
 
 ![](.WebStorm_images/GIF4.gif)
+
+
+## 5.[已解决]WebStorm中push远程代码的时候,总是报权限错误(191108)
+
+**业务背景**
+
+通过`WebStorm`自带的Git工具push代码的时候,就总是报这个错,也不提供修改帐号密码的弹框,用命令行直接提交,就会提示输入帐号密码,但是输入后不会自动保存
+
+![](_images/git_images/85697880.png)
+
+**问题解决**
+- 设置面板 -> Appearance && System Settings -> Password 关掉保存密码
+- 关掉IDE,重新进入
+- 重新Push,输入密码并且保存
+- 然后再去设置面板打开即可
+- 参考: https://stackoverflow.com/questions/28142361/change-remote-repository-credentials-authentication-on-intellij-idea-14
