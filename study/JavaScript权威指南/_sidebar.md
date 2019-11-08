@@ -3,3 +3,4 @@
   - [第2章_词法结构](/study/JavaScript权威指南/第2章_词法结构.md)
   - [第3章_类型,值和变量](/study/JavaScript权威指南/第3章_类型,值和变量.md)
   - [第4章_表达式和运算符,值和变量](/study/JavaScript权威指南/第4章_表达式和运算符,值和变量.md)
+  - [第5章_语句](/study/JavaScript权威指南/第5章_语句.md)
