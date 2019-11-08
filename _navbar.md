@@ -1,4 +1,4 @@
-* [学习笔记](/study/)
+* 学习笔记
   * [CSS揭秘](/study/CSS揭秘/第1章_引言.md)
   * [CSS权威指南](/study/CSS权威指南/第1章_CSS和文档.md)
   * [HTTP权威指南](/study/HTTP权威指南/第1章_HTTP概述.md)
@@ -7,7 +7,7 @@
   * [ChromeDevTool](/study/ChromeDevTool/1_Shortcuts.md)
 
 
-* [开发中的问题](/problem/)
+* 开发中的问题
   - [CSS](/problem/CSS.md)
   - [HTTP](/problem/HTTP.md)
   - [JavaScript](/problem/JavaScript.md)
@@ -19,5 +19,7 @@
   - [微信公众号](/problem/微信公众号.md)
   - [支付宝小程序](/problem/支付宝小程序.md)
   
-* [经验总结](/experience/)
-* [工具插件](/tools/)
+* 经验总结
+  * [uni-app多端差异](/experience/uni-app多端差异.md)
+
+* 工具插件

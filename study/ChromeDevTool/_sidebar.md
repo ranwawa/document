@@ -1,4 +1,4 @@
-- [ChromeDevTool]()
+- ChromeDevTool
   - [1_Shortcuts](/study/ChromeDevTool/1_Shortcuts.md)
   - [2_CSS](/study/ChromeDevTool/2_CSS.md)
   - [3_Console](/study/ChromeDevTool/3_Console.md)

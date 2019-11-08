@@ -32,6 +32,7 @@
   aria-activedescendant="test"
   data-age="25"
 />
+<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 <script>
 window.$docsify = {
   el: '#app',
@@ -63,6 +64,9 @@ window.$docsify = {
     noData: '哎呀--|||没有找到相关内容,换个关键词试试',
     depth: 6,
   },
+  plugins: [
+    EditOnGithubPlugin.create('https://github.com/ranwawa/document/tree/master/'),
+  ],
 };
 </script>
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
