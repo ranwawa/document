@@ -1,4 +1,4 @@
-* [JavaScript语言精粹]()
+* JavaScript语言精粹
   * [第1章_精华](/study/JavaScript语言精粹/第1章_精华.md)
   * [第2章_语法](/study/JavaScript语言精粹/第2章_语法.md)
   * [第3章_对象](/study/JavaScript语言精粹/第3章_对象.md)

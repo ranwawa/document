@@ -1,4 +1,4 @@
-- [JavaScript权威指南]()
+- JavaScript权威指南
   - [第1章_JavaScript概述](/study/JavaScript权威指南/第1章_JavaScript概述.md)
   - [第2章_词法结构](/study/JavaScript权威指南/第2章_词法结构.md)
   - [第3章_类型,值和变量](/study/JavaScript权威指南/第3章_类型,值和变量.md)
