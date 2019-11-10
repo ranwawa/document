@@ -1,5 +1,6 @@
 * [CSS揭秘](/study/CSS揭秘/第1章_引言.md)
 * [CSS权威指南](/study/CSS权威指南/第1章_CSS和文档.md)
+* [ES6标准入门](/study/ES6标准入门/第1章_ECMAScript6简介.md)
 * [HTTP权威指南](/study/HTTP权威指南/第1章_HTTP概述.md)
 * [HTTP图解](/study/HTTP图解/第1章_了解Web及网络基础.md)
 * [JavaScript语言精粹](/study/JavaScript语言精粹/第1章_精华.md)
