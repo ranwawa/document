@@ -1,10 +1,3 @@
-1. [已解决]伪类选择器无法选中指定元素(190923)
-2. [已解决]父元素的overflow为什么可以清除浮动(190927)
-3. [已解决]为什么把img元素设置为块级元素就能清除它与相邻元素的间距(190929)
-4. 为什么元素向右浮动后，前面的兄弟元素没有向右靠
-5. [已解决]rem方案解决移动端适配，为什么设置根接点基础大小为1px无效(190924)
-6. [已解决]绝对定位的父元素宽高固定，子元素高度不固定，如何让子元素在父元素中垂直居中，兼容IE老浏览器的写法(190926)
-
 ## 1. [已解决]伪类选择器无法选中指定元素(190923)
 **业务背景**
 
@@ -115,9 +108,7 @@
 
 后来看到在父元素上添加overflow:hidden;可以解决这个问题,那是什么原理呢?
 
-**示例代码**
-
-https://jsfiddle.net/ranwawa/wg0xdzps/
+<script async src="//jsfiddle.net/ranwawa/wg0xdzps/embed/result,html,css,js"></script>
 
 **问题解决**
 - 不仅仅是设置地hidden,除visibility之外的值都可以
@@ -144,9 +135,7 @@ https://jsfiddle.net/ranwawa/wg0xdzps/
 
 ## 4. 为什么元素向右浮动后，前面的兄弟元素没有向右靠
 
-**示例代码**
-
-https://jsfiddle.net/ranwawa/amtckfo6
+<script async src="//jsfiddle.net/ranwawa/amtckfo6/embed/result,html,js,css"></script>
 
 ## 5. rem方案解决移动端适配，为什么设置根接点基础大小为1px无效
 **业务背景**
@@ -185,14 +174,14 @@ https://jsfiddle.net/ranwawa/amtckfo6
 
 因为`Chrome`限制了最小字号是12px，所以设置1px是无法生效的，当然在移动端上，不同的浏览器也是有不同的限制，所以肯定也无法生效
 
-## 6. 绝对定位的父元素宽高固定，子元素高度不固定，如何让子元素在父元素中垂直居中，兼容IE老浏览器的写法
+## 6. [已解决]绝对定位的父元素宽高固定，子元素高度不固定，如何让子元素在父元素中垂直居中，兼容IE老浏览器的写法
+
 **业务背景**
 
 在做PC端网站的时候，要实现垂直居中还真有点儿小麻烦，主要是不能用新的CSS特性，单行的用line-height可以解决，多行的还是试了很多方式才试出来。
 
-**示例代码**
-
-https://jsfiddle.net/ranwawa/njgxds3b 只罗列了兼容老浏览器的写法，新特性没写
+<script async src="//jsfiddle.net/ranwawa/njgxds3b/embed/result,html,js,css"></script>
+只罗列了兼容老浏览器的写法，新特性没写
 
 **问题解决**
 - 通过设置单元格为table-cell
@@ -202,3 +191,21 @@ https://jsfiddle.net/ranwawa/njgxds3b 只罗列了兼容老浏览器的写法，
 更多的可以参考：https://www.jianshu.com/p/0ee2b49dd9d6
 
 ![](https://user-gold-cdn.xitu.io/2019/9/26/16d6b7731cb6d974?w=699&h=428&f=png&s=26233)
+
+## 7. [已解决]transform skew取不同的值,到底是朝哪个方向偏?(191111)
+**业务背景**
+
+在练习CSS揭秘平行四边形的时候遇到这样一个问题,给skew设置一个值,根本无法预测到它会变成什么样子.所以必须的单独来把它搞透.如果无法预测它会怎么样,就说明没有掌握嘛.总不能每次输入一个值都要去试一试
+<script async src="//jsfiddle.net/ranwawa/Ls5afh83/embed/result,html,js,css"></script>
+
+**问题解决**
+- 首先要确定的是变换中心点,是50%,50%
+- skewX以中心x线为准
+  - 正值上面向右,负值下面向右
+- skewY以中心y线为准
+  - 正值右侧向上,负值左侧向上
+  
+**原理分析**
+- 这个还是和矩阵变换有关
+- 其原理是把每一个点进行变化,但怎么变就要用数学公式来算了.确实目前,还是先不深究矩阵了
+

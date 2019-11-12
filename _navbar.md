@@ -21,7 +21,6 @@
   - [微信公众号](/problem/微信公众号.md)
   - [支付宝小程序](/problem/支付宝小程序.md)
   
-* 经验总结
-  * [uni-app多端差异](/experience/uni-app多端差异.md)
+* [经验总结](/experience/_sidebar.md)
 
 * 工具插件
