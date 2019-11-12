@@ -68,3 +68,4 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 - 重新Push,输入密码并且保存
 - 然后再去设置面板打开即可
 - 参考: https://stackoverflow.com/questions/28142361/change-remote-repository-credentials-authentication-on-intellij-idea-14
+- 如果不生效,可以先把之前的密码文件删除掉,再重复上面的操作一次就可以了

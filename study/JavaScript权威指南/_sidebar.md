@@ -5,3 +5,6 @@
   - [第4章_表达式和运算符,值和变量](/study/JavaScript权威指南/第4章_表达式和运算符,值和变量.md)
   - [第5章_语句](/study/JavaScript权威指南/第5章_语句.md)
   - [第6章_对象](/study/JavaScript权威指南/第6章_对象.md)
+  - [第7章_数组](/study/JavaScript权威指南/第7章_数组.md)
+  - [第8章_函数](/study/JavaScript权威指南/第8章_函数.md)
+  - [第9章_类和模块](/study/JavaScript权威指南/第9章_类和模块.md)
