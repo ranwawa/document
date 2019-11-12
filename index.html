@@ -19,6 +19,13 @@
     href="//unpkg.com/docsify/lib/themes/vue.css"
     rel="stylesheet"
   >
+  <style>
+    div {
+      color: red;
+    }
+    span,
+    p { color: black; }
+  </style>
 </head>
 <body>
 <input
@@ -32,6 +39,8 @@
   aria-activedescendant="test"
   data-age="25"
 />
+<p>what are you doing,</p>
+<div class="name"></div>
 <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 <script>
 window.$docsify = {
@@ -65,7 +74,8 @@ window.$docsify = {
     depth: 6,
   },
   plugins: [
-    EditOnGithubPlugin.create('https://github.com/ranwawa/document/tree/master/'),
+    EditOnGithubPlugin.create(
+      'https://github.com/ranwawa/document/tree/master/'),
   ],
 };
 </script>
@@ -74,6 +84,7 @@ window.$docsify = {
 <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
 <script src="//unpkg.com/docsify-copy-code"></script>
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
 
 </body>
 </html>
