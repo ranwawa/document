@@ -1,4 +1,4 @@
-## 1.[已解决]报错: ESLint: TypeError: this.cliEngine is not a constructor(190825)
+## 1. [已解决]报错: ESLint: TypeError: this.cliEngine is not a constructor(190825)
 
 **业务背景**
 
@@ -54,7 +54,7 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 ![](.WebStorm_images/GIF4.gif)
 
 
-## 5.[已解决]WebStorm中push远程代码的时候,总是报权限错误(191108)
+## 5. [已解决]WebStorm中push远程代码的时候,总是报权限错误(191108)
 
 **业务背景**
 
@@ -68,3 +68,11 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 - 重新Push,输入密码并且保存
 - 然后再去设置面板打开即可
 - 参考: https://stackoverflow.com/questions/28142361/change-remote-repository-credentials-authentication-on-intellij-idea-14
+
+
+## 6. 代码格式化时,中文无法自动换行
+**业务背景**
+
+在系统自带的代码格式化配置的HTML里面设置了单行最大宽度,并且输入时会自动换行.但是中文里面无法生效,感觉这个问题和css里面的换行逻辑一样
+
+![](.WebStorm_images/GIF5.gif)
