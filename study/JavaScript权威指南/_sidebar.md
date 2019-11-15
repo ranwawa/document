@@ -8,3 +8,6 @@
   - [第7章_数组](/study/JavaScript权威指南/第7章_数组.md)
   - [第8章_函数](/study/JavaScript权威指南/第8章_函数.md)
   - [第9章_类和模块](/study/JavaScript权威指南/第9章_类和模块.md)
+  - [第10章_正则表达式](/study/JavaScript权威指南/第10章_正则表达式.md)
+  - [第11章_子集和超集](/study/JavaScript权威指南/第11章_子集和超集.md)
+  - [第12章_服务端引擎](/study/JavaScript权威指南/第12章_服务端引擎.md)
