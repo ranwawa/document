@@ -11,3 +11,5 @@
   - [第10章_正则表达式](/study/JavaScript权威指南/第10章_正则表达式.md)
   - [第11章_子集和超集](/study/JavaScript权威指南/第11章_子集和超集.md)
   - [第12章_服务端引擎](/study/JavaScript权威指南/第12章_服务端引擎.md)
+  - [第13章_客户端JavaScript](/study/JavaScript权威指南/第13章_客户端JavaScript.md)
+  - [第14章_Window对象](/study/JavaScript权威指南/第14章_Window对象.md)
