@@ -110,3 +110,11 @@ F12`追踪代码的执行步骤,但是代码层次稍微深一点的话,有时�
 - Settings -> Languages & Frameworks -> version -> flow
 - 保存即可
 - [参考](https://blog.jetbrains.com/webstorm/2016/11/using-flow-in-webstorm/)
+
+## 9. .vue文件里面在HTML节点上使用$event有警告(191121)
+
+**业务背景**
+
+在vue的子组件里面触发父组件的一个事件,为了省代码,以便后期阅读,所以直接写在了HTML里面,可是这样的话`$event`变量会报警告,想着去inspections里面把这条规则关掉,但是官方推荐添加框架的全局变量,看了一下,要自己写*.ts类型声明文件,留着以后再搞吧
+
+![](.WebStorm_images/7cc5ff30.png)
