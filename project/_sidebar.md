@@ -1,0 +1,3 @@
+- [项目规范](/project/_sidebar.md)
+  - [代码格式化规范](/project/代码格式化规范.md)
+  - [版本管理规范](/project/版本管理规范.md)

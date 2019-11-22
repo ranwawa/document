@@ -78,7 +78,7 @@ IDE自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 ![](.WebStorm_images/GIF5.gif)
 
 
-## 7. 查看代码时,历史纪录切换的快捷键是啥
+## 7. [已解决]查看代码时,历史纪录切换的快捷键是啥(191118)
 
 **业务背景**
 
@@ -96,3 +96,25 @@ F12`追踪代码的执行步骤,但是代码层次稍微深一点的话,有时�
 
 
 
+
+
+## 8. [已解决]支持`flow`语法检查(191119)
+
+**业务背景**
+
+最近开始学习`vue`源码,它使用的是`flow`类型检查,老是报错,好烦~~插件里面搜索了一下flow,也没相关的可用插件
+
+![](.WebStorm_images/71c1ef5d.png)
+
+**问题解决**
+- Settings -> Languages & Frameworks -> version -> flow
+- 保存即可
+- [参考](https://blog.jetbrains.com/webstorm/2016/11/using-flow-in-webstorm/)
+
+## 9. .vue文件里面在HTML节点上使用$event有警告(191121)
+
+**业务背景**
+
+在vue的子组件里面触发父组件的一个事件,为了省代码,以便后期阅读,所以直接写在了HTML里面,可是这样的话`$event`变量会报警告,想着去inspections里面把这条规则关掉,但是官方推荐添加框架的全局变量,看了一下,要自己写*.ts类型声明文件,留着以后再搞吧
+
+![](.WebStorm_images/7cc5ff30.png)
