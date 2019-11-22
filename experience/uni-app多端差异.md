@@ -1,6 +1,3 @@
-1. 支付宝小程序请求首部字段,在andorid下不支持数值型的值(191030)
-2. 小程序环境input不支持change事件(191030)
-
 ## 1. 支付宝小程序请求首部字段,在andorid下不支持数值型的值(191030)
 **运行环境**
 - @dcloudio/uni-mp-alipay 0.0.827
@@ -65,3 +62,70 @@ requestTaskList.push(requestTask);
 **兼容问题**
 
 在公众号(网页)环境下,`requestTaskList`是含有一个`_xhr`属性,包含了链接ID等信息,但是在支付宝开发者工具里面却没有这些属性
+
+## 3. input输入框默认样式不一致(191122)
+
+**运行环境**
+- 微信开发者工具1.02.1910120
+- 支付宝开发者工具0.70.14
+
+**业务背景**
+
+写了一个正常的input标签,在微信小程序里面出现了点样式问题,所以想看看在支付宝小程序下面表现怎么样,编译过去后发现,两边的input长得完全不一样,支付宝小程序的字要大好多
+
+各开发者工具都给了input默认样式,但是相差极大,真机暂时没测
+
+**兼容问题**
+- 如果给input设置`display: flex;`,微信小程序下会限制input框的最大宽度,导致placeholder和输入的文本被截断
+- 下面的代码是直接从开发者工具拷贝出来的
+```
+ // 支付宝效果
+display:inline-block
+background-color:rgb(255, 255, 255)
+padding:2px 5px
+color:rgb(0, 0, 0)
+font-size:17px
+height:25px
+box-sizing:content-box
+
+// 微信效果
+cursor: auto;
+display: block;
+height: 1.4rem;
+text-overflow: clip;
+overflow: hidden;
+white-space: nowrap;
+font-family: UICTFontTextStyleBody;
+min-height: 1.4rem;
+ ```
+
+## 4. 微信小程序下组件渲染会多出一个根节点(191122)
+**运行环境**
+- 同上
+
+**业务背景**
+
+写了一个图标组件,和一行文字并排放在一个view下面,给view flex布局,然后使用主轴是居中对齐,发现没有对齐.仔细一看,是组件根节点有一个默认高度导致的
+
+即下例中的定位中和 123在微信小程序中没有垂直居中对齐
+
+**示例代码**
+
+zmn_icon.vue
+```
+<template>
+  <text style="font-size: 8px;">123</text>
+</template>
+```
+
+index.vue
+```
+<view style="font-size: 22px; display: flex; align-items: center;">
+  定位中
+  <zmn-icon />
+<view>
+```
+
+**兼容问题**
+- 微信小程序下会渲染组件名以及一个#开始占位的节点,并且会有影响布局
+- 支付宝小程序下正常
