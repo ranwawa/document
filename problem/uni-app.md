@@ -5,7 +5,7 @@
 5. [已解决]集成`友盟+`统计支付宝小程序找不到`@alipay/af-appx`包的错误(191028)
 6. [已解决]小程序里面开通js的sourcemap源代码调试功能(191024)
 
-# 1. [已解决]编译时报错: Error: Cannot find module '@dcloudio/webpack-uni-mp-loader/lib/style.js
+## 1. [已解决]编译时报错: Error: Cannot find module '@dcloudio/webpack-uni-mp-loader/lib/style.js
 **业务背景**
 
 一个开发好的项目,换一台电脑,从git上拉下来,install之后运行,经常会报各种各样的错误
@@ -20,7 +20,7 @@
 - 当`uni-app`更新后,其他插件没有更新,就会导致各种错误
 - 所以删除掉`lock`文件,全部重新下载.都会是最新的
 
-# 2. [已解决]编译时报错: Error: EBUSY: resource busy or locked, unlink 'E:\h5\zmn-mp\dist\build\mp-alipay\debug.log'
+## 2. [已解决]编译时报错: Error: EBUSY: resource busy or locked, unlink 'E:\h5\zmn-mp\dist\build\mp-alipay\debug.log'
 **业务背景**
 - 使用`uni-app`开发支付宝小程序
 - 在支付宝小程序开发者工具中进行调试
@@ -71,7 +71,7 @@ npm ERR!     C:\Users\LJ\AppData\Roaming\npm-cache\_logs\2019-07-03T06_48_35_867
 - 所以每次构建时都会自动清空目录
 - 删除这个插件就好了
 
-# 3. [已解决]h5项目页面白屏,提示网络连接超时
+## 3. [已解决]h5项目页面白屏,提示网络连接超时
 **业务背景**
 - 用`uni-app`开发微信公众号
 - 偶尔会在线上正式环境遇到这种情况
@@ -92,7 +92,7 @@ npm ERR!     C:\Users\LJ\AppData\Roaming\npm-cache\_logs\2019-07-03T06_48_35_867
 - 只是这提示有点...
 - 为什么刷新之后又会好呢?这就和公众号的浏览器缓存有关了,在公众号开发中详细记录
 
-# 4. 平台差异代码,持续更新
+## 4. 平台差异代码,持续更新
 
 **业务背景**
 
@@ -129,6 +129,7 @@ Vue.prototype.$store = store; // => good
 <uni-list>
 /deep/ .uni-list // => good
 ```
+
 ## 5. [已解决]集成`友盟+`统计支付宝小程序找不到`@alipay/af-appx`包的错误(191028)
 **业务背景**
 - 公司要求,使用`友盟+`统计支付宝小程序流量
@@ -162,3 +163,45 @@ configureWebpack: {
 **原理**
 - 之前是sourcemap,在公众号可以.但是为什么在小程序里面不行呢
 - 这两个值有啥区别呢.以后研究webpack的时候再来搞吧
+
+## 7. 微信小程序在子组件里对孙组件使用/deep/选择器失效(191204)
+
+**业务背景**
+
+在写业务逻辑的时候,经常会在组件里面嵌套另外一个组件,有时候需要调整子组件样式的时候,通过会用到/deep/进行修改.但是在微信小程序里面出现,修改失效的情况.
+
+示例代码
+index.vue
+```
+<rww-list></rww-list>
+<style>
+/* 下面的代码在微信小程序下,会把每个孙组件都设置成为红色 */
+/deep/ .list-item:last-child {
+  color: red;
+}
+</style>
+```
+list.vue
+```
+<rww-list-item></rww-list-item>
+<rww-list-item></rww-list-item>
+<rww-list-item></rww-list-item>
+<style>
+/* 下面的代码在微信小程序下会失效 */
+/deep/ .list-item {
+  color: red;
+}
+
+</style>
+```
+item.vue
+```
+<view class="list-item">
+</view>
+```
+
+**临时解决**
+- 在最顶层的组件里面,通过/deep/可以修改孙组件样式
+- 伪类选择器,要直接应用在/deep/选择器上
+- 为什么会出现这种的原理待摸索,估计和微信小程序的组件渲染原理有关
+
