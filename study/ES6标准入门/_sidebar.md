@@ -9,3 +9,5 @@
   * [第8章_数组扩展](/study/ES6标准入门/第8章_数组扩展.md)
   * [第9章_对象扩展](/study/ES6标准入门/第9章_对象扩展.md)
   * [第10章_Symbol](/study/ES6标准入门/第10章_Symbol.md)
+  * [第11章_Set和Map](/study/ES6标准入门/第11章_Set和Map.md)
+  * [第12章_Proxy](/study/ES6标准入门/第12章_Proxy.md)
