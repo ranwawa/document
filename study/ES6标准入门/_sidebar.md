@@ -12,3 +12,4 @@
   * [第11章_Set和Map](/study/ES6标准入门/第11章_Set和Map.md)
   * [第12章_Proxy](/study/ES6标准入门/第12章_Proxy.md)
   * [第13章_Reflect](/study/ES6标准入门/第13章_Reflect.md)
+  * [第14章_Promise](/study/ES6标准入门/第14章_Promise.md)
