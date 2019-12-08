@@ -46,7 +46,7 @@ new Set(a.filter(ele => !b.has(ele))); // =>
 - 所有成员只能是对象
 - 对象的引用是弱引用
   - GC会直接回收所有WeakSet引用的对象
-  
+
 ```
 var ws = new WeakSet();
 ws.add(1); // =>
