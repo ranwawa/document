@@ -14,6 +14,7 @@
 - delete(val): 删除一个元素
 - has(val): 判断一个元素是否存在
 - clear(): 清空所有元素
+
 ```
 Array.from(new Set([1, 1, 2, 3])); // =>
 ```
@@ -22,6 +23,7 @@ Array.from(new Set([1, 1, 2, 3])); // =>
 - values()
 - entries()
 - forEach
+
 ```
 var set = new Set(['a', 'b', 'c', 'd']);
 for(var o of set.entries()) {
