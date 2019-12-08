@@ -46,6 +46,7 @@ new Set(a.filter(ele => !b.has(ele))); // =>
 - 所有成员只能是对象
 - 对象的引用是弱引用
   - GC会直接回收所有WeakSet引用的对象
+  
 ```
 var ws = new WeakSet();
 ws.add(1); // =>
@@ -62,6 +63,7 @@ ws.add(1); // =>
 什么是Map
 - 是一种更完善的Hash结构
   - 键名支持对象
+  
 ```
 var map = new Map();
 map
@@ -89,6 +91,7 @@ map.get(['a']); // =>
 - values()
 - entries()
 - forEach
+
 ```
 var map = new Map();
 map[Symbol.iterator] === map.entries();
