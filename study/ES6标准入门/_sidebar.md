@@ -13,3 +13,4 @@
   * [第12章_Proxy](/study/ES6标准入门/第12章_Proxy.md)
   * [第13章_Reflect](/study/ES6标准入门/第13章_Reflect.md)
   * [第14章_Promise](/study/ES6标准入门/第14章_Promise.md)
+  * [第15章_Iterator](/study/ES6标准入门/第15章_Iterator.md)
