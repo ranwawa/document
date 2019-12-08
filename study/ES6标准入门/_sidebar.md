@@ -14,3 +14,4 @@
   * [第13章_Reflect](/study/ES6标准入门/第13章_Reflect.md)
   * [第14章_Promise](/study/ES6标准入门/第14章_Promise.md)
   * [第15章_Iterator](/study/ES6标准入门/第15章_Iterator.md)
+  * [第16章_Generator](/study/ES6标准入门/第16章_Generator.md)
