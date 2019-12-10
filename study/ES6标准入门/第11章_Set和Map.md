@@ -14,6 +14,7 @@
 - delete(val): 删除一个元素
 - has(val): 判断一个元素是否存在
 - clear(): 清空所有元素
+
 ```
 Array.from(new Set([1, 1, 2, 3])); // =>
 ```
@@ -22,6 +23,7 @@ Array.from(new Set([1, 1, 2, 3])); // =>
 - values()
 - entries()
 - forEach
+
 ```
 var set = new Set(['a', 'b', 'c', 'd']);
 for(var o of set.entries()) {
@@ -44,6 +46,7 @@ new Set(a.filter(ele => !b.has(ele))); // =>
 - 所有成员只能是对象
 - 对象的引用是弱引用
   - GC会直接回收所有WeakSet引用的对象
+
 ```
 var ws = new WeakSet();
 ws.add(1); // =>
@@ -60,6 +63,7 @@ ws.add(1); // =>
 什么是Map
 - 是一种更完善的Hash结构
   - 键名支持对象
+  
 ```
 var map = new Map();
 map
@@ -87,6 +91,7 @@ map.get(['a']); // =>
 - values()
 - entries()
 - forEach
+
 ```
 var map = new Map();
 map[Symbol.iterator] === map.entries();
