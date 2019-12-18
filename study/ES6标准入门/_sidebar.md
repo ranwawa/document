@@ -15,5 +15,5 @@
   * [第14章_Promise](/study/ES6标准入门/第14章_Promise.md)
   * [第15章_Iterator](/study/ES6标准入门/第15章_Iterator.md)
   * [第16章_Generator](/study/ES6标准入门/第16章_Generator.md)
-  * [第17章_Generator函数的异步应用](/study/ES6标准入门/第17章_Generator函数的异步应用.md)
   * [第18章_async](/study/ES6标准入门/第18章_async.md)
+  * [第19章_Class](/study/ES6标准入门/第19章_Class.md)
