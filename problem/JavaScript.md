@@ -1,5 +1,3 @@
-1. 为什么replace用正则替换失效?
-
 ## 1. 为什么replace用正则替换失效?
 **业务背景**
 - 想把`/pages/order/list?current=1&status=4`转换成`orderList`
@@ -18,3 +16,23 @@ currentTrackEvent(url) {
       console.log(path2);
 }
 ```
+
+## 2.[已解决] Object(obj)是干啥的?(191224)
+
+**业务背景**
+
+在看`lodash`的`pick`源码时,发现一个用法,这是啥意思呢?
+```javascript
+object = Object(object)
+```
+
+**问题解决**
+- Object和new Object的用法一样
+- new Object的作用是,将指定值转换成包装对象
+  - 如果是undefined/null则转成空数组
+  - 如果是对象就原样返回
+  - 如果是原始值,则转换成对应的包装对象
+- 这样转换后,就可以保证在后面的语法中正常的使用属性提取运算
+  - 避免空指针异常
+- 参考网址
+  - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
