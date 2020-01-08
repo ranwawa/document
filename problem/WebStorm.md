@@ -172,3 +172,46 @@ $section-lg: 24;
 - 找到`go to next/previous spliter`
 - 设置相应的快捷键即可
 
+
+
+## 13. [已解决]如何给webstorm添加全局变量(20200108)
+
+**业务背景**
+
+昨天开始写给`.vue`组件写单元测试,新建了`*.spec.js`文件,里面使用describe和it等关键词的时候都会有黄色的警告,原因是无法识别这种全局变量.感觉这个和第9个问题是一模一样的
+
+![](.WebStorm_images/9a50bc2d.png)
+
+**问题解决**
+- 安装一个第三方库到WebStorm里面,然后设置为全局有效就行了
+- Settings -> Language & Frameworks -> JavaScript -> Libraries -> Download -> 选择jest就行
+- 参考
+  - https://www.jetbrains.com/help/webstorm/configuring-javascript-libraries.html?q=webpack%20alias
+  
+## 14. [已解决]如何关联webpack别名@(20200108)
+
+**业务背景**
+
+使用vue-cli3/4生成的项目,因为通过服务端插件把webpack配置给隐藏到底层了,所以WebStorm无法识别webpack里面的别名.有时候写相对路径又太长了,看着不爽,但是换成别名`@`后,又会有波浪线提示,并且无法快速跳转到对应的文件里面
+
+![](.WebStorm_images/4a26cdcb.png)
+
+**问题解决**
+- 还是和vue-cli2一样,得自己在根目录下面再单独配置一个webpack配置文件,一般重启IDE就好了
+- 如果不生效,就手动然后把把webpack设置指向这个文件就行了
+- 参考
+  - https://www.jetbrains.com/help/webstorm/using-webpack.html
+
+```
+// webpack.config.js配置
+const path = require('path');
+module.exports = {
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
+  },
+};
+```
+
+

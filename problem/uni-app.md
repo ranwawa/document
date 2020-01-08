@@ -1,10 +1,3 @@
-1. [已解决]编译时报错: Error: Cannot find module '@dcloudio/webpack-uni-mp-loader/lib/style.js
-2. [已解决]编译时报错: Error: EBUSY: resource busy or locked, unlink 'E:\h5\zmn-mp\dist\build\mp-alipay\debug.log'
-3. [已解决]h5项目页面白屏,提示网络连接超时
-4. 平台差异代码,持续更新
-5. [已解决]集成`友盟+`统计支付宝小程序找不到`@alipay/af-appx`包的错误(191028)
-6. [已解决]小程序里面开通js的sourcemap源代码调试功能(191024)
-
 ## 1. [已解决]编译时报错: Error: Cannot find module '@dcloudio/webpack-uni-mp-loader/lib/style.js
 **业务背景**
 
