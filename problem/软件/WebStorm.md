@@ -217,7 +217,7 @@ module.exports = {
 
 
 
-## 15. vue项目里面如何识别从node_modules里面引入的sass变量混合等
+## 15. [已解决]vue项目里面如何识别从node_modules里面引入的sass变量混合等(20200112)
 
 **业务背景**
 
@@ -261,3 +261,5 @@ module.exports = {
 - 定位到rww-sass目录
 - 点右键 -> mark directory as -> exclude
 - 这样ide会自动索引文件，之后就可以点击跳转了，但是警告还是会有
+- 实在受不了了,干脆把sass相关的Inspection全部禁用掉
+  - 只是这样的话,就怕有时候手误,导致bug更麻烦
