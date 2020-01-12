@@ -215,3 +215,49 @@ module.exports = {
 ```
 
 
+
+
+## 15. vue项目里面如何识别从node_modules里面引入的sass变量混合等
+
+**业务背景**
+
+开发项目时,有一套公共的sass变量混合和方法,每个项目都会在webpack里面配置集中引入.以前是把这些sass文件放到src/assets/sass下面,全部通过_index.scss导出.然后在vue.config.js里面配置引入.
+
+后来觉得麻烦,就把sass抽离成一个单独的npm包,单独维护和引入,可是通过node_modules引入后,在style标签里面使用变量混合等就会有警告出现,而且无法自动跳转到变量定义的地方,这样对于强迫症患者来说,实在是难以忍受啊
+
+**配置代码**
+```
+// vue.config.js
+module.exports = {
+  chainWebpack: (config) => {
+    // 引入公共scss
+    [
+      'vue',
+      'normal',
+      'vue-modules',
+      'normal-modules',
+    ].forEach((type) => {
+      const rule = config
+        .module
+        .rule('scss')
+        .oneOf(type);
+      rule
+        .use('style-resource')
+        .loader('style-resources-loader')
+        .options({
+          patterns: ['node_modules/rww-sass/_index.scss'],
+          // 如果找成下面这种,在项目文件里就不会警告了
+          patterns: ['./src/assets/sass/rww-sass/_index.scss'],
+        });
+    });
+```
+
+**错误截屏** 
+
+![](.WebStorm_images/1b789752.png)
+
+**问题解决**
+- 打开node_modules文件夹
+- 定位到rww-sass目录
+- 点右键 -> mark directory as -> exclude
+- 这样ide会自动索引文件，之后就可以点击跳转了，但是警告还是会有
