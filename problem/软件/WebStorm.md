@@ -263,3 +263,15 @@ module.exports = {
 - 这样ide会自动索引文件，之后就可以点击跳转了，但是警告还是会有
 - 实在受不了了,干脆把sass相关的Inspection全部禁用掉
   - 只是这样的话,就怕有时候手误,导致bug更麻烦
+
+
+## 16. [已解决]越狱(20200116)
+
+**业务背景**
+
+最近封得很严啊,真想买个正版的了,可实在差钱用啊,所以还是想想法子
+
+**问题解决**
+- 20200116
+- help -> Edit Custom VM Options
+- 粘贴 `-javaagent:D:/jetbrains-agent/jetbrains-agent.jar`到最后一行
