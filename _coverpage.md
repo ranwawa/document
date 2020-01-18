@@ -9,6 +9,3 @@
 - 我的女人
 - 和
 - 别的女人
-
-[GitHub](https://github.com/ranwawa/)
-[Get Started](#docsify)
