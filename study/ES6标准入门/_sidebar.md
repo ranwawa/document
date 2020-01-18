@@ -17,3 +17,5 @@
   * [第16章_Generator](/study/ES6标准入门/第16章_Generator.md)
   * [第18章_async](/study/ES6标准入门/第18章_async.md)
   * [第19章_Class](/study/ES6标准入门/第19章_Class.md)
+  * [第21章_Decorator](/study/ES6标准入门/第21章_Decorator.md)
+  * [第22章_Modules](/study/ES6标准入门/第22章_Modules.md)
