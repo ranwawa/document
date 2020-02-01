@@ -108,7 +108,7 @@
 
 后来看到在父元素上添加overflow:hidden;可以解决这个问题,那是什么原理呢?
 
-<script async src="//jsfiddle.net/ranwawa/wg0xdzps/embed/result,html,css,js"></script>
+//jsfiddle.net/ranwawa/wg0xdzps/embed/result,html,css,js
 
 **问题解决**
 - 不仅仅是设置地hidden,除visibility之外的值都可以
@@ -135,7 +135,7 @@
 
 ## 4. 为什么元素向右浮动后，前面的兄弟元素没有向右靠
 
-<script async src="//jsfiddle.net/ranwawa/amtckfo6/embed/result,html,js,css"></script>
+//jsfiddle.net/ranwawa/amtckfo6/embed/result,html,js,css
 
 ## 5. rem方案解决移动端适配，为什么设置根接点基础大小为1px无效
 **业务背景**
@@ -180,7 +180,7 @@
 
 在做PC端网站的时候，要实现垂直居中还真有点儿小麻烦，主要是不能用新的CSS特性，单行的用line-height可以解决，多行的还是试了很多方式才试出来。
 
-<script async src="//jsfiddle.net/ranwawa/njgxds3b/embed/result,html,js,css"></script>
+//jsfiddle.net/ranwawa/njgxds3b/embed/result,html,js,css
 只罗列了兼容老浏览器的写法，新特性没写
 
 **问题解决**
@@ -196,7 +196,7 @@
 **业务背景**
 
 在练习CSS揭秘平行四边形的时候遇到这样一个问题,给skew设置一个值,根本无法预测到它会变成什么样子.所以必须的单独来把它搞透.如果无法预测它会怎么样,就说明没有掌握嘛.总不能每次输入一个值都要去试一试
-<script async src="//jsfiddle.net/ranwawa/Ls5afh83/embed/result,html,js,css"></script>
+//jsfiddle.net/ranwawa/Ls5afh83/embed/result,html,js,css
 
 **问题解决**
 - 首先要确定的是变换中心点,是50%,50%
