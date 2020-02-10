@@ -15,7 +15,7 @@ dist/
 - 先清空一下git缓存`git rm -r --cached dist`
 - 然后再提交就可以了 - 参考链接: https://blog.csdn.net/qq_31325079/article/details/82701208
 
-## 2.[已解决] git push完代码后,自动发布npm包(git钩子使用)(191224)
+### 2.[已解决] git push完代码后,自动发布npm包(git钩子使用)(191224)
 
 **业务背景**
 
@@ -27,3 +27,18 @@ dist/
 - 参考链接:
   - https://github.com/typicode/husky
   - https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90
+
+
+### 3. git clone 仓库时总是失败(200208)
+
+**业务背景**
+
+看`lodash`源码,但是通过`WebStorm`clone仓库时,失败了好几次
+
+**报错内容**
+
+```
+RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remote end hung up unexpectedly early EOF index-pack failed
+```
+
+**问题解决**
