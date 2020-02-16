@@ -3,4 +3,3 @@
 * [项目规范](/project/_sidebar.md)
 * [学习笔记](/study/_sidebar.md)
 * [源码学习](/source/_sidebar.md)
-* [工具插件](/tools/_sidebar.md)
