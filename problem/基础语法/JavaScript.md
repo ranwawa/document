@@ -47,3 +47,18 @@ object = Object(object)
 **参考**
 - http://ecma-international.org/ecma-262/6.0/#sec-returnifabrupt
 - http://es6.ruanyifeng.com/#docs/spec
+
+### 4. 各种进制的数字前面2个分别是啥(200213)
+
+**业务背景**
+
+昨天在看lodash的toNumber源码时,里面针对各种字符串形式的2,8,16进制数进行了兼容和转换.就想彻底搞清楚,每个进制前面分别是以哪两个字符开头的
+
+
+**问题解决**
+- 200213
+- 二进制 0b
+- 8进制 0o
+- 16进制 0x
+- 参考
+  - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number 最后一个示例
