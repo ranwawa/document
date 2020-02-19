@@ -68,5 +68,23 @@ module.exports = {
 - target是想要代理到哪去,比如把localhost代理到baidu.com
 - 最关键的是,不支持大小写,全部用小写
   - apiUrl改成apiurl
-- pathRewrite的时候把^加上
+- 非常重要,无论前面是apiurl/user/home,还是/apiurl/user/home.pathRewrite的时候把`^/`加上
+- 每次修改后,重新运行一下打包命令,以重启dev-server让刚刚的配置生效
 - 参考: https://webpack.js.org/configuration/dev-server/#devserverproxy
+
+```json
+"proxy": {
+        "/apiurl": {
+          "target": "https://test-api-crm.xiujiadian.com/",
+          "pathRewrite": {"^/apiurl/": ""}
+        },
+        "^/apisass": {
+          "target": "https://test-api-saas.xiujiadian.com",
+          "pathRewrite": {"^/apisass": ""}
+        },
+        "http": {
+          "target": "https://test-gateway-api.xiujiadian.com/",
+          "pathRewrite": {"^/http": ""}
+        }
+      }
+```
