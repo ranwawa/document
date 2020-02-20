@@ -275,3 +275,5 @@ module.exports = {
 - 20200116
 - help -> Edit Custom VM Options
 - 粘贴 `-javaagent:D:/jetbrains-agent/jetbrains-agent.jar`到最后一行
+  - 已经拷贝到当前目录`jetbrains-agent.rar`
+- 详细参考: https://zhile.io/2018/08/25/jetbrains-license-server-crack.html
