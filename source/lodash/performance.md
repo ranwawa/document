@@ -103,3 +103,26 @@ for (val of arr) {
 }
 console.timeEnd('for of'); // => 19ms
 ```
+
+### isNaN & !==
+
+优先使用!==,毕竟少一次提取运算
+
+```javascript 1.5
+var isNaN = Number.isNaN;
+var times = 1234567890;
+var nan = 1 / 0;
+
+console.time('isNaN');
+while (--times) {
+  isNaN(nan);
+}
+console.timeEnd('isNaN'); // 9668
+
+times = 1234567890;
+console.time('eq');
+while (--times) {
+  nan !== nan;
+}
+console.timeEnd('eq'); // 9661
+```

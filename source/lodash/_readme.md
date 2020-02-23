@@ -140,7 +140,7 @@ function chunk(array, size = 1) {
 - [ ] invokeMap.js
 - [x] isArguments.js
 - [ ] isArrayBuffer.js
-- [ ] isArrayLike.js
+- [x] isArrayLike.js
 - [x] isArrayLikeObject.js
 - [ ] isBoolean.js
 - [ ] isBuffer.js
@@ -180,7 +180,7 @@ function chunk(array, size = 1) {
 - [ ] lowerFirst.js
 - [ ] lt.js
 - [ ] lte.js
-- [ ] map.js
+- [x] map.js
 - [ ] mapKey.js
 - [ ] mapObject.js
 - [ ] mapValue.js
@@ -311,7 +311,7 @@ function chunk(array, size = 1) {
   - [ ] arrayEach.js
   - [ ] arrayEachRight.js
   - [ ] arrayIncludes.js
-  - [ ] arrayIncludesWith.js
+  - [x] arrayIncludesWith.js
   - [ ] arrayLikeKeys.js
   - [ ] arrayReduce.js
   - [ ] arrayReduceRight.js
@@ -325,25 +325,25 @@ function chunk(array, size = 1) {
   - [ ] baseClone.js
   - [ ] baseConforms.js
   - [ ] baseConformsTo.js
-  - [ ] baseDifference.js
+  - [x] baseDifference.js
   - [ ] baseEach.js
   - [ ] baseEachRight.js
-  - [ ] baseFindIndex.js
+  - [x] baseFindIndex.js
   - [ ] baseFindKey.js
-  - [ ] baseFlatten.js
+  - [x] baseFlatten.js
   - [ ] baseFor.js
   - [ ] baseForOwn.js
   - [ ] baseForOwnRight.js
   - [ ] baseForRight.js
   - [ ] baseGet.js
-  - [ ] baseIndexOf.js
+  - [x] baseIndexOf.js
   - [ ] baseIndexOfWith.js
   - [ ] baseInRange.js
   - [ ] baseIntersection.js
   - [ ] baseIsEqual.js
   - [ ] baseIsEqualDeep.js
   - [ ] baseIsMatch.js
-  - [ ] baseIsNaN.js
+  - [x] baseIsNaN.js
   - [ ] baseMatches.js
   - [ ] baseMatchesProperty.js
   - [ ] baseMerge.js
@@ -373,7 +373,7 @@ function chunk(array, size = 1) {
   - [ ] baseWhile.js
   - [ ] baseXor.js
   - [ ] baseZipObject.js
-  - [ ] cacheHas.js
+  - [x] cacheHas.js
   - [ ] castArrayLikeObject.js
   - [ ] castPath.js
   - [ ] castSlice.js
@@ -412,7 +412,7 @@ function chunk(array, size = 1) {
   - [ ] getMatchData.js
   - [ ] getSymbols.js
   - [ ] getSymbolsIn.js
-  - [ ] getTag.js
+  - [x] getTag.js
   - [ ] Hash.js
   - [ ] hasUnicode.js
   - [ ] initCloneObject.js
@@ -440,7 +440,7 @@ function chunk(array, size = 1) {
   - [ ] setToPairs.js
   - [ ] setToString.js
   - [ ] Stack.js
-  - [ ] strictIndexOf.js
+  - [x] strictIndexOf.js
   - [ ] strictLastIndexOf.js
   - [ ] stringSize.js
   - [ ] stringToArray.js
@@ -449,3 +449,37 @@ function chunk(array, size = 1) {
   - [ ] unicodeSize.js
   - [ ] unicodeToArray.js
   - [ ] unicodeWords.js
+
+### 取默认值时,别用等号
+
+baseFlatten.js
+```
+function baseFlatten(array, depth, predicate, isStrict, result) {
+  // 如果是 predicate = predicate || isFlattenable
+  // 即使有值时,也会进行一次赋值操作,而下面这种方式则会跳过赋值这一步
+  predicate || (predicate = isFlattenable)
+  result || (result = [])
+```
+
+### 调用函数时,能用浏览器原生实现的就用原生,别用lodash函数
+
+测试发现,lodash实现的和原生一样的功能函数,时间都会长一些,所以功能一样,或者能简单用原生复合写出来的函数,就别用lodash了
+
+arrayIncludes.js
+```
+function arrayIncludes(array, value) {
+  const length = array == null ? 0 : array.length
+  return !!length && baseIndexOf(array, value, 0) > -1
+}
+```
+
+### 查找大量数据的元素时,用map,别用循环比对
+
+baseDifference.js
+```
+else if (values.length >= LARGE_ARRAY_SIZE) {
+    includes = cacheHas
+    isCommon = false
+    values = new SetCache(values)
+  }
+```

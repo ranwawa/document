@@ -1,4 +1,4 @@
-## 1. style-resoures-loader如何直接引入node_modules里面的文件
+### 1. style-resoures-loader如何直接引入node_modules里面的文件
 
 **业务背景**
 
@@ -34,7 +34,7 @@ module.exports = {
 ```
 
 
-## 2. [已解决]proxy代理404的问题(20200218)
+### 2. [已解决]proxy代理404的问题(20200218)
 
 **业务背景**
 
@@ -87,4 +87,37 @@ module.exports = {
           "pathRewrite": {"^/http": ""}
         }
       }
+```
+
+
+###
+
+### 3. [已解决]在vue.config.js里面如何设置eslint的fix为true(20200223)
+
+**业务背景**
+
+做uni-vant项目的时候,最开始未启用eslint,前两天把eslint加上,每个文件的换行符都报错,需要替换.但是家里的电脑和公司的电脑都报错,人工一个文件一个文件去修复简单是浪费生命,干脆直接改配置吧,可是chainwebpack配置一直是懵懵懂懂的 ,这次就必须把他搞明白了
+
+**问题解决**
+- 20200223
+- 其实也挺简单的,就是参照文档介绍配置嘛
+- 参考:
+  - https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader
+
+```
+// vue.config.js
+module.exports = {
+  chainWebpack(webpackConfig) {
+    webpackConfig
+      .module
+      .rule('eslint')
+      .use('eslint-loader')
+      .loader('eslint-loader')
+      .tap((options) => {
+        options.fix = true;
+        return options;
+      });
+  },
+};
+
 ```
