@@ -1,8 +1,8 @@
-// todo 需要实现深拷贝
 function chunk(array = [], size = 1) {
   const { length } = array;
   const target = [];
   const targetLength = Math.ceil(length / size);
+  // 这里换成while会快很多
   for (let i = 0; i < targetLength; i += 1) {
     target.push(array.slice(size * i, size * (i + 1)));
   }
@@ -13,6 +13,7 @@ function chunk(array = [], size = 1) {
 function compact(array = []) {
   const { length } = array;
   const target = [];
+  // 这里换成for of会快很多
   for (let i = 0; i < length; i += 1) {
     const value = array[i];
     if (value) {
