@@ -13,3 +13,4 @@
   - [第12章_服务端引擎](/study/JavaScript权威指南/第12章_服务端引擎.md)
   - [第13章_客户端JavaScript](/study/JavaScript权威指南/第13章_客户端JavaScript.md)
   - [第14章_Window对象](/study/JavaScript权威指南/第14章_Window对象.md)
+  - [第15章_脚本化文档](/study/JavaScript权威指南/第15章_脚本化文档.md)
