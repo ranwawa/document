@@ -198,3 +198,24 @@ item.vue
 - 伪类选择器,要直接应用在/deep/选择器上
 - 为什么会出现这种的原理待摸索,估计和微信小程序的组件渲染原理有关
 
+### 8. h5页面发布到服务器子目录下导致静态图片加载失效(20200302)
+
+**问题描述**
+
+- 本地使用/static/logo.png可以正常加载图片,包括tab和文件内都可以
+- 发布到服务器上之后链接就失效了
+  - 因为整个项目是放在服务器/wxuser/目录下面的
+  - 所以要手动改成/wxuser/static/logo.png
+  - 但这样一来,本地调试时,图片又会加载失败了
+
+- 看了下vue-cli文档,说是配置vue.config.js里面的publicPath,但是未生效
+  - 原因是此设置仅针对index.html里面的打包出来的css/js生效
+
+- 看了下uni-vue文档,说是配置manifest.json里面的ht.publicPath,但还是未生效
+  - 其原理和vue.config.js里面的publicPath一样
+
+**问题解决**
+- 20200302
+- 在manifest.json里h5.router下面还有一个base选项
+  - 这个选项是控制页面里面静态资源连接前缀的,包括page.json里面的tabList里面的图片也是
+- 该选项和h5.publicPath都设置成/wxuser/即可
