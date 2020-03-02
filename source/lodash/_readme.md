@@ -79,14 +79,14 @@ function chunk(array, size = 1) {
 - [ ] defaultToAny.js
 - [ ] defer.js
 - [ ] delay.js
-- [ ] difference.js
-- [ ] differenceBy.js
-- [ ] differenceWith.js
+- [x] difference.js
+- [x] differenceBy.js
+- [x] differenceWith.js
 - [ ] divide.js
-- [ ] drop.js
-- [ ] dropRight.js
-- [ ] dropRightWhile.js
-- [ ] dropWhile.js
+- [x] drop.js
+- [x] dropRight.js
+- [x] dropRightWhile.js
+- [x] dropWhile.js
 - [ ] each.js
 - [ ] eachRight.js
 - [ ] endsWith.js
@@ -158,13 +158,13 @@ function chunk(array, size = 1) {
 - [ ] isNil.js
 - [ ] isNull.js
 - [ ] isNumber.js
-- [ ] isObject.js
+- [x] isObject.js
 - [x] isObjectLike.js
 - [ ] isPlainObject.js
 - [ ] isRegExp.js
 - [ ] isSet.js
 - [ ] isString.js
-- [ ] isSymbol.js
+- [x] isSymbol.js
 - [ ] isTypedArray.js
 - [ ] isUndefined.js
 - [ ] isWeakMap.js
@@ -173,7 +173,7 @@ function chunk(array, size = 1) {
 - [ ] keyBy.js
 - [ ] keys.js
 - [ ] keysIn.js
-- [ ] last.js
+- [x] last.js
 - [ ] lastIndexOf.js
 - [ ] LICENSE
 - [ ] lowerCase.js
@@ -240,7 +240,7 @@ function chunk(array, size = 1) {
 - [ ] setWith.js
 - [ ] shuffle.js
 - [ ] size.js
-- [ ] slice.js
+- [x] slice.js
 - [ ] snakeCase.js
 - [ ] some.js
 - [ ] someValue.js
@@ -267,10 +267,10 @@ function chunk(array, size = 1) {
 - [ ] throttle.js
 - [ ] times.js
 - [ ] toArray.js
-- [ ] toFinite.js
-- [ ] toInteger.js
+- [x] toFinite.js
+- [x] toInteger.js
 - [ ] toLength.js
-- [ ] toNumber.js
+- [x] toNumber.js
 - [ ] toPath.js
 - [ ] toPlainObject.js
 - [ ] toSafeInteger.js
@@ -370,7 +370,7 @@ function chunk(array, size = 1) {
   - [ ] baseUnset.js
   - [ ] baseUpdate.js
   - [ ] baseValues.js
-  - [ ] baseWhile.js
+  - [x] baseWhile.js
   - [ ] baseXor.js
   - [ ] baseZipObject.js
   - [x] cacheHas.js
@@ -435,7 +435,7 @@ function chunk(array, size = 1) {
   - [ ] reEvaluate.js
   - [ ] reInterpolate.js
   - [ ] root.js
-  - [ ] SetCache.js
+  - [x] SetCache.js
   - [ ] setToArray.js
   - [ ] setToPairs.js
   - [ ] setToString.js

@@ -54,3 +54,13 @@ function difference(array = [], ...paramList) {
   }
   return target;
 }
+function drop(array = [], n = 1) {
+  array || (array = []);
+  n || (n = 1);
+  let { length } = array;
+  typeof length !== 'number' || (length = 0);
+  n > length && (n = length);
+  while (--n > 0) {
+
+  }
+}

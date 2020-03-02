@@ -126,3 +126,40 @@ while (--times) {
 }
 console.timeEnd('eq'); // 9661
 ```
+
+### >>0 & >>0 & parseInt
+
+优先使用+,缺点是无法识别的会转换成NaN
+
+其次是>>>
+
+再次是>>,这两个的好处是,无法识别的会转换成0
+
+最后才是parseInt
+
+```
+var times = 123456789;
+var a = '1.2';
+var b = 0;
+
+console.time('>>');
+while (--times) {
+  b = a >> 0;
+}
+console.timeEnd('>>'); // 265
+
+times = 123456789;
+console.time('parseInt');
+while (--times) {
+  b = parseInt(a, 10);
+}
+console.timeEnd('parseInt'); // 8905
+
+times = 123456789;
+console.time('+');
+while (--times) {
+  b = (+a);
+}
+console.timeEnd('+'); // 242
+```
+
