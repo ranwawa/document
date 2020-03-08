@@ -58,9 +58,18 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 **业务背景**
 
 N久未更新npm包了,前几天试着更新到最新版本的,却提示我未登陆..那就登陆吧npm login,结果又提示我用户已经存在...但是又未发现退出登陆或者删除用户的选项
+```
+npm ERR! code E409
+npm ERR! 409 Conflict - PUT https://registry.npm.taobao.org/-/user/org.couchdb.user:ranwawa - [conflict] User ranwawa already exists
+```
 
 **问题解决**
 - 20200302
 - 在报错的时候,有提示cnpm镜像
 - 通过npm config set registry把路径重新设置为npm官方的
 - 再重新登陆就好了
+
+```
+npm config set registry http://registry.npmjs.org
+npm config set registry https://registry.npm.taobao.org
+```
