@@ -14,3 +14,6 @@
   - [第13章_客户端JavaScript](/study/JavaScript权威指南/第13章_客户端JavaScript.md)
   - [第14章_Window对象](/study/JavaScript权威指南/第14章_Window对象.md)
   - [第15章_脚本化文档](/study/JavaScript权威指南/第15章_脚本化文档.md)
+  - [第16章_脚本化CSS](/study/JavaScript权威指南/第16章_脚本化CSS.md)
+  - [第17章_事件处理](/study/JavaScript权威指南/第17章_事件处理.md)
+  - [第18章_脚本化HTTP](/study/JavaScript权威指南/第18章_脚本化HTTP.md)
