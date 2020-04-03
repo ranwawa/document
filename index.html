@@ -23,7 +23,6 @@
 <body>
 <div id="app"></div>
 
-<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 <script>
 window.$docsify = {
   el: '#app',
@@ -55,11 +54,12 @@ window.$docsify = {
     noData: '哎呀--|||没有找到相关内容,换个关键词试试',
     depth: 6,
   },
-  plugins: [
-    EditOnGithubPlugin.create(
-      'https://github.com/ranwawa/document/tree/master/'),
-  ],
 };
+</script>
+<script>
+if (typeof navigator.serviceWorker !== 'undefined') {
+  navigator.serviceWorker.register('sw.js')
+}
 </script>
 <script src="https://cdn.bootcss.com/docsify/4.9.4/docsify.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>

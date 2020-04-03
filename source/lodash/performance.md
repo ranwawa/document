@@ -103,3 +103,63 @@ for (val of arr) {
 }
 console.timeEnd('for of'); // => 19ms
 ```
+
+### isNaN & !==
+
+优先使用!==,毕竟少一次提取运算
+
+```javascript 1.5
+var isNaN = Number.isNaN;
+var times = 1234567890;
+var nan = 1 / 0;
+
+console.time('isNaN');
+while (--times) {
+  isNaN(nan);
+}
+console.timeEnd('isNaN'); // 9668
+
+times = 1234567890;
+console.time('eq');
+while (--times) {
+  nan !== nan;
+}
+console.timeEnd('eq'); // 9661
+```
+
+### >>0 & >>0 & parseInt
+
+优先使用+,缺点是无法识别的会转换成NaN
+
+其次是>>>
+
+再次是>>,这两个的好处是,无法识别的会转换成0
+
+最后才是parseInt
+
+```
+var times = 123456789;
+var a = '1.2';
+var b = 0;
+
+console.time('>>');
+while (--times) {
+  b = a >> 0;
+}
+console.timeEnd('>>'); // 265
+
+times = 123456789;
+console.time('parseInt');
+while (--times) {
+  b = parseInt(a, 10);
+}
+console.timeEnd('parseInt'); // 8905
+
+times = 123456789;
+console.time('+');
+while (--times) {
+  b = (+a);
+}
+console.timeEnd('+'); // 242
+```
+
