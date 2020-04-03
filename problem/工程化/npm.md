@@ -1,4 +1,4 @@
-## 1.[已解决] 发布npm包之前如何自动更新版本号
+### 1.[已解决] 发布npm包之前如何自动更新版本号
 
 **业务背景**
 
@@ -24,7 +24,7 @@ module.exports = {
 };
 ```
 
-## 2. [已解决]初始化安装项目时,老是报这样一个错误print "%s.%s.%s" % sys.version_info(200204)
+### 2. [已解决]初始化安装项目时,老是报这样一个错误print "%s.%s.%s" % sys.version_info(200204)
 
 **业务背景**
 在一个新的项目初始安装时,老是报这样一个错误,遇到好几次了,每次解决都比较快,所以就没专门纪录,这次又遇到了,干脆记一下吧,下次遇到看一眼就搞定,免得再花几分钟去搜索解决方法
@@ -52,3 +52,24 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 - 就直接运行的Python.而我装的Python是3.x版本的
 - 重新安装一个2.x版本的即可
   - 注意在安装的过程中,选择自动添加环境变量
+
+### 3. [已解决]发包时提示未登陆(20200302)
+
+**业务背景**
+
+N久未更新npm包了,前几天试着更新到最新版本的,却提示我未登陆..那就登陆吧npm login,结果又提示我用户已经存在...但是又未发现退出登陆或者删除用户的选项
+```
+npm ERR! code E409
+npm ERR! 409 Conflict - PUT https://registry.npm.taobao.org/-/user/org.couchdb.user:ranwawa - [conflict] User ranwawa already exists
+```
+
+**问题解决**
+- 20200302
+- 在报错的时候,有提示cnpm镜像
+- 通过npm config set registry把路径重新设置为npm官方的
+- 再重新登陆就好了
+
+```
+npm config set registry http://registry.npmjs.org
+npm config set registry https://registry.npm.taobao.org
+```

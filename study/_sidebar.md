@@ -7,3 +7,4 @@
   * [HTTP图解](/study/HTTP图解/第1章_了解Web及网络基础.md)
   * [JavaScript权威指南](/study/JavaScript权威指南/第1章_JavaScript概述.md)
   * [JavaScript语言精粹](/study/JavaScript语言精粹/第1章_精华.md)
+  * [大话数据结构](/study/大话数据结构/第1章_数据结构绪论.md)
