@@ -17,3 +17,4 @@
   - [第16章_脚本化CSS](/study/JavaScript权威指南/第16章_脚本化CSS.md)
   - [第17章_事件处理](/study/JavaScript权威指南/第17章_事件处理.md)
   - [第18章_脚本化HTTP](/study/JavaScript权威指南/第18章_脚本化HTTP.md)
+  - [第22章_HTML5API](/study/JavaScript权威指南/第22章_HTML5API.md)
