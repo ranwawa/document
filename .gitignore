@@ -5,6 +5,7 @@
 # Recommended template: Node.gitignore
 
 # TODO: where does this rule come from?
+node_modules/
 docs/_book
 
 # TODO: where does this rule come from?
