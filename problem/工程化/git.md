@@ -43,7 +43,7 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 
 **问题解决**
 
-### 4. 仓库帐号密码相关逻辑(20200422)
+### 4. [已解决]仓库帐号密码相关逻辑(20200422)
 
 **业务背景**
 
@@ -54,8 +54,10 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 
 首先要区分一个概念
 
-在安装git bash后,会通过命令行输入一个用户名和邮箱,这个并非仓库的邮箱和密码
+在安装git bash后,会通过命令行输入一个用户名和邮箱,这个并非仓库的邮箱和密码,而是在每次commit时会用到
 ```
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
 ```
 
 所有的用户凭证操作都是通过`git credential`命令执行的
