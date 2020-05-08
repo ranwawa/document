@@ -121,3 +121,57 @@ object = Object(object)
 |Array.prototype.unshift()| 在开头添加元素 | elementN | 新的length | 副作用 |
 |Array.prototype.values()| 获取所有元素值 | | 新的 Array 迭代对象 |
 
+### 6. [已解决]Function.prototype.call.bind是什么神操作(20200508)
+
+**业务背景**
+
+今天在mdn上看slice这个函数的时候,有一段示例代码,晃眼看去,木有明白其原理
+
+**示例代码**
+
+```javascript
+var unboundSlice = Array.prototype.slice;
+var slice = Function.prototype.call.bind(unboundSlice);
+function list() {
+  return slice(arguments);
+}
+var list1 = list(1, 2, 3);
+```
+
+**问题解决**
+- 20200508
+- 实际就是忘记了bind的作用了,这个在项目中很少用到,所以容易忘记
+  - 参考: https://ranwawa.github.io/document/#/study/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/%E7%AC%AC8%E7%AB%A0_%E5%87%BD%E6%95%B0?id=_874-bind
+- slice就相当于是unboundSlice.call
+- 也就等价于Array.prototype.slice.call
+- 可是为什么要这样做呢?
+  - 如果用slice的话就省掉了所有的属性提取运算,效率应该高一些吧
+  - 实际上木有任何影响,两者的时间都一样
+
+```javascript
+var mySlice = Function.prototype.call.bind(Array.prototype.slice);
+var list1 = function() {
+  Array.prototype.slice.call(arguments);
+}
+var list2 = function() {
+  mySlice(arguments)
+}
+var num = 123456789;
+var list = [1, 2, 3];
+console.time('list1');
+while(--num) {
+  list1(list);
+}
+console.timeEnd('list1');
+
+
+var num = 123456789;
+console.time('list2');
+while(--num) {
+  list2(list);
+}
+console.timeEnd('list2');
+```
+
+
+
