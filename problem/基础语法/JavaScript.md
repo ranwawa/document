@@ -83,8 +83,9 @@ object = Object(object)
 **问题解决**
 - 20200222
 
+
 |方法名|含义|参数|返回值|是否有副作用|
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|:-:|:-:|
 |Array.from()| 浅拷贝数组 | arrayLike, mapFn, thisArg | 新数组 |
 |Array.isArray()| 判断是否为数组 | obj | Boolean |
 |Array.of()| 创建新数组 | elementN | 新数组 |
@@ -119,3 +120,4 @@ object = Object(object)
 |Array.prototype.toString()| 转换成字符串 | toString | String |
 |Array.prototype.unshift()| 在开头添加元素 | elementN | 新的length | 副作用 |
 |Array.prototype.values()| 获取所有元素值 | | 新的 Array 迭代对象 |
+
