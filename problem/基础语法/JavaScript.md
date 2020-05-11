@@ -175,3 +175,84 @@ console.timeEnd('list2');
 
 
 
+### 7. [已解决]performance到底怎么用的(20200510)
+
+**业务背景**
+
+最近看vue源码,里面有几个地方都涉及到了performance,一个是用于性能分析,还有一个是在数据双向绑定的时候,取时间也是取的performance.now()而不是Date.now()
+
+在MDN上查了一下,就只是介绍这是什么,有哪些属性和方法,但具体怎么用还是糊涂的,需要一个简易的教程上手先
+
+**问题解决**
+- 20200511
+- 主要就是纪录各个节点的时间
+- 通过分析这些时间,来进行相应的优化
+- 接下来要实现一个公共方法,来自动算出每节点的时间,以及推荐时间,超出了推荐时间外,就应该给出相应的解决思路
+
+```javascript
+const TIMING_NAME = {
+  navigationStart: '先取unloadEventEnd,若取fetchStart',
+  unloadEventStart: '上个文档卸载开始,若无则0',
+  unloadEventEnd: '上个文档卸载结束,若无取0',
+  redirectStart: '重定向开始,若无或不同源取0',
+  redirectEnd: '重定向结束,若无或不同源取0',
+  fetchStart: '准备发起请求,检查应用缓存前',
+  domainLookupStart: '域名解析前,若是持久连接或有缓存则取fetchStart',
+  domainLookupEnd: '域名解析后,若是持久连接或有缓存则取fetchStart',
+  connectStart: '连接开始,若是持久连接,则取fetchStart',
+  connectEnd: '握手认证成功,若是持久连接,则取fetchStart',
+  secureConnectionStart: '开始https握手,叵是http则取0',
+  requestStart: '请求开始',
+  responseStart: '开始收到第1个响应,若连接失败且重连,则取requestStart',
+  responseEnd: '收到最后1个响应',
+  domLoading: '开始解析DOM,readyState=loading时',
+  domInteractive: 'DOM结构解析结束,开始加载内嵌资源时,readyState=interactive',
+  domContentLoadedEventStart: '立即执行脚本已经被解析完毕,即触发DOMContentLoaded事件时',
+  domContentLoadedEventEnd: '立即执行脚本已经执行完毕',
+  domComplete: '文档解析完成',
+  loadEventStart: 'load事件触发时,若未触发取0',
+  loadEventEnd: 'load事件结束时,若未触发或未结束取0',
+};
+const { timing } = performance;
+console.log(timing);
+const sortTiming = [];
+for (let key in timing) {
+  typeof timing[key] === 'number' && sortTiming.push({
+    time: timing[key],
+    name: `${key}-${TIMING_NAME[key]}`
+  });
+}
+function bubbleSort(arr) {
+  arr = arr.slice(0);
+  let { length } = arr;
+  for (let i = 0; i < length; i++) {
+    let lastItem = arr[i];
+    for (let j = i + 1; j < length; j++) {
+      debugger;
+      if (i === j) { continue; }
+      const curItem = arr[j];
+      if (curItem.time < lastItem.time) {
+        arr[j] = lastItem;
+        arr[i] = lastItem = curItem;
+      }
+    }
+  }
+  return arr;
+}
+bubbleSort(sortTiming).forEach(ele => console.log(ele.time, ele.name));
+```
+
+
+### 8. performance的时间差函数,以及正常值,以及异常的解决办法(20200511)
+
+**业务背景**
+
+完整了看了一下performance的文档,结合网上的一些教程,虽然文档是看明白了,但是要想办法应用到生产中,所以必须实现一个函数,把关键节点的时间长度计算出来.
+
+比如连接时间,下载时间,dom渲染时间等等,这个得结合网页加载那几个考量指标来计算,比如什么白屏时间,渲染时间,用户等待操作时间这些,要好好理出来
+
+然后再找出各个时间的理想值
+
+最后,如果每个时间上出现了异常,则要有对应的可行的解决方法
+
+沉淀方法后,就拿到各个网站上去测试验证,再完善...这个工作应该立马着手做
