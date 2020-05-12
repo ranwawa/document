@@ -243,7 +243,7 @@ bubbleSort(sortTiming).forEach(ele => console.log(ele.time, ele.name));
 ```
 
 
-### 8. performance的时间差函数,以及正常值,以及异常的解决办法(20200511)
+### 8. performance的时间差函数,以及正常值 ,以及异常的解决办法(20200511)
 
 **业务背景**
 
