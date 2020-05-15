@@ -17,7 +17,7 @@
     - https://ranwawa.github.io/document/#/study/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/%E7%AC%AC13%E7%AB%A0_%E5%AE%A2%E6%88%B7%E7%AB%AFJavaScript?id=_132-%e5%9c%a8html%e9%87%8c%e5%b5%8c%e5%85%a5javascript
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/void
 - ####
-  - #后面的是页面标记
+  - \#后面的是页面标记
   - 浏览器会自动滚动到该标记
   - 如果是一个无意义的标记的话,就不会进行滚动,所以这个###可以换成其他任何值比如#xxxxx,前提是target属性必须是_self
   - 参考
@@ -69,5 +69,43 @@
 ![](temps/16ccf01a.png)
 
 **问题解决**
+
+
+### 4. [已解决]img.srcset到底有什么用?(20200515)
+
+**业务背景**
+
+昨天在看一个无限滚动的插件文档,里面提到了srcset,之前也在一些地方看到过,大概记得和响应式图片有关,但具体怎么个有关法,怎么用还是不太了解.况且,现在通过对象存储,直接在cdn图片链接后面加上一个参数,就可以完美实现响应式图片了,那用这个属性还有啥用呢
+
+今天就仔仔细细的把MDN上的文档过了一遍.
+
+**问题解决**
+- 20200515
+- 有两种配置方式
+  - srcset="exa@1.png 1x, exa@2.png 2x, exa@3.png 3x"
+    - 是在不同的设备像素比下显示不同的图片,以节省流量和提升图片显示质量
+    - 首先获取设备的设备像素比
+    - 1x,2x,3x...就是指不同的设备像素比,选择显示对应的图片
+    - 如果是电脑屏幕,则设备像素是1x
+    - 1x对应的图片是exa@1.png,所以显示它
+  - srcset="small.png 375w, largepng 1024w" sizes="(max-width: 414px) 400px, (min-width: 1024px) 1000px"
+    - 首先是根据sizes来设置图片槽的宽度,即414px以下屏幕图片槽为400px
+    - 然后再根据srcset里面的w最近的值来选择显示的图片
+    - 如果是苹果6,viewport是375,则图片槽为400
+    - 离400最近的srcset中的w值是375w
+    - 所以显示是small.png
+- 和对象存储自定义参数的方案对比
+  - srcset属于静态页面,由浏览器自动来选择,所以对seo友好
+  - 对象存储那个需要js来动态设置图片链接,所以要自己计算,并且只适用于spa应用
+
+难得去写示例实现了....
+
+
+
+
+
+
+
+
 
 
