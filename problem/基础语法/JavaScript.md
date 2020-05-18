@@ -256,3 +256,19 @@ bubbleSort(sortTiming).forEach(ele => console.log(ele.time, ele.name));
 最后,如果每个时间上出现了异常,则要有对应的可行的解决方法
 
 沉淀方法后,就拿到各个网站上去测试验证,再完善...这个工作应该立马着手做
+
+**问题解决**
+- 时间分类
+```javascript
+function getPerfStats() {
+  var timing = performance.timing;
+  return {
+    dns: timing.domainLookupEnd - timing.domainLookupStart,
+    connect: timing.connectEnd - timing.connectStart, 
+    ttfb: timing.responseStart - timing.connectEnd,
+    basePage: timing.responseEnd - timing.responseStart,  // 下载时间
+    frontEnd: timing.loadEventStart - timing.responseEnd, // 页面渲染时间
+  }
+}
+```
+- 统计工具
