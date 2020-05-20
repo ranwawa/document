@@ -272,3 +272,4 @@ function getPerfStats() {
 }
 ```
 - 统计工具
+  - pageSpeed insight https://developers.google.com/speed/pagespeed/insights/
