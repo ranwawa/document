@@ -301,6 +301,8 @@ Failed to run File Watcher 'typescript'.
 - 20200516
 - 原来是配置问题,我擦,还是应该认认真真,他他细细的看官方文档
 - ts不用配置,是自动转换成js的,就在当前目文件下面折叠起来的
+  - language && frameworks -> typescript -> recompile on changes 勾选
+  - 参考: https://www.jetbrains.com/help/webstorm/typescript-support.html
 - sass还是要配置一下,没有默认转
   - 首先是要全局安装sass
   - 其实是新增一个file watcher
