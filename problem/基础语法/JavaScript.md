@@ -273,3 +273,32 @@ function getPerfStats() {
 ```
 - 统计工具
   - pageSpeed insight https://developers.google.com/speed/pagespeed/insights/
+  
+### 9.[已解决] AMD,CMD,UMD以及require.js,common.js,sea.js之间到底有什么关系及区别?(20200717)
+
+**业务背景**
+
+开始学`vue`的时候,在官方文档就有看到各种版本的介绍,当时明显完全是一脸懵逼的状态.后来看了vue
+源码之后才稍等明白了一些细微的差别,但是关于模块化这一坨还完全是混乱的
+
+在今年面试某家公司时,也被问到这个问题,只是大概说出来了有几种模块化方案,分别用在哪个场景.但是具体每个模块的区别在哪里就完全不知道了
+
+这两天在看typescript的文档时,又遇到了它.在声明文件中,提到了全局模块,导入模块,UMD
+模块.还是搞不清楚他们之间的区别,比如把一个模块放你面前,怎么看出来他是AMD,CMD还是common.js
+
+
+**问题解决**
+
+- 问题解决
+  - 20200717
+
+|    简写    | 全称  | 含义  |   适用场景    | 实现  | 语法  |     |     |
+|:--------:|:---:|:---:|:---------:|:---:|:---:|:---:|:---:|
+| commonjs |     |     | node,同步加载 |     |     |     |     |
+| AMD | Asynchronous Module Definition| 异步模块加载 | 浏览器,异步加载| requireJs | define(id? dependencies, factory)|
+| CMD | Common Module Definition | 通用模块加载 | 浏览器,异步加载 | sea.js | define(factory), var a require(./factory)|
+| UMD | Universal Module Definition | 通用模块加载 | 全端,各种模块的兼容写法| | if (typeof define === 'function')...|
+| EMD | ECMA Module Definition | ES标准模块加载 | 全端,浏览器是异步,服务端不知道 | export import |
+
+- 参考示例
+  - https://www.cnblogs.com/adhehe/p/10182989.html
