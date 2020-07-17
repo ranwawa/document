@@ -1,0 +1,33 @@
+{
+  "name": "document",
+  "version": "1.0.0",
+  "description": "> An awesome project.",
+  "main": "sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranwawa/document.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranwawa/document/issues"
+  },
+  "homepage": "https://github.com/ranwawa/document#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md,html}": "prettier --write"
+  }
+}
