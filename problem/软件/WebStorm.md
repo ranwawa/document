@@ -319,3 +319,13 @@ Failed to run File Watcher 'typescript'.
 sass正确配置
 
 ![](.images/b4c43c8e.png)
+
+### 18. 破解markdown navigator(20201008)
+
+**业务背景**
+
+webstorm官方提供的markdown插件相比与这个收费插件,简直是处于原始社会,我的个人博客也是通过webstorm编辑上传到github上面,所以又必须依赖于webstorm的插件.就一个插件还得收费,着实有点舍不得呀.
+
+搜索了一下,感觉有点小麻烦呀.充值又太贵10刀一年啊.又不是天天用
+
+还是先回退到官方提供的插件用着吧先
