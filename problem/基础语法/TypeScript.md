@@ -1,4 +1,4 @@
-### 1. 如何定义一个类型文件(20200716)
+### [已解决] 1. 如何定义一个类型文件(20200716)
 
 **业务背景**
 
@@ -15,4 +15,30 @@
 比如我在goods/detail.vue里面声明了IGoodsImage这样一个接口,结果在首页index/index.vue里面却用不了
 
 **问题解决**
+- 原本以为解决了,但实际上没有解决(20201010)
 
+之前的解决文案是在项目根目录下面写一个global.d.ts.里面写上namespace,namespace下面再写上interface
+.之前的认为是,以global.d.ts命名的声明文件,会自动全项目有效,而某个目录下面的index.d.ts会在当前目录下有效.并且这个方法
+在vue项目中一直正常跑着.....可今天,把这个声明文件,复制到react项目中,就无法生效了..ide无法识别,就连tsc命令也无法知晓.
+so...到底还是没有掌握d.ts的操作方法
+
+```typescript
+declare namespace uc {
+  interface IUniCloud {
+    /**
+     * 获取数据库实例
+     * @param spaceId 同一账号下的，服务空间ID,仅腾讯云支持
+     */
+    database: (spaceId?: string) => ucDatabase.IDatabase;
+  }
+}
+declare module "countdown";
+```
+
+原因在于,react项目的tsconfig配置文件里面有一个include选项,这个选项只指定了src目录.而我是把global.d.ts
+放在根目录下面的.所以无法识别.解决方法有3
+- 在include里面加上global.d.ts
+- 去掉include选项
+- 把global.d.ts移动到src目录下
+
+话说回来.还是木有根本熟悉整个d.ts的编写流程.这两天要把官方原版的相关文档过一下.项目里面的d.ts就跟着按照官方文档的格式重做一下
