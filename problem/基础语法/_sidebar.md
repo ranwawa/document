@@ -4,3 +4,4 @@
   - [HTTP](/problem/基础语法/HTTP.md)
   - [JavaScript](/problem/基础语法/JavaScript.md)
   - [Mathematics](/problem/基础语法/Mathematics.md)
+  - [TypeScript](/problem/基础语法/TypeScript.md)

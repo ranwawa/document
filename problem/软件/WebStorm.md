@@ -319,3 +319,42 @@ Failed to run File Watcher 'typescript'.
 sass正确配置
 
 ![](.images/b4c43c8e.png)
+
+### 18. 破解markdown navigator(20201008)
+
+**业务背景**
+
+webstorm官方提供的markdown插件相比与这个收费插件,简直是处于原始社会,我的个人博客也是通过webstorm编辑上传到github上面,所以又必须依赖于webstorm的插件.就一个插件还得收费,着实有点舍不得呀.
+
+搜索了一下,感觉有点小麻烦呀.充值又太贵10刀一年啊.又不是天天用
+
+还是先回退到官方提供的插件用着吧先
+
+### 19. [已解决]macos中如何设置打开项目的根目录(20201111)
+
+**业务背景**
+
+每次打开新的项目,默认是定位在User/ranwawa目录下面的,但是我的项目是放在Documents/project
+目录下面的,每次都得手动点过去,还是比较麻烦的,要自动定位到项目目录就ok
+
+**问题解决**
+- 20201111
+- setting -> Appearance & Behavior -> 直接点击System Setting -> default project
+ directory
+
+### 20. [已解决]如何把图片粘贴到webstorm里面(20201111)
+
+**业务背景**
+
+之前在Windows里面的WebStorm中编辑MarkDown文件,下载一个插件后,可以直接`ctrl+v`把图片给粘贴到MarkDown中
+但是在苹果里面来了,就只能粘贴图片的文件名....
+
+**问题解决**
+- 20201112
+- 使用飞书等第3方截屏工具
+- 昨天在截图的时候是用的macos自带的截图快捷键,保存图片后再去目录里面copy的.所以失败
+- 刚刚用飞书的截屏,可正常工作,所以根本问题还是出现在mac使用上
+
+**根本解决**
+- 在mac截屏成功后
+- 右下角会弹出一个图片,点右键存储到剪贴板即可
