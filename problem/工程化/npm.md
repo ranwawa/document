@@ -1,3 +1,5 @@
+4. Dependency devdependency peerdependency之间到底有啥区别?(20210603)
+
 ### 1.[已解决] 发布npm包之前如何自动更新版本号
 
 **业务背景**
@@ -10,7 +12,6 @@
 - 然后再执行npm publish
 - 参考网址:
   - https://docs.npmjs.com/cli/version.html
-  
 ```
 // .huskyrc.js
 const tasks = arr => arr.join(' && ');
@@ -73,3 +74,58 @@ npm ERR! 409 Conflict - PUT https://registry.npm.taobao.org/-/user/org.couchdb.u
 npm config set registry http://registry.npmjs.org
 npm config set registry https://registry.npm.taobao.org
 ```
+
+### 4. Dependency devdependency peerdependency之间到底有啥区别?(20210603)
+
+**业务背景**
+
+今天在看香港同事写的REACT代码,里面好多没用过的插件.比如`prop-types`,在其README文件中发现有专门针对package依赖的说明.一直知道运行时依赖和开发依赖有区别,但具体是什么区别却说不清楚.甚至还多出来一个Peerdependency...
+
+天天打交道的东西,得抽个时间理一理了
+
+**示例文档**
+
+![image-20210603070419476](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210603070419476.png)
+
+### 5. yarn install --frozen-lockfile 这个参数起什么作用
+
+**业务背景**
+
+在webApp gitlib-ci的一个job里面有这样一段.没太明白具体的意思.
+
+```yaml
+test:
+  stage: test
+  tags:
+    - global-ci-k8s
+    - stg-cluster
+  before_script:
+    - yarn install --frozen-lockfil
+```
+
+
+
+### 6. npm在服务器上执行install时报没有合适包的错误(20211214)
+
+#### 问题描述
+
+本地npm正常
+
+上传到服务器后就报类似错误
+
+但每次依赖报都不一样
+
+有时候也不报错
+
+#### 报错内容
+
+```bash
+ npm ERR! code ETARGET
+ npm ERR! notarget No matching version found for jest-worker@^27.4.5.
+ npm ERR! notarget In most cases you or one of your dependencies are requesting
+ npm ERR! notarget a package version that doesn't exist.
+ npm ERR! notarget 
+ npm ERR! notarget It was specified as a dependency of '@jest/reporters'
+ npm ERR! notarget 
+```
+

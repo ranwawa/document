@@ -137,3 +137,7 @@ module.exports = {
 
 ![](.webpack_images/a33d70c1.png)
 
+### 4.初始化项目时报stack Error: `gyp` failed with exit code: 1（20210116）
+
+
+

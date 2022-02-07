@@ -7,6 +7,9 @@
 # TODO: where does this rule come from?
 node_modules/
 docs/_book
+work/
+Work-complete/
+work-lalamove/
 
 # TODO: where does this rule come from?
 test/

@@ -1,25 +1,59 @@
 1. [已解决]修改HTML标签时，结束标签不自动修改(190924)
+
 2. [已解决]HTML突然无法格式化代码(190924)
+
 3. [已解决]在代码编辑框中(editor)，通过快捷直接在window的资源管理器中打开当前文件(190927)
+
 4. [已解决]在HTML中声明了CSS类，但是在CSS文件中无法智能提示(190927)
+
 5. [已解决]在新窗口中打开新项目(190929)
+
 6. [已解决]最大化新窗口(190929)
+
 7. [已解决]找一个功能丰富的可视化的git管理插件(190929)
+
 8. [已解决]不同的电脑上同步所有配置文件(191008)
+
 9. [已解决]启动IDE时自动打开上次关闭时的项目(191010)
+
 10. 在`.vue`文件中,点击方法/变量,跳转到定义它的地方
+
 11. [已解决]在工作台编辑器处于激活状态时,快速切换上一个/下一个tab(191010)
+
 12. [无解]用`prettier`格式化HTML文件时强制所有属性换行(191010)
+
 13. [无解]像`WebStorm`那样使用`.log`快捷方法(191010)
+
 14. 批量展开多行注释/或者多选注释在折叠时显示描述文字
+
 15. [已解决]把字体换成`codesandbox.io`里面那种(191011)
+
 16. [已解决]`.vue`文件顶部块级注释默认为HTML的注释`<!-- -->`(191014)
+
 17. [已解决]HTML文件里面的CSS类快速定位到CSS文件里面的对应行(191014)
+
 18. `LiverServer`无法代理到https连接
+
 19. [已解决]如何自定义窗口title(191016)
+
 20. [已解决]HTML自定义标签自动补全(191021)
+
 21. [已解决]圈复杂度插件(191022)
+
 22. vue文件无法格式化
+
+23. [已解决]如何设置上一个/下一个光标定位的快捷键(210530)
+
+24. vue文件中无法跳转webpack别名(20211210)
+
+    [TOC]
+
+    
+
+25. js文件中引入文件时,.vue文件没有自动提示(20211210)
+
+    ![image-20211210235105869](/Users/ranwawa/Documents/personal/document/problem/%E8%BD%AF%E4%BB%B6/img/image-20211210235105869.png)
+
 ## 1. [已解决]修改HTML标签时，结束标签不自动修改(190924)
 
 **业务背景**
@@ -67,7 +101,7 @@
 **业务背景**
 
 还是从WebStorm迁移问题，之前在HTML文件中写好页面结构和类名，然后再去CSS/SCSS文件里面写样式，直接`.`一下，就会提示刚刚定义的类名。但是VSCode默认没有添加这个功能
- 
+
 **问题解决**
 - 找了好久,基本都是在HTML中引用CSS里面定义好的类名的插件.而我是需要反过来操作
 - 安装插件 HTML to CSS autocompletion  [参考传送门](https://github.com/microsoft/vscode/issues/28442)
@@ -132,7 +166,13 @@
 
 ![](https://user-gold-cdn.xitu.io/2019/10/10/16db3b119fbf706f?w=1091&h=681&f=gif&s=228242)
 
-## 10. 启动IDE时自动打开上次关闭时的项目
+### 10. 在`.vue`文件中,点击方法/变量,跳转到定义它的地方
+
+1. 安装vetur插件
+2. 启用插件的Experimental: Template Interpolation Service功能
+3. 声明vue文件时使用export default Vue.extend({语法
+
+## 11. 启动IDE时自动打开上次关闭时的项目
 **业务背景**
 
 在`webstorm`里面,点击某个变量或方法的时候,可以直接跳转到声明他的地方,这样在写代码的过程中就非常方便.但是VSCode里面不行,虽然有一个`F12`是这个作用,但是在vue文件下无法生效
@@ -326,3 +366,183 @@ https自签名证书参考: https://juejin.im/post/5b8e103b6fb9a01a0058c789
 ![](https://user-gold-cdn.xitu.io/2019/10/22/16df234ef5c7e6cf?w=230&h=74&f=png&s=6469)
 
 > 算了算了.用了一个月VSCode,还是换回WebStorm,每个星期都要花几个小时来设置,有点麻烦.还是开箱即用的WebStorm方便.以后有时间再回来慢慢搞VSCode 2019-10-22
+
+
+
+### 23. vue打开checkJs之后，计算属性里面无法识别计算属性（20210301）
+
+**业务背景**
+
+一个计算属性，在computed,methods,以及模板语法里面使用
+
+在computed里面会报错，methods以及模板语法里面是正常的
+
+但是，computed里面还能够推导出这个计算属性的返回值
+
+关掉tsconfig里面的checkJs就好了，一开启就会挂。但是关掉之后，就失去了rs的类型推导啦
+
+**测试代码**
+
+```
+
+<template>
+  <view>{{ computedA }}</view>
+</template>
+<script>
+export default {
+  computed: {
+    computedA() {
+      return 1
+    },
+    computedB() {
+      return this.computedA + 1
+    },
+  },
+  methods: {
+    test() {
+      return this.computedA + this.computedB
+    },
+  },
+}
+</script>
+
+```
+
+**报错截图**
+
+![image-20210301173343247](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210301173343247.png)
+
+**报错内容**
+
+```
+Property 'computedA' does not exist on type 'CombinedVueInstance<Vue, unknown, unknown, unknown, Readonly<Record<never, any>>>'.Vetur(2339)
+```
+
+
+
+
+
+24. （已解决）vue项目，无法识别prototype注入的属性（20210301）
+
+**业务背景**
+
+在`main.js`里面通过Vue.prototype.$track注入了一个函数
+
+在页面里面通过`this.$track`调用这个方法
+
+vuetr会报错
+
+**报错截图**
+
+![image-20210301150150432](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210301150150432.png)
+
+**报错内容**
+
+```
+Property '$track' does not exist on type 'CombinedVueInstance<Vue, { moreRequireList: LabelItem[]; currentMoreRequireList: number[]; remark: string; txtCalc: {}; historyList: any[]; picListUploaded: string[]; loaded: boolean; }, { getOrderRemarkTagsList(): Promise<...>; ... 7 more ...; updatePageData: ActionMethod; }, { ...; }, Readonly<...>>'.Vetur(2339)
+```
+
+**问题解决**
+
+- 20210301
+- 新增一个类型声明文件
+
+```
+import Vue from 'vue'
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $track: (string, any) => void
+  }
+}
+```
+
+- 参考链接：https://vuejs.org/v2/guide/typescript.html#Augmenting-Types-for-Use-with-Plugins
+
+### 23. [已解决]如何设置上一个/下一个光标定位的快捷键(210530)
+
+**业务背景**
+
+快捷键总是喜欢自定义.前不久把整个vscode的配置给回退到5个月之前的版本,导致很多配置丢失 ,其中就包括这个 .
+
+今天在看`PONT`源码的时候,发现跳来跳去太不方便了,但是在快捷键里也找不到是哪两个快捷键来控制...找了好久没找到...还是记一个吧,免得下次又忘记了
+
+**问题解决**
+
+- 20210530
+- `cmd + k, cmd +s`调起快捷键面板
+- 搜索`go back` -> `shift + cmd + j`
+- `go Forward` -> `shift + cmd + k`
+
+
+
+
+
+### 24. vue文件中无法跳转webpack别名(20211210)
+
+配置tsconfig.json
+
+```
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+}
+```
+
+### 25. [已解决]vue开启了tsconfig以及Vue.extend还是无法在template里面验证属性(20121214)
+
+#### 问题描述
+
+tsconfig.json中配置了checkJs和allowJs
+
+导致vue的语法也改为了export default Vue.extend({
+
+但是在template里面的变量还是显示的any
+
+![image-20211214113902369](/Users/ranwawa/Documents/personal/document/problem/%E8%BD%AF%E4%BB%B6/img/image-20211214113902369.png)
+
+#### 报错内容
+
+```bash
+Property 'checked' does not exist on type 'unknown'.
+```
+
+
+
+#### 问题解决
+
+需要把所有的计算属性设置返回值才行
+
+#### 参考链接
+
+https://vuejs.github.io/vetur/guide/FAQ.html#template-interpolation-auto-completion-does-not-work
+
+
+
+### 26. vue项目中,无法识别@开头的vue组件和图片(20121214)
+
+![image-20211214171641691](/Users/ranwawa/Documents/personal/document/problem/%E8%BD%AF%E4%BB%B6/img/image-20211214171641691.png)
+
+1. tsconfig配置
+
+```
+"paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+```
+
+2. vue文件要加上后缀
+3. 给图片声明一个d.ts文件
+
+#### 参考链接
+
+- https://vuejs.github.io/vetur/guide/FAQ.html#vetur-can-t-recognize-components-imported-using-webpack-s-alias
+
+- https://stackoverflow.com/questions/54120615/vue-typescript-image-imports-not-found

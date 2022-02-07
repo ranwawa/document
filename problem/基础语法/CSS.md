@@ -94,7 +94,7 @@
 - 是需要两个条件同时满足才会选中
   - 下标符合
   - 元素(这里匹配的是元素而不是类名)符合
- 
+
 **问题分析**
 - 父元素下面的第一个元素是`div`所以下标选1的时候一直是选择的它
 - 如果把div换成span的话,nth-of-type(1)/first-of-type就可以选中
@@ -206,6 +206,7 @@
 - skewY以中心y线为准
   - 正值右侧向上,负值左侧向上
   
+
 **原理分析**
 - 这个还是和矩阵变换有关
 - 其原理是把每一个点进行变化,但怎么变就要用数学公式来算了.确实目前,还是先不深究矩阵了
@@ -230,4 +231,70 @@
 
 最后找出一个工具，整理好流程
 
+
+
+### 10. 以rpx为单位的矩形，如果设置半边框，会存在某些边丢失的情况
+
+**业务背景**
+
+开发mpaas小程序，这种写法，在某些机型下会出现边框丢失的情况，怀疑跟屏幕尺寸发生变化，缩放导致的
+
+**示例图片**
+
+![image-20210309110404010](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210309110404010.png)
+
+**示例代码**
+
+```
+@mixin bd-hairline-base() {
+  position: relative;
+  &::after {
+    position: absolute;
+    box-sizing: border-box;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    content: '';
+    pointer-events: none;
+    border-radius: inherit;
+    transform: scale(0.5);
+    transform-origin: center;
+  }
+}
+$bdc-base: #eee;
+@mixin bd-hairline-round($c: $bdc-base) {
+  @include bd-hairline-base;
+  &::after {
+    border: 1px solid $c;
+  }
+}
+
+.image {
+  // 图片
+  &__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 12rpx;
+    margin: 16rpx 16rpx 0 0;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.45);
+    &-border {
+      @include bd-hairline-round;
+      &::after {
+        border-radius: 24rpx;
+        font-size: 0;
+      }
+    }
+  }
+}
+```
+
+**尝试**
 

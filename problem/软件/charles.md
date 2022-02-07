@@ -1,3 +1,5 @@
+[TOC]
+
 ### 1. 初始化配置(20201112)
 
 **业务背景**
@@ -18,10 +20,47 @@ Proxy-> 双击 -> 点击信任 -> 使用此证书时 -> 始终信息(这个可�
 - 修改网络 -> 高级设置 -> 自动代理 -> https://chls.pro/x.x.x.x.pac
 (这个可以避免切换网络后,每次都要手动的填写代理信息,这样在可以代理的时候走代理,不能连接代理服务器的时候就直接发起请求)
 
+ios使用
 
-### 2. 在公司网络,手机连接WIFI是一个子网,而电脑连接wifi又是另外一个子网的时候,如何进行代理`o
+- Mac charls - help - ssl proxing - instll charls root certificate on a mobile device or a remote broswer
+- ios - 设置 - 无线局域网 - 当前iwfi - 配置代理 - 参照上一步配置
+- 在ios中打开上一步提到的链接 - 下载完成 - 提示在设置中查看
+- ios - 设置 - 已下载描述文件 -  安装
+- ios - 设置 - 能用 - 关于本机 - 证书信任设置 - 启用刚刚这个证书
+
+
+### 2. 在公司网络,手机连接WIFI是一个子网,而电脑连接wifi又是另外一个子网的时候,如何进行代理`
 
 **业务背景**
 
 连接同一个wifi,电脑显示的ip地址是172.30.86.8 手机显示的ip地址是172.30.80.43两个网无法互通,就无法使用代理.
 
+### 3. [已解决]如何代理0.0.0.0/127.0.0.1上的本机服务(20211214)
+
+#### 问题描述
+
+本机启的服务,都是这样的IP地址
+
+但是charles受限于系统限制,无法直接拦截代理本机IP
+
+#### 报错内容
+
+```bash
+Charles Error Report
+Failed to connect to remote host
+Charles failed to connect to the remote host. Check that your Internet connection is ok and that the remote host is accessible. Maybe your network uses a proxy server to access the Internet? You can configure Charles to use an external proxy server in the External Proxy Settings.
+
+The actual exception reported was:
+
+java.net.ConnectException: Connection refused (Connection refused)
+Charles Proxy, https://www.charlesproxy.com/
+```
+
+#### 问题解决
+
+- 使用官方提供的中转域名http://localhost.charlesproxy.com:port
+- 或者使用本机IP地址
+
+#### 参考链接
+
+- https://www.charlesproxy.com/documentation/faqs/

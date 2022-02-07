@@ -29,7 +29,7 @@ dist/
   - https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90
 
 
-### 3. git clone 仓库时总是失败(200208)
+### 3. [已解决]git clone 仓库时总是失败(20200208)
 
 **业务背景**
 
@@ -42,6 +42,9 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 ```
 
 **问题解决**
+
+- 20210105
+- 这个就是被墙的问题，唯有梯子才能搞定
 
 ### 4. [已解决]仓库帐号密码相关逻辑(20200422)
 
@@ -106,6 +109,7 @@ $ git config --global user.email johndoe@example.com
   - 每次都需要输入帐号密码
   - 帐号密码里面的非asc2字符需要url编码,比如帐号是2@qq.com要改成1%40qq.com
   
+
 本地怎么永久保存帐号密码
 - 执行`git config credential.helper store`
 - 然后执行clone/pull/push等任意一种操作
@@ -145,3 +149,26 @@ Password: <type your password>
 - 只要分支上使用了斜杠`/`
 - ide会自动识别为目录
 - 所以以后可以按人员进行目录划分,以便于ide进行处理
+
+
+
+### 6. 【已解决】本地无法查看远程分支(20210105)
+
+**业务背景**
+
+最近切换到`vscode`，昨天在使用过程中，不知道为啥，突然就看不到远程分支了．开始还以为是vscode的问题，切换到`webstorm`居然一样．
+
+在网络上搜索了一下，说是要`fetch` ，然后操作无效
+
+后来发现本地没有远程分支，就手动添加了`origin`，但是显示`push`的那个本地分支所对应的远程分支，其它远程分支还是无法拉下来
+
+再尝试`fetch`命令时，发现总时会返回一个redirecting to的警告。或许问题就出在这里
+
+问题解决
+
+- 20210105
+- 先remove掉远程分支
+- 然后重新add远程分支
+- 再fetch即可
+
+不知道为什么会出现这种情况，反正多试几次就ok了
