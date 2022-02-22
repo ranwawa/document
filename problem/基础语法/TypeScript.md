@@ -231,4 +231,3 @@ declare module '*.vue' {
 ```
 import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue'
 ```
-
