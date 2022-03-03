@@ -4,6 +4,8 @@
 #
 # Recommended template: Node.gitignore
 
+.vscode/
+
 # TODO: where does this rule come from?
 node_modules/
 docs/_book
