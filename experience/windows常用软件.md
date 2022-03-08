@@ -1,12 +1,16 @@
 # windows常用软件
 
-## 开发必备
+## 1. 开发必备
 
-### vscode
+### 1.1 vscode
 
-### git
+### 1.2 git
 
 话不多说
+
+### 1.3 wsl
+
+直接在windows上启用linux系统
 
 ## 2. 效率提升
 

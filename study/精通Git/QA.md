@@ -1,14 +1,14 @@
 - [1. mac上的XCode命令行是啥(20220303)](#1-mac上的xcode命令行是啥20220303)
 - [[已解决]2. 如何使用git上的个人编辑器(20220303)](#已解决2-如何使用git上的个人编辑器20220303)
 - [[已解决]3. grep的英文全称(20220303)](#已解决3-grep的英文全称20220303)
-- [4. branch和ref的区别](#4-branch和ref的区别)
+- [[已解决]4. branch和ref的区别(20220308)](#已解决4-branch和ref的区别20220308)
 - [[已解决]5. glob模式(20200303)](#已解决5-glob模式20200303)
 - [[已解决]6.bash中输入的中文是编码后的(20220304)](#已解决6bash中输入的中文是编码后的20220304)
 - [6. git mergetool的使用(20220303)](#6-git-mergetool的使用20220303)
 - [7. 提交对象和树对象的区别(20220305)](#7-提交对象和树对象的区别20220305)
 - [8. GPG是什么](#8-gpg是什么)
-- [9. stdin是什么](#9-stdin是什么)
-- [10. Unix风格是什么](#10-unix风格是什么)
+- [[已解决]9. stdin是什么(20220307)](#已解决9-stdin是什么20220307)
+- [[已解决]10. Unix风格是什么(20200308)](#已解决10-unix风格是什么20200308)
 
 ### 1. mac上的XCode命令行是啥(20220303)
 
@@ -40,11 +40,25 @@ Global Regular Expression Parser
 
 全局正则表达式解析器
 
-### 4. branch和ref的区别
+### [已解决]4. branch和ref的区别(20220308)
 
 #### 问题描述
 
 在gitlab ci中看到过,以为ref就是branch.在这里又看到了,并且明确说明有区别
+
+#### 问题解决
+
+- branch分支实际是一个指向某个SHA1的指针
+- ref是一个引用
+  - 包括branch
+  - tag
+  - 以及远程分支
+
+所以branch是ref的一种形式而已
+
+参考:
+
+- https://git-scm.com/book/en/v2/Git-Internals-Git-References
 
 ### [已解决]5. glob模式(20200303)
 
@@ -124,14 +138,40 @@ git config --global core.quotePath false
 
 7.4有提到用GPG对commit或tag进行更加安全的签名，可这个GPG是啥
 
-### 9. stdin是什么
+### [已解决]9. stdin是什么(20220307)
 
 #### 问题描述
 
 在很多配置文件有关文件的说明地方,经常会看到这个词,一直不知道是啥意思,今天在7.14.1又看到了你.必须搞定了
 
-### 10. Unix风格是什么
+#### 问题解决
+
+- stdin: 标准输入,默认是键盘,也可以是参数,文件等. FD是0
+- stdout: 标准输出,默认是terminal,也可以是文件,/dev/null等其他设备. FD是1
+- stderr: 标准错误,默认是terminal. FD是2
+
+参考:
+
+- https://stackoverflow.com/questions/3385201/confused-about-stdin-stdout-and-stderr
+- http://c.biancheng.net/view/942.html
+
+### [已解决]10. Unix风格是什么(20200308)
 
 #### 问题描述
 
 git第10.1有描述到,底层命令设计时遵循了Unix风格..这是啥
+
+#### 问题解决
+
+unix是操作系统,linux也是操作系统.linux是模仿unix写出来的,包含unix的全部功能
+
+10.1中提到的底层命令参考了unix风格.比如参数可以用`-`短横线开头
+命令行的3种风格:
+
+- Unix风格: `-`短横线
+- BSD风格: 不加横线
+- GNU风格: `--`双横线
+
+参考:
+- http://c.biancheng.net/view/707.html
+- https://blog.csdn.net/ruibin_cao/article/details/84660224

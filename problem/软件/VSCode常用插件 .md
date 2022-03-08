@@ -1,4 +1,4 @@
-### 效率提升类
+###  1. 效率提升类
 
 #### Jest Snippets
 
@@ -34,7 +34,7 @@
 
 styled-components的语法高亮和智能提示
 
-### 项目质量
+### 2. 项目质量
 
 #### markdownlint
 
@@ -49,7 +49,7 @@ markdown语法约束
 英语拼写检查,提示更正
 
 
-### 使用体验
+### 3. 使用体验
 
 #### Material Icon Theme
 
@@ -61,5 +61,10 @@ markdown语法约束
 
 还支持幻灯片预览
 
+### 4. windows专属
 
+#### 4.1 remote-wsl
 
+在windows环境下集成linux开发
+
+前提是要在windows上安装wsl和ubuntu等系统
