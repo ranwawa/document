@@ -1,14 +1,7 @@
 # GitLabQA
 
-- [[已解决]1.如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)](#已解决1如何在-gitlib-ciyml-中把本次提交改变的文件赋值给一个变量20210927)
-  - [业务背景](#业务背景)
-  - [示例代码](#示例代码)
-  - [参考文档](#参考文档)
-  - [问题解决](#问题解决)
-- [[已解决]2. windows 上安装 gitlab-ci runner 的步骤(20220412)](#已解决2-windows-上安装-gitlab-ci-runner-的步骤20220412)
-  - [问题描述](#问题描述)
-  - [问题解决](#问题解决-1)
-  - [参考链接](#参考链接)
+- [1. [已解决]如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)](#已解决1如何在-gitlib-ciyml-中把本次提交改变的文件赋值给一个变量20210927)
+- [2. [已解决]windows 上安装 gitlab-ci runner 的步骤(20220412)](#已解决2-windows-上安装-gitlab-ci-runner-的步骤20220412)
 
 关键节点通知:
 
@@ -36,7 +29,7 @@ Hook:
   - @commitlint/config-conventional 风格配置
 - Branch name
 
-## [已解决]1.如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)
+## 1. [已解决]如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)
 
 ### 业务背景
 
@@ -89,7 +82,7 @@ script:
   - yarn prettier --ignore-unknown --check $(git diff --diff-filter=d --no-commit-id --name-only -r $CI_COMMIT_BEFORE_SHA HEAD)
 ```
 
-## [已解决]2. windows 上安装 gitlab-ci runner 的步骤(20220412)
+## 2. [已解决]windows 上安装 gitlab-ci runner 的步骤(20220412)
 
 ### 问题描述
 
