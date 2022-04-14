@@ -18,10 +18,14 @@
 
 | 中文                     | 命令                                     | 系统快捷键      | 自定义快捷键     |
 | :----------------------- | :--------------------------------------- | :-------------- | :--------------- |
-| 切换到右边的 editor      | workbench.action.nextEditor              | Ctrl + PageDown |                  |
-| 切换到左边的 editor      | workbench.action.previousEditor          | Ctrl + PageUp   |                  |
+| 切换到右边的 editor      | workbench.action.nextEditor              | Ctrl + PageDown <br /> ⌥ + ⌘ + →|                  |
+| 切换到左边的 editor      | workbench.action.previousEditor          | Ctrl + PageUp <br />  ⌥ + ⌘ + ←  |                  |
 | 将 editor 移动到右边分组 | workbench.action.splitEditorToRightGroup |                 | Alt + e, Alt + r |
 
+{
+  "key": "",
+  "command": "workbench.action.nextEditor"
+}
 #### 1.1.2 关闭 tab
 
 | 中文                | 命令                                    | 系统快捷键                 | 自定义快捷键     |
