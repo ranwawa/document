@@ -1,5 +1,3 @@
-4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
-
 ### 1.[已解决] 发布 npm 包之前如何自动更新版本号
 
 ### 业务背景
@@ -81,7 +79,7 @@ npm config set registry http://registry.npmjs.org
 npm config set registry https://registry.npm.taobao.org
 ```
 
-### 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
+## 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
 
 ### 业务背景
 
@@ -93,7 +91,7 @@ npm config set registry https://registry.npm.taobao.org
 
 ![image-20210603070419476](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210603070419476.png)
 
-### 5. yarn install --frozen-lockfile 这个参数起什么作用
+## 5. yarn install --frozen-lockfile 这个参数起什么作用
 
 ### 业务背景
 
@@ -109,9 +107,9 @@ test:
     - yarn install --frozen-lockfil
 ```
 
-### 6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)
+## 6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)
 
-#### 问题描述
+### 问题描述
 
 本地 npm 正常
 
@@ -121,7 +119,7 @@ test:
 
 有时候也不报错
 
-#### 报错内容
+### 报错内容
 
 ```bash
  npm ERR! code ETARGET
@@ -132,3 +130,52 @@ test:
  npm ERR! notarget It was specified as a dependency of '@jest/reporters'
  npm ERR! notarget
 ```
+
+## 7. npm audit 是干什么的(20220416)
+
+### 问题描述
+
+经常在安装包的时候会出现这个提示,今天又遇到了,本着就近就深的原则.遇到问题就搞清楚他.先记下来,后面安排时间来查
+
+```bash
+1 critical severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+```
+
+```bash
+$ npm audit
+# npm audit report
+
+minimist  <1.2.6
+Severity: critical
+Prototype Pollution in minimist - https://github.com/advisories/GHSA-xvch-5gv4-984h
+fix available via `npm audit fix`
+node_modules/minimist
+
+1 critical severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+```
+
+### 问题解决
+
+## 8. mono repo 下安装依赖包的问题(20220416)
+
+### 问题描述
+
+### 背景知识
+
+npm i 会安装哪些文件到 node_modules 目录下:
+
+- 当前目录 packages 的 dependencies
+- 当前目录 packages 的 peerDependencies
+- 当前目录 packages 的 devDependencies
+- 所有依赖包及其子依赖包的 dependencies
+- 所有依赖包及其子依赖包的 peerDependencies
+- 如果是 monorepo
+  - 即使 packages 中没有任何东西,也会安 packages 下面的所有包
