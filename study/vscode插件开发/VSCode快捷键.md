@@ -1,11 +1,7 @@
 # vscode 快捷键
 
 - [1. editor 相关](#1-editor-相关)
-	- [1.1 tab 相关](#11-tab-相关)
 - [2. 代码相关](#2-代码相关)
-	- [2.1 展开代码](#21-展开代码)
-	- [2.2 折叠代码](#22-折叠代码)
-	- [2.3 代码导航](#23-代码导航)
 - [3. 信息栏相关](#3-信息栏相关)
 - [4. 侧边栏相关](#4-侧边栏相关)
 - [5. 项目相关](#5-项目相关)
@@ -16,16 +12,12 @@
 
 #### 1.1.1 移动 tab
 
-| 中文                     | 命令                                     | 系统快捷键      | 自定义快捷键     |
-| :----------------------- | :--------------------------------------- | :-------------- | :--------------- |
-| 切换到右边的 editor      | workbench.action.nextEditor              | Ctrl + PageDown <br /> ⌥ + ⌘ + →|                  |
-| 切换到左边的 editor      | workbench.action.previousEditor          | Ctrl + PageUp <br />  ⌥ + ⌘ + ←  |                  |
-| 将 editor 移动到右边分组 | workbench.action.splitEditorToRightGroup |                 | Alt + e, Alt + r |
+| 中文                     | 命令                                     | 系统快捷键                       | 自定义快捷键     |
+| :----------------------- | :--------------------------------------- | :------------------------------- | :--------------- |
+| 切换到右边的 editor      | workbench.action.nextEditor              | Ctrl + PageDown <br /> ⌥ + ⌘ + → |                  |
+| 切换到左边的 editor      | workbench.action.previousEditor          | Ctrl + PageUp <br /> ⌥ + ⌘ + ←   |                  |
+| 将 editor 移动到右边分组 | workbench.action.splitEditorToRightGroup |                                  | Alt + e, Alt + r |
 
-{
-  "key": "",
-  "command": "workbench.action.nextEditor"
-}
 #### 1.1.2 关闭 tab
 
 | 中文                | 命令                                    | 系统快捷键                 | 自定义快捷键     |
@@ -39,18 +31,18 @@
 
 ### 2.1 展开代码
 
-| 中文           | 命令             | 系统快捷键     |
-| -------------- | ---------------- | -------------- |
-| 展开所有代码   | editor.unfoldAll | Ctrl+k, Ctrl+j |
-| 展开当前代码块 | editor.fold      | Ctrl+Shift+[   |
+| 中文           | 命令             | 系统快捷键                    |
+| -------------- | ---------------- | ----------------------------- |
+| 展开所有代码   | editor.unfoldAll | Ctrl+k, Ctrl+j                |
+| 展开当前代码块 | editor.fold      | Ctrl+Shift+[ <br /> ⌥ + ⌘ + [ |
 |                |                  |
 
 ### 2.2 折叠代码
 
-| 中文           | 命令           | 系统快捷键    |
-| -------------- | -------------- | ------------- |
-| 折叠所有代码   | editor.foldAll | ctrl+k ctrl+0 |
-| 折叠当前代码块 | editor.unfold  | Ctrl+Shift+]  |
+| 中文           | 命令           | 系统快捷键                    |
+| -------------- | -------------- | ----------------------------- |
+| 折叠所有代码   | editor.foldAll | ctrl+k ctrl+0                 |
+| 折叠当前代码块 | editor.unfold  | Ctrl+Shift+] <br /> ⌥ + ⌘ + ] |
 |                |                |
 |                |                |
 
@@ -64,14 +56,17 @@
 
 ## 3. 信息栏相关
 
-| 中文 | 命令 | 系统快捷键 | 自定义快捷键 |
-| --------------------- | ---------------------------------------- | ---------- | ------------ | | 显示、隐藏 terminal | workbench.action.terminal.toggleTerminal | Ctrl+` | | | 最大化、还原 terminal | workbench.action.toggleMaximizedPanel | | Alt+`, Alt+m |
+| 中文                  | 命令                                     | 系统快捷键 | 自定义快捷键 |
+| --------------------- | ---------------------------------------- | ---------- | ------------ |
+| 显示、隐藏 terminal   | workbench.action.terminal.toggleTerminal | Ctrl+\`    |              |
+| 最大化、还原 terminal | workbench.action.toggleMaximizedPanel    |            | Alt+`, Alt+m |
 
 ## 4. 侧边栏相关
 
-| 中文       | 命令                             | 系统快捷键 | 自定义快捷键 |
-| ---------- | -------------------------------- | ---------- | ------------ |
-| 切换侧边栏 | View: Toggle Side Bar Visibility | ctrl+b     |              |
+| 中文       | 命令                             | 系统快捷键              | 自定义快捷键 |
+| ---------- | -------------------------------- | ----------------------- | ------------ |
+| 切换侧边栏 | View: Toggle Side Bar Visibility | Ctrl + b <br /> ⌘ + b   |              |
+| 删除文件   | deleteFile                       | delete <br/> ⌘ + delete |              |
 
 ## 5. 项目相关
 
