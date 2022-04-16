@@ -126,6 +126,7 @@
 | 命令                                | 含义                                         |
 | ----------------------------------- | -------------------------------------------- |
 | git log                             | 显示所有日志                                 |
+| git log --oneline                   | 一行中显示                                   |
 | git log --abbrev-commit             | 显示简单的 SHA1                              |
 | git log -g branch_name              | 以 log 的形式显示分支上的 reflog 信息        |
 | git log master..feature             | feature 上有但是 master 上没有的提交         |
@@ -298,7 +299,13 @@
 | git reset --mixed SHA1 | 将 HEAD 移动到 SHA1 上,暂存区内容移到工作目录,保留未跟踪文件 |
 | git reset --hard SHA1  | 将 HEAD 移动到 SHA1 上,清空暂存区和工作目录,保留未跟踪文件   |
 
-### 5.2 git shortlog
+### 5.3 git restore
+
+| 命令                   | 含义                         |
+| ---------------------- | ---------------------------- |
+| git restore --staged . | 将所有暂存区文件移动到工作区 |
+
+### 5.4 git shortlog
 
 | 命令                           | 含义                        |
 | ------------------------------ | --------------------------- |

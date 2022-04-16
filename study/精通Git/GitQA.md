@@ -9,15 +9,16 @@
 - [7. 提交对象和树对象的区别(20220305)](#7-提交对象和树对象的区别20220305)
 - [8. GPG 是什么](#8-gpg-是什么)
 - [9. [已解决]stdin 是什么(20220307)](#9-已解决stdin-是什么20220307)
-- [[已解决]10. Unix 风格是什么(20220308)](#已解决10-unix-风格是什么20220308)
+- [10. [已解决]Unix 风格是什么(20220308)](#10-已解决unix-风格是什么20220308)
 - [11. github 操作老是超时(20220411)](#11-github-操作老是超时20220411)
-- [[已解决]12. bash 中输入的中文是编码后的(20220304)](#已解决12-bash-中输入的中文是编码后的20220304)
-- [1.[已解决] .gitignore 里面设置了忽略文件但是不生效(191101)](#1已解决-gitignore-里面设置了忽略文件但是不生效191101)
-- [2.[已解决] git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)](#2已解决-git-push-完代码后自动发布-npm-包git-钩子使用191224)
-- [3. [已解决]git clone 仓库时总是失败(20200208)](#3-已解决git-clone-仓库时总是失败20200208)
-- [4. [已解决]仓库帐号密码相关逻辑(20200422)](#4-已解决仓库帐号密码相关逻辑20200422)
-- [5. [已解决]如何设置分支文件夹(20201010)](#5-已解决如何设置分支文件夹20201010)
-- [6. 【已解决】本地无法查看远程分支(20210105)](#6-已解决本地无法查看远程分支20210105)
+- [12. [已解决]bash 中输入的中文是编码后的(20220304)](#12-已解决bash-中输入的中文是编码后的20220304)
+- [14.[已解决] .gitignore 里面设置了忽略文件但是不生效(191101)](#14已解决-gitignore-里面设置了忽略文件但是不生效191101)
+- [15. [已解决]git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)](#15-已解决git-push-完代码后自动发布-npm-包git-钩子使用191224)
+- [16. [已解决]git clone 仓库时总是失败(20200208)](#16-已解决git-clone-仓库时总是失败20200208)
+- [17. [已解决]仓库帐号密码相关逻辑(20200422)](#17-已解决仓库帐号密码相关逻辑20200422)
+- [18. [已解决]如何设置分支文件夹(20201010)](#18-已解决如何设置分支文件夹20201010)
+- [19. [已解决]本地无法查看远程分支(20210105)](#19-已解决本地无法查看远程分支20210105)
+- [20. [已解决].gitattributes 文件的作用是啥(20220415)](#20-已解决gitattributes-文件的作用是啥20220415)
 
 ## 1. mac 上的 XCode 命令行是啥(20220303)
 
@@ -146,7 +147,7 @@ Global Regular Expression Parser
 - https://stackoverflow.com/questions/3385201/confused-about-stdin-stdout-and-stderr
 - http://c.biancheng.net/view/942.html
 
-## [已解决]10. Unix 风格是什么(20220308)
+## 10. [已解决]Unix 风格是什么(20220308)
 
 ### 问题描述
 
@@ -209,7 +210,7 @@ fatal: unable to access 'https://github.com/ranwawa/uni-vant/': OpenSSL SSL_conn
 
 - file:///C:/Program%20Files/Git/mingw64/share/doc/git-doc/git-config.html
 
-## [已解决]12. bash 中输入的中文是编码后的(20220304)
+## 12. [已解决]bash 中输入的中文是编码后的(20220304)
 
 ### 问题描述
 
@@ -227,7 +228,7 @@ git config --global core.quotePath false
 
 这个值默认是 true,会将超过 0x80 的字符视为特殊字符进行转义
 
-## 1.[已解决] .gitignore 里面设置了忽略文件但是不生效(191101)
+## 14.[已解决] .gitignore 里面设置了忽略文件但是不生效(191101)
 
 ### 业务背景
 
@@ -235,7 +236,7 @@ git config --global core.quotePath false
 
 git 代码
 
-```
+```bash
 node_modules/
 dist/
 ```
@@ -245,7 +246,7 @@ dist/
 - 先清空一下 git 缓存`git rm -r --cached dist`
 - 然后再提交就可以了 - 参考链接: https://blog.csdn.net/qq_31325079/article/details/82701208
 
-## 2.[已解决] git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)
+## 15. [已解决]git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)
 
 ### 业务背景
 
@@ -259,15 +260,15 @@ dist/
   - https://github.com/typicode/husky
   - https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90
 
-## 3. [已解决]git clone 仓库时总是失败(20200208)
+## 16. [已解决]git clone 仓库时总是失败(20200208)
 
 ### 业务背景
 
 看`lodash`源码,但是通过`WebStorm`clone 仓库时,失败了好几次
 
-**报错内容**
+### 报错内容
 
-```
+```bash
 RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remote end hung up unexpectedly early EOF index-pack failed
 ```
 
@@ -276,7 +277,7 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 - 20210105
 - 这个就是被墙的问题，唯有梯子才能搞定
 
-## 4. [已解决]仓库帐号密码相关逻辑(20200422)
+## 17. [已解决]仓库帐号密码相关逻辑(20200422)
 
 ### 业务背景
 
@@ -289,7 +290,7 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 
 在安装 git bash 后,会通过命令行输入一个用户名和邮箱,这个并非仓库的邮箱和密码,而是在每次 commit 时会用到
 
-```
+```bash
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
@@ -320,7 +321,7 @@ $ git config --global user.email johndoe@example.com
     - useHttpPath 匹配上下文时是否识别路径
 - 参考文档: https://git-scm.com/docs/gitcredentials
 
-**问题**
+### 问题
 
 - 在什么情况不会自动弹出登陆框
 - 本地怎么永久保存账号密码
@@ -351,7 +352,7 @@ $ git config --global user.email johndoe@example.com
 - 会提示输入帐号密码,输入后就会自动保存了
 - 参考: https://git-scm.com/docs/git-credential-store
 
-```
+```bash
 $ git config credential.helper store
 $ git push http://example.com/repo.git
 Username: <type your username>
@@ -367,7 +368,7 @@ Password: <type your password>
   - $XDG_CONFIG_HOME/git/credentials
   - $HOME/.config/git/credentials
 
-## 5. [已解决]如何设置分支文件夹(20201010)
+## 18. [已解决]如何设置分支文件夹(20201010)
 
 ### 业务背景
 
@@ -383,13 +384,13 @@ Password: <type your password>
 - 这个不需要手动设置
 - 分目录是 webstorm 自己的行为
 
-**问题分析**
+### 问题分析
 
 - 只要分支上使用了斜杠`/`
 - ide 会自动识别为目录
 - 所以以后可以按人员进行目录划分,以便于 ide 进行处理
 
-## 6. 【已解决】本地无法查看远程分支(20210105)
+## 19. [已解决]本地无法查看远程分支(20210105)
 
 ### 业务背景
 
@@ -409,3 +410,30 @@ Password: <type your password>
 - 再 fetch 即可
 
 不知道为什么会出现这种情况，反正多试几次就 ok 了
+
+## 20. [已解决].gitattributes 文件的作用是啥(20220415)
+
+### 问题描述
+
+今天在看 umi 仓库时,发现根目录有一个.gitattributes 的文件.本着就近就深的原则,深入了解一下这产文件到底用来干什么的
+
+### umi 的.gitattributes 内容
+
+```bash
+fixtures/* linguist-vendored
+examples/* linguist-vendored
+node_modules linguist-vendored
+*.js linguist-vendored
+```
+
+### 问题解决
+
+- 20220416
+
+.gitattributes 就是针对指定文件,进行特殊处于的配置文件.
+比如让.js 谁的的换行符是 LF,umi 中这个属性是忽略这 4 个目录下面的文件后缀名,以便让 github 正确识别项目类型,应该是 github 专用属性
+
+### 参考文档
+
+- [attributes 密文文档](https://git-scm.com/docs/gitattributes)
+- [linguist-vendored 用法](https://www.cnblogs.com/caiji/p/9536182.html)
