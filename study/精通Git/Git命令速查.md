@@ -108,10 +108,10 @@
 
 | 命令            | 含义                            |
 | --------------- | ------------------------------- |
-| get clean -n    | 输出即将删除的文件              |
-| get clean -f -d | 强制删除文件                    |
-| get clean -i    | 交互式删除文件                  |
-| get clean -x    | 删除包含 gitignore 中忽略的文件 |
+| git clean -n    | 输出即将删除的文件              |
+| git clean -f -d | 强制删除文件                    |
+| git clean -i    | 交互式删除文件                  |
+| git clean -x    | 删除包含 gitignore 中忽略的文件 |
 
 ### 1.6 git restore
 
