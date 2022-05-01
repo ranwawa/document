@@ -1,12 +1,26 @@
-### 1. [已解决]为什么 replace 用正则替换失效?
+# JavaScript QA
+
+- [1. [已解决]为什么 replace 用正则替换失效?](#1-已解决为什么-replace-用正则替换失效)
+- [2. [已解决]Object(obj)是干啥的?(191224)](#2-已解决objectobj是干啥的191224)
+- [3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)](#3-已解决samevalue-和-samevaluezero-是啥及区别200208)
+- [4. [已解决]各种进制的数字前面 2 个分别是啥(200213)](#4-已解决各种进制的数字前面-2-个分别是啥200213)
+- [5. [已解决]Array 有哪些方法是具有副作用的(20200222)](#5-已解决array-有哪些方法是具有副作用的20200222)
+- [6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)](#6-已解决functionprototypecallbind-是什么神操作20200508)
+- [7. [已解决]performance 到底怎么用的(20200510)](#7-已解决performance-到底怎么用的20200510)
+- [8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)](#8-performance-的时间差函数以及正常值-以及异常的解决办法20200511)
+- [9.[已解决] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)](#9已解决-amdcmdumd-以及-requirejscommonjsseajs-之间到底有什么关系及区别20200717)
+- [10. [已解决]for 循环各语句执行顺序(2022-04-30)](#10-已解决for-循环各语句执行顺序2022-04-30)
+
+## 1. [已解决]为什么 replace 用正则替换失效?
 
 ### 业务背景
 
 - 想把`/pages/order/list?current=1&status=4`转换成`orderList`
 - 结果 path2 却等于`orderList?current=1&status=4`
-  ### 示例代码
 
-```
+### 示例代码
+
+```javascript
 currentTrackEvent(url) {
       // 获取路由中间的那个片段
       let [, path] = url.match(/\/pages\/(.*?)\//);
@@ -25,13 +39,13 @@ currentTrackEvent(url) {
 - 20200222
 - 一直以为是正则的问题,结果是掉进坑里了,这个是替换函数嘛,return 回去的并非替换后的字符串
 
-```
-url.replace(/\/pages\/(.*?)\/(.)(.*?)(?=\?)/, function(m, p1, p2, p3) {
-          path2 = `${p1}${p2.toUpperCase ()}${p3}`;
-        })
+```javascript
+url.replace(/\/pages\/(.*?)\/(.)(.*?)(?=\?)/, function (m, p1, p2, p3) {
+  path2 = `${p1}${p2.toUpperCase()}${p3}`;
+});
 ```
 
-### 2.[已解决] Object(obj)是干啥的?(191224)
+## 2. [已解决]Object(obj)是干啥的?(191224)
 
 ### 业务背景
 
@@ -53,18 +67,18 @@ object = Object(object);
 - 参考网址
   - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-### 3. SameValue 和 SameValueZero 是啥及区别(200208)
+## 3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)
 
 ### 业务背景
 
 在 lodash 的一些函数中,总是会提到通过`SameValueZero`进行对比,可业务,比较值一般只用到`===`,所以要把这些基础术语也了解一下
 
-**参考**
+### 参考
 
 - http://ecma-international.org/ecma-262/6.0/#sec-returnifabrupt
 - http://es6.ruanyifeng.com/#docs/spec
 
-### 4. [已解决]各种进制的数字前面 2 个分别是啥(200213)
+## 4. [已解决]各种进制的数字前面 2 个分别是啥(200213)
 
 ### 业务背景
 
@@ -79,7 +93,7 @@ object = Object(object);
 - 参考
   - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number 最后一个示例
 
-### 5. [已解决]Array 有哪些方法是具有副作用的(20200222)
+## 5. [已解决]Array 有哪些方法是具有副作用的(20200222)
 
 ### 业务背景
 
@@ -126,7 +140,7 @@ object = Object(object);
 |    Array.prototype.unshift()     |         在开头添加元素          |                            elementN                             |       新的 length        |    副作用    |
 |     Array.prototype.values()     |         获取所有元素值          |                                                                 |   新的 Array 迭代对象    |
 
-### 6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)
+## 6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)
 
 ### 业务背景
 
@@ -178,7 +192,7 @@ while (--num) {
 console.timeEnd('list2');
 ```
 
-### 7. [已解决]performance 到底怎么用的(20200510)
+## 7. [已解决]performance 到底怎么用的(20200510)
 
 ### 业务背景
 
@@ -250,7 +264,7 @@ function bubbleSort(arr) {
 bubbleSort(sortTiming).forEach((ele) => console.log(ele.time, ele.name));
 ```
 
-### 8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)
+## 8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)
 
 ### 业务背景
 
@@ -285,7 +299,7 @@ function getPerfStats() {
 
   - pageSpeed insight https://developers.google.com/speed/pagespeed/insights/
 
-### 9.[已解决] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
+## 9. [已解决]AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
 
 ### 业务背景
 
@@ -312,3 +326,111 @@ function getPerfStats() {
 
 - 参考示例
   - https://www.cnblogs.com/adhehe/p/10182989.html
+
+## 10. [已解决]for 循环各语句执行顺序及作用域(2022-04-30)
+
+### 问题描述
+
+前几天刷牛客网题时遇到这么一个场景.不太确定执行顺序了.再强化强化
+
+### 问题解决
+
+```bash
+for ([initialization]; [condition]; [final-expression])
+   statement
+```
+
+执行顺序:
+
+1. initialization
+2. condition
+3. statement
+4. final-expression
+
+作用域: 块级作用域
+
+### 参考链接
+
+- [MDN for 语句](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for)
+
+## 11. [已解决]Function 构造函数的用法(2022-04-30)
+
+### 问题描述
+
+之前一直是使用的函数声明或者函数赋值语句.从来没用过 Function 构造函数,碰到题目了还是解不开呀
+
+查了下 MDN 和 eval 语句的用法差不多,只是作用域有所区别
+
+可把示例代码拷贝到浏览器执行却报了个错,这个和内容安全策略有关.不允许执行外部输入的 js 代码.
+
+```bash
+Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src chrome://resources chrome://test chrome://webui-test 'self'".
+```
+
+### 问题解决
+
+就是可以将字符串转换成函数.也可以传递一些外部参数.
+
+应用场景可以是在客户端动态执行服务器下发的一些代码.增加一些灵活性.可以试试小程序中能不能用
+
+### 参考链接
+
+- [Function 类 MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- [Function 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
+- [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy)
+
+## 12. [已解决]for...in 和 for...of 的区别(2022-04-30)
+
+### 问题描述
+
+忘了为啥会有这个问题,记 todo 里面好久了一直没解决,应该就是记不住到底谁是迭代 key 谁是迭代 value 吧
+
+### 问题解决
+
+|          | 迭代对象 | undefined                      |
+| -------- | -------- | ------------------------------ |
+| for...in | key      | 正常执行                       |
+| for...of | value    | 异常 undefined is not iterable |
+
+for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所以才会报错
+
+## 13. [已解决]ASCII 具体是怎么对比大小的?(2022-04-30)
+
+### 问题描述
+
+也是在准备面试题目的时候又遇到了 sort 这个函数.如果不传回调函数,就默认对比元素的 ascii 码
+
+可刚刚又重新看了下 MDN,不是比的 ASCII,而是 UTF-16 代码单元序列值
+
+但还是有必要掌握一下
+
+### 问题解决
+
+一个字节中显示,最高位是空位.一共 128 个字符即 2 的 7 次方
+
+大致的比较规则也是有迹可循, 控制字符<数字<大写<小写
+
+### 参考链接
+
+- [MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/ASCII#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86)
+- [百科介绍](https://baike.baidu.com/item/ASCII/309296?fr=aladdin)
+
+## 14. Content Security Policy 详情(2022-04-30)
+
+### 问题描述
+
+就在问题 12 中发现的,主要是和 web 安全相关.虽然现在不着重于 web 安全,但这个 CSP 是用在 HTML 还是 HTTP 中还是浏览器插件中,得搞清楚.以及具体有哪些值还是要搞清楚的,和安全相关的东西暂不用去深究
+
+### 问题解决
+
+### 参考链接
+
+## 15. UTF-16 代码单元序列详情(2022-04-30)
+
+### 问题描述
+
+在 13 中引出来的问题,其实之前也知道 js 是 unicode 字符编码,也知道 utf-8 和 utf-16.但都是模糊的.这下遇到之后就务必要把你搞清楚
+
+### 问题解决
+
+### 参考链接
