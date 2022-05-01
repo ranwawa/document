@@ -22,7 +22,7 @@
 
 | 中文                | 命令                                    | 系统快捷键                 | 自定义快捷键     |
 | :------------------ | :-------------------------------------- | :------------------------- | :--------------- |
-| 关闭其他 editor     | workbench.action.closeOtherEditors      |                            | Alt + e, Alt + o |
+| 关闭其他 editor     | workbench.action.closeOtherEditors      | ⌥ + ⌘ + t                  | Alt + e, Alt + o |
 | 关闭未编辑的 editor | workbench.action.closeUnmodifiedEditors | Ctrl + e, u                |                  |
 | 关闭所有的 editor   | workbench.action.closeEditorsInGroup    | Ctrl + e, w                |                  |
 | 关闭所有的 group    | workbench.action.closeAllGroups         | Ctrl + k, Ctrl + Shift + w |                  |
