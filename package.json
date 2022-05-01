@@ -4,7 +4,9 @@
   "description": "> An awesome project.",
   "main": "sw.js",
   "scripts": {
-    "test": "run-my-own-tests && promises-aplus-tests ./experience/Promise.js"
+    "test": "run-my-own-tests && promises-aplus-tests ./experience/Promise.js",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/ranwawa/document#readme",
   "devDependencies": {
+    "@ranwawa/commitlint-config": "^1.3.3",
     "@ranwawa/prettier-config": "^1.3.2"
   },
   "dependencies": {
