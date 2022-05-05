@@ -70,7 +70,7 @@
 
 ## 5. 项目相关
 
-| 中文             | 命令                             | 系统快捷键 | 自定义快捷键 |
-| ---------------- | -------------------------------- | ---------- | ------------ |
-| 新窗口中打在项目 | View: Toggle Side Bar Visibility | Ctrl + b   |              |
-| 打开最近项目     | workbench.action.openRecent      | Ctrl + r   |              |
+| 中文             | 命令                             | 系统快捷键           | 自定义快捷键 |
+| ---------------- | -------------------------------- | -------------------- | ------------ |
+| 新窗口中打在项目 | View: Toggle Side Bar Visibility | Ctrl + b <br/> ⌃ + r |              |
+| 打开最近项目     | workbench.action.openRecent      | Ctrl + r             |              |
