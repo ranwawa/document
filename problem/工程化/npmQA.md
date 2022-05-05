@@ -1,4 +1,16 @@
-### 1.[已解决] 发布 npm 包之前如何自动更新版本号
+# npm QA
+
+- [1.[已解决] 发布 npm 包之前如何自动更新版本号](#1已解决-发布-npm-包之前如何自动更新版本号)
+- [2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)](#2-已解决初始化安装项目时老是报这样一个错误-print-sss--sysversion_info200204)
+- [3. [已解决]发包时提示未登陆(20200302)](#3-已解决发包时提示未登陆20200302)
+- [4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)](#4-dependency-devdependency-peerdependency-之间到底有啥区别20210603)
+- [5. yarn install --frozen-lockfile 这个参数起什么作用](#5-yarn-install---frozen-lockfile-这个参数起什么作用)
+- [6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)](#6-npm-在服务器上执行-install-时报没有合适包的错误20211214)
+- [7. npm audit 是干什么的(20220416)](#7-npm-audit-是干什么的20220416)
+- [8. mono repo 下安装依赖包的问题(20220416)](#8-mono-repo-下安装依赖包的问题20220416)
+- [9. 创建一个 npm package.json 模板(2022-05-04)](#9-创建一个-npm-packagejson-模板2022-05-04)
+
+## 1.[已解决] 发布 npm 包之前如何自动更新版本号
 
 ### 业务背景
 
@@ -12,28 +24,23 @@
 - 参考网址:
   - https://docs.npmjs.com/cli/version.html
 
-```
+```javascript
 // .huskyrc.js
-const tasks = arr => arr.join(' && ');
+const tasks = (arr) => arr.join(' && ');
 module.exports = {
-  'hooks': {
-    'pre-push': tasks([
-      'npm version patch',
-      'npm publish',
-    ]),
+  hooks: {
+    'pre-push': tasks(['npm version patch', 'npm publish']),
   },
 };
 ```
 
-### 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
+## 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
 
 ### 业务背景
 
 在一个新的项目初始安装时,老是报这样一个错误,遇到好几次了,每次解决都比较快,所以就没专门纪录,这次又遇到了,干脆记一下吧,下次遇到看一眼就搞定,免得再花几分钟去搜索解决方法
 
-**报错内容**
-
-```
+```bash
 gyp verb check python checking for Python executable "python" in the PATH
 gyp verb `which` succeeded python C:\Users\Administrator\AppData\Local\Programs\Python\Python37\python.EXE
 gyp ERR! configure error
@@ -47,7 +54,7 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 
 ```
 
-**解决方法**
+### 解决方法
 
 - 200204
 - 这个一看就和 python 有关
@@ -56,13 +63,13 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 - 重新安装一个 2.x 版本的即可
   - 注意在安装的过程中,选择自动添加环境变量
 
-### 3. [已解决]发包时提示未登陆(20200302)
+## 3. [已解决]发包时提示未登陆(20200302)
 
 ### 业务背景
 
 N 久未更新 npm 包了,前几天试着更新到最新版本的,却提示我未登陆..那就登陆吧 npm login,结果又提示我用户已经存在...但是又未发现退出登陆或者删除用户的选项
 
-```
+```bash
 npm ERR! code E409
 npm ERR! 409 Conflict - PUT https://registry.npm.taobao.org/-/user/org.couchdb.user:ranwawa - [conflict] User ranwawa already exists
 ```
@@ -74,7 +81,7 @@ npm ERR! 409 Conflict - PUT https://registry.npm.taobao.org/-/user/org.couchdb.u
 - 通过 npm config set registry 把路径重新设置为 npm 官方的
 - 再重新登陆就好了
 
-```
+```bash
 npm config set registry http://registry.npmjs.org
 npm config set registry https://registry.npm.taobao.org
 ```
@@ -179,3 +186,52 @@ npm i 会安装哪些文件到 node_modules 目录下:
 - 所有依赖包及其子依赖包的 peerDependencies
 - 如果是 monorepo
   - 即使 packages 中没有任何东西,也会安 packages 下面的所有包
+
+## 9. [已解决]创建一个 npm package.json 模板(2022-05-04)
+
+### 问题描述
+
+创建 npm 包有点儿频繁,而 package.json 里面的字段那么多,很多是重复的.干脆就弄个模板吧,自动初始化通用字段,免得一个个复制,还容易搞错
+
+npm init -y 的时候会自动取一些默认配置,但内容还是太少了一点儿,只有下面几个
+
+```bash
+npm config set init-author-email "274544338@qq.com"
+npm config set init-author-name "ranwawa"
+npm config set init-author-url "https://github.com/ranwawa"
+npm config set init-license "ISC"
+npm config set init-module "~/.npm-init.js"
+npm config set init-author-url "https://github.com/ranwawa"
+npm config set init-version "0.0.0"
+```
+
+### 问题解决
+
+在用户根目录下面创建一个.npm-init.js 文件,导出一个配对对象,对象里的值会覆盖默认值
+
+```bash
+touch ~/.npm-init.js
+
+module.exports = {
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranwawa/configurations.git"
+  },
+ "bugs": {
+    "url": "https://github.com/ranwawa/configurations/issues"
+  },
+  "homepage": "https://github.com/ranwawa/configurations#readme",
+  "author": "ranwawa <274544338@qq.com> (https://github.com/ranwawa)",
+  "license": "ISC",
+}
+```
+
+### 参考链接
+
+- [npm 配置项](https://docs.npmjs.com/cli/v8/using-npm/config#init-author-email)
+- [.npm-init.js](https://docs.npmjs.com/creating-a-package-json-file#customizing-the-packagejson-questionnaire)
