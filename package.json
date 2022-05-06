@@ -22,7 +22,8 @@
   "devDependencies": {
     "@ranwawa/branchlint": "^1.1.0",
     "@ranwawa/commitlint-config": "^1.3.3",
-    "@ranwawa/prettier-config": "^1.3.2"
+    "@ranwawa/prettier-config": "^1.3.2",
+    "@ranwawa/treelint": "^0.1.1"
   },
   "dependencies": {
     "esm": "^3.2.25",
