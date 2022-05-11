@@ -34,4 +34,45 @@ ls *.xxx
 cat 第一章 shell脚本基础知识.md
 ```
 
+````shell
+if[ "$1" == 2 ]; then
+echo true
+fi;
+```
+
+```shell
+if ["$1" == 2 ]; then
+echo true
+fi;
+````
+
+```shell
+if [ "$1" == 2]; then
+echo true
+fi;
+```
+
+```shell
+if [ "$1" == 2] then
+echo true
+fi;
+```
+
+```shell
+if [ 1 <= 2 ]; then
+  echo 1小于等于2
+else
+  echo 1大于2
+fi;
+```
+
+```shell
+name='abc edf'
+if [ $name != abc ]; then
+  echo $name不等于abc
+else
+  echo $name等于abc
+fi;
+```
+
 ### 参考链接
