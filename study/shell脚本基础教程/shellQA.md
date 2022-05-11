@@ -75,4 +75,8 @@ else
 fi;
 ```
 
+```shell
+{ date +%Y-%m-%n; echo 123; ls } > test.txt
+```
+
 ### 参考链接
