@@ -2,6 +2,7 @@
 
 - [1. 源码中的`istanbul`有什么用(20200309)](#1-源码中的istanbul有什么用20200309)
 - [2. [已解决]scoped 原理(2022-05-09)](#2-已解决scoped-原理2022-05-09)
+- [3. vue3.x + volar + ts + vsocde 在 template 无法进行智能提示(2022-05-23)](#3-vue3x--volar--ts--vsocde-在-template-无法进行智能提示2022-05-23)
 
 ## 1. 源码中的`istanbul`有什么用(20200309)
 
@@ -37,3 +38,42 @@
 - [编写 loader 官方文档](https://webpack.js.org/contribute/writing-a-loader/#simple)
 - [vue-loader 原理官方文档](https://github.com/vuejs/vue-loader#how-it-works)
 - [转换单文件中块的底层函数](https://github.com/vuejs/component-compiler-utils)
+
+## 3. vue3.x + volar + ts + vsocde 在 template 无法进行智能提示(2022-05-23)
+
+### 问题描述
+
+示例代码如下
+
+```vue
+<template>
+  <div>
+    <form>
+      <label for="name"></label>
+      <input type="text" name="name" :value="name2" id="name" />
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+};
+</script>
+```
+
+最开始 volar 会在 template 标签上报下面这个错误
+
+```bash
+TypeScript intellisense is disabled on template. To enable,
+configure `"jsx": "preserve"` in the `"compilerOptions"` property of
+tsconfig or jsconfig. To disable this prompt instead,
+configure `"experimentalDisableTemplateSupport": true` in `"vueCompilerOptions"`
+property.volar
+```
+
+可在 tsconfig 中加上了这一句,虽然错误提示消息了,但照样没有智能提示,name2 那个地方应该要报错,但显示的是 any 类型
+
+### 问题解决
+
+### 参考链接

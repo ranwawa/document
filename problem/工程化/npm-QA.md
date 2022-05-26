@@ -307,7 +307,7 @@ branchlint.ps1
 
 将 branchlint 入口文件放到 bin/index.js,并且移出里面相对路径的引用.根因还是没找到
 
-## 10. lerna 项目中 chalk 依赖版本异常(2022-05-19)
+## 10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)
 
 ### 问题描述
 
@@ -339,3 +339,20 @@ npm install chalk4@npm:chalk@4.1.2
 
 - [npm 官方依赖解析原理](http://npm.github.io/npm-like-im-5/npm3/dependency-resolution.html)
 - [npm 别名的用法](https://docs.npmjs.com/cli/v8/commands/npm-install#workspace)
+
+## 11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)
+
+### 问题描述
+
+开发 eslint 公共配置文件.每次修改后要上传到 npm 仓库.再重新下载.相当麻烦.
+
+所以就用 npm link 进行链接
+
+虽然在 plugin-eslint 中修改后,在其他项目可以立即看到效果.但 plugin-eslint 的依赖全部没有安装.导致无法运行
+
+### 问题解决
+
+### 参考链接
+
+- [npm link 官方文档](https://docs.npmjs.com/cli/v8/commands/npm-link#save)
+- [node 中的解决办法](https://www.chevtek.io/you-can-finally-npm-link-packages-that-contain-peer-dependencies/)

@@ -59,6 +59,7 @@
 | git branch --merged SHA                       | 查找合并过 SHA 的分支                  |
 | git branch --no-merged SHA                    | 查找没有合并过 SHA 的分支              |
 |                                               |                                        |
+| git branch -m 旧分支名 新分支名               | 修改分支名                             |
 |                                               |                                        |
 |                                               |                                        |
 |                                               |                                        |
@@ -73,7 +74,7 @@
 | git checkout 文件名             | 撤消对工作目录中文件的更改           |
 | git checkout SHA1 文件名        | 将仓库中 SHA1 处的文件检出到暂存区中 |
 | git checkout -b 分支名 源分支名 | 创建并切换分支                       |
-|                                 |                                      |
+| git checkout --orphan 分支名    | 创建一个没有父节点的分支             |
 |                                 |                                      |
 |                                 |                                      |
 |                                 |                                      |
@@ -404,6 +405,11 @@ git config --global rerere.enable=true
 | 命令                                                | 含义       |
 | --------------------------------------------------- | ---------- |
 | git verify-pack -v .git/objects/pack/pack-29xxx.idx | 查询包信息 |
+### 6.5 git rm
+
+| 命令       | 含义               |
+| ---------- | ------------------ |
+| git rm -rf | 删除所有对象及文件 |
 
 ## 7. 检查与比较
 

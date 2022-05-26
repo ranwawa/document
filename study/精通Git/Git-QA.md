@@ -78,19 +78,19 @@ Global Regular Expression Parser
 
 ### 问题解决
 
-| 符号       | 含义             |
-| ---------- | ---------------- | --------- |
-| \*         | 0 或多个字符     |
-| ?          | 1 个字符         |
-| [...]      | 类似正则中的范围 |
-| [!...]     | 取反             |
-| [^...]     | 取反             |
-| !(pattern  | patter)          | 取反      |
-| ?(pattern  | patter)          | 0 或 1 个 |
-| +(pattern  | patter)          | 1 或多个  |
-| \*(pattern | patter)          | 0 或多个  |
-| @(pattern  | patter)          | 1 个      |
-| \*\*       | 0 或多层目录     |
+| 符号                | 含义             |
+| ------------------- | ---------------- |
+| \*                  | 0 或多个字符     |
+| ?                   | 1 个字符         |
+| [...]               | 类似正则中的范围 |
+| [!...]              | 取反             |
+| [^...]              | 取反             |
+| !(pattern\|patter)  | 取反             |
+| ?(pattern\|patter)  | 0 或 1 个        |
+| +(pattern\|patter)  | 1 或多个         |
+| \*(pattern\|patter) | 0 或多个         |
+| @(pattern\|patter)  | 1 个             |
+| \*\*                | 0 或多层目录     |
 
 参考： https://www.npmjs.com/package/glob
 
