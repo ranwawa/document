@@ -356,3 +356,32 @@ npm install chalk4@npm:chalk@4.1.2
 
 - [npm link 官方文档](https://docs.npmjs.com/cli/v8/commands/npm-link#save)
 - [node 中的解决办法](https://www.chevtek.io/you-can-finally-npm-link-packages-that-contain-peer-dependencies/)
+
+## 12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
+
+### 问题描述
+
+也是前两天在看 VTL 时,里面有提到这几个字段.看上去是不同模块加载方案的实现.看了下 VTL 的源码,它确实也生成了一个 cjs 和 mjs 两个不同的入口文件.那就彻底搞清楚他们是怎么用的吧
+
+### 问题解决
+
+| 字段名   | 作用                                            | 默认值   |
+| -------- | ----------------------------------------------- | -------- |
+| main     | 指向 cmd 模块或 esm 模块                        | index.js |
+| browser  | 指向 esm 模块,如果在 node 环境中引入,会提示报错 |
+| module   | deprecated 同上                                 |
+| umd:main | deprecated 同上                                 |
+
+文件入口想着字段
+
+| 字段名  | 作用                                   | 默认值         |
+| ------- | -------------------------------------- | -------------- |
+| files   | 打包时上传哪些文件,可用于优化包大小    | \*             |
+| bin     | 可执行文件的名字及路径                 | cli 命令用得着 |
+| exports | 可同时定义多个入口文件,优先级大于 main |                |
+
+### 参考链接
+
+- [VTL 文档](https://testing-library.com/docs/dom-testing-library/install/)
+- [npm 文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main)
+- [node 文件](https://nodejs.org/api/packages.html#packages_conditional_exports)

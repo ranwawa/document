@@ -5,6 +5,13 @@
 - [3. [已解决]如何获取一个组件的具体 CSS 样式值,以及如何测试 prop 是否验证失败(20200108)](#3-已解决如何获取一个组件的具体-css-样式值以及如何测试-prop-是否验证失败20200108)
 - [4. [已解决]运行单元测试时,如何只运行其中一个文件(20200116)](#4-已解决运行单元测试时如何只运行其中一个文件20200116)
 - [5. [已解决]在`vue`项目中运行`jest`,引入的一个`lodash`模块报错(20210402)](#5-已解决在vue项目中运行jest引入的一个lodash模块报错20210402)
+- [6. [已解决]测试文件中引入的文件中,如果使用了 webpack 别名会报错(20210720)](#6-已解决测试文件中引入的文件中如果使用了-webpack-别名会报错20210720)
+- [7. vue 测试中,模拟$route 时报错(20210720)](#7-vue-测试中模拟route-时报错20210720)
+- [8. 如何在一个老的 vue 项目中启用 jest(20210720)](#8-如何在一个老的-vue-项目中启用-jest20210720)
+- [9. 根据 Vue Test Utils 官网指引安装后,运行 jest 命令之后报异常(20210720)](#9-根据-vue-test-utils-官网指引安装后运行-jest-命令之后报异常20210720)
+- [10. 如何 mock 一个基于 axios 的实际的接口函数(20210720](#10-如何-mock-一个基于-axios-的实际的接口函数20210720)
+- [11. [已解决]运行完 test:coverrage 后,pakeage.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)](#11-已解决运行完-testcoverrage-后pakeagejson-里面的-thresholds-自动更新的逻辑是怎么实现的20211013)
+- [12. [已解决] 如何使用`setSystemTime`模拟一个时间(20211028)](#12-已解决-如何使用setsystemtime模拟一个时间20211028)
 - [13. [已解决]忽略 test.js 文件(20211230)](#13-已解决忽略-testjs-文件20211230)
 - [14. [已解决]无法识别 css 文件(20211130)](#14-已解决无法识别-css-文件20211130)
 - [17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)](#17-已解决通过-vue-cli-service-testunit---watch-运行测试报异常20211203)
@@ -12,7 +19,9 @@
 - [19. [已解决]vue 测试中无法识别全局组件(20211212)](#19-已解决vue-测试中无法识别全局组件20211212)
 - [20. 在 jest 中如何模拟 location.href(20211212)](#20-在-jest-中如何模拟-locationhref20211212)
 - [21. 收集指定文件的覆盖率](#21-收集指定文件的覆盖率)
-- [22. [已解决]jest 引用不存在(2022-05-17)](#22-已解决jest-引用不存在2022-05-17)
+- [22. [已解决]jest 对象引用不存在(2022-05-17)](#22-已解决jest-对象引用不存在2022-05-17)
+- [22. [已解决]ts 文件引入 lodash 时引入进来的是 undefined(2022-05-17)](#22-已解决ts-文件引入-lodash-时引入进来的是-undefined2022-05-17)
+- [23. spyOn 无法生效(2022-05-17)](#23-spyon-无法生效2022-05-17)
 
 ## 1. [已解决]为什么单元测试的后缀名要是 spec.js(191230)
 
@@ -100,7 +109,7 @@ describe('prop type测试', function () {
 
 开始在生产项目中使用 jest 来测试 vue 项目,按照官方文档的操作安装,`npm run test`的时候就报错了
 
-**安装步骤**
+安装步骤
 
 1. ```bash
    npm install --save-dev jest @vue/test-utils
@@ -133,7 +142,7 @@ describe('prop type测试', function () {
    };
    ```
 
-**测试代码**
+测试代码
 
 ```javascript
 import { initInvoiceType } from '../reset-data';
@@ -142,7 +151,7 @@ test('when the aggregation api  does not return invoice list, it should return 0
 });
 ```
 
-**报错内容**
+报错内容
 
 ```bash
  FAIL  src/pages/order/common/__test__/reset-data.spec.js
@@ -182,7 +191,7 @@ test('when the aggregation api  does not return invoice list, it should return 0
       at Object.<anonymous> (src/pages/order/common/reset-data.js:7:1)
 ```
 
-**原因分析**
+原因分析
 
 感觉是 jest 默认忽略了 node_modules 的解析,所以我得去把 lodash 单独给打开才行
 
@@ -190,13 +199,11 @@ test('when the aggregation api  does not return invoice list, it should return 0
 
 - 20210402
 
-- ```
-  {
-    "transformIgnorePatterns": [
-      "node_modules/(?!lodash-es/)"
-    ]
-  }
-  ```
+```json
+{
+  "transformIgnorePatterns": ["node_modules/(?!lodash-es/)"]
+}
+```
 
 - 参考: https://jestjs.io/zh-Hans/docs/tutorial-react-native#transformignorepatterns-customization
 
@@ -215,13 +222,13 @@ test('when the aggregation api  does not return invoice list, it should return 0
 
 ## 9. 根据 Vue Test Utils 官网指引安装后,运行 jest 命令之后报异常(20210720)
 
-**官网地址**
+官网地址
 
 https://vue-test-utils.vuejs.org/zh/
 
-**报错内容**
+报错内容
 
-```
+```bash
 Test environment found at "/Users/ranwawa/Documents/project/llm-customer-service/node_modules/jest-environment-jsdom-fifteen/lib/index.js" does not export a "getVmContext" method, which is mandatory from Jest 27. This method is a replacement for "runScript".
 Test environment found at "/Users/ranwawa/Documents/project/llm-customer-service/node_modules/jest-environment-jsdom-fifteen/lib/index.js" does not export a "getVmContext" method, which is mandatory from Jest 27. This method is a replacement for "runScript".
 Test environment found at "/Users/ranwawa/Documents/project/llm-customer-service/node_modules/jest-environment-jsdom-fifteen/lib/index.js" does not export a "getVmContext" method, which is mandatory from Jest 27. This method is a replacement for "runScript".
@@ -262,15 +269,15 @@ Ran all test suites.
 
 ## 10. 如何 mock 一个基于 axios 的实际的接口函数(20210720
 
-## 11. [已解决]运行完 test:coverrage 后,pakeage.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)
+## 11. [已解决]运行完 test:coverage 后,package.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)
 
 ### 业务背景
 
 刚刚在做 webApp 的开发,运行完 coverage 之后居然自动更新了.想知道是怎么做到的.
 
-**终端返回结果**
+终端返回结果
 
-```
+```shell
 new coverage thresholds:
 {
   "lines": 79,
@@ -343,21 +350,20 @@ expect(spyGetLogs.mock.calls[1][0]).toEqual({
 - 需要在 jest 配置文件中的`moduleNameMapper`中将这些 css,图片等资源指向一个模拟文件
 - 参考: https://jestjs.io/docs/webpack#mocking-css-modules
 
-15. 通过@vue/cli-plugin-unit-jest 运行测试,无法识别 jest.config.ts 文件.只能识别 jest.config.js 文件
+## 15. 通过@vue/cli-plugin-unit-jest 运行测试,无法识别 jest.config.ts 文件.只能识别 jest.config.js 文件
 
 ## 17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)
 
-**异常内容**
+### 问题描述
 
 ```bash
 Error: EMFILE: too many open files, watch
     at FSEvent.FSWatcher._handle.onchange (node:internal/fs/watchers:204:21)
 ```
 
-**尝试解决**
+尝试解决
 
 - 升级到最新的 jest -> 无效
-
 - 删除 node_modules 重新安装 -> 无效(参考: https://github.com/facebook/jest/issues/512)
 - 在 jest.config.js 中配置 transformIgnorePatterns: ['/node_modules/'] -> 无效
 
@@ -367,7 +373,7 @@ Error: EMFILE: too many open files, watch
 
 - 安装 watchman -> 生效(参考: https://flaviocopes.com/react-native-emfile-too-many-open-files/)
 
-```
+```shell
 brew install watchman
 ```
 
@@ -436,7 +442,7 @@ module.exports = config;
 
 ## 19. [已解决]vue 测试中无法识别全局组件(20211212)
 
-#### 问题描述
+### 问题描述
 
 渲染一个组件
 
@@ -460,7 +466,7 @@ module.exports = config;
              <Root>
 ```
 
-#### 问题分析
+### 问题分析
 
 因为是单元测试,没有走 Vue.use 注册全局组件
 
@@ -468,7 +474,7 @@ module.exports = config;
 
 并且要全局注册,避免在每个文件中都来注入一次
 
-#### 问题解决
+### 问题解决
 
 - 20211212
 - 通过 setup 走一下 vue.use 即可
@@ -484,13 +490,13 @@ import HllUI from 'hll-m-ui';
 Vue.use(HllUI);
 ```
 
-#### 参考链接
+### 参考链接
 
 - https://github.com/vuejs/vue-test-utils/issues/1459
 
 ## 20. 在 jest 中如何模拟 location.href(20211212)
 
-#### 问题描述
+### 问题描述
 
 渲染一个 vue 组件,组件中引用了一个 Mix,mix 中取了 location.query 来格式化所有入参
 
@@ -626,3 +632,21 @@ import { cosmiconfigSync } from 'cosmiconfig';
 - 临时解决,修改下 config.ts 中的引入方式,但这样不科学
 
 ### 参考链接
+
+## 23. [已解决]testEnvironment 详解(2022-05-27)
+
+### 问题描述
+
+之前在 partnerportal 项目中编写单元测试时,localStorage 需要自己来模拟.而 web 项目中却不需要,当时还以为是引入了一个啥公共的测试工具来自动模拟全局变量.可找了一圈没发现引入别的包.
+
+前两天在看 VTL 时,有见到 jest 配置文件中这个变量可以设置为 jsdom,好像就是解决这个的.那就深入了解一下
+
+### 问题解决
+
+这个就是用来设置环境的的参数,可选值有 node/jsdom
+
+还可以自定义环境.这样就可以一次性模拟微信小程序或者 app 上的所有函数和变量了
+
+### 参考链接
+
+- [jest 官方文件](https://jestjs.io/docs/configuration#testenvironment-string)

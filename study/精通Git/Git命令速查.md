@@ -411,6 +411,14 @@ git config --global rerere.enable=true
 | ---------- | ------------------ |
 | git rm -rf | 删除所有对象及文件 |
 
+### 6.6 git config
+
+| 命令                              | 含义             |
+| --------------------------------- | ---------------- |
+| git config --list                 | 查看所有配置     |
+| git config --global --list        | 查看 global 配置 |
+| git config --global http.proxy '' | 重置代理参数     |
+
 ## 7. 检查与比较
 
 ### 7.1 git show

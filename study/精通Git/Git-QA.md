@@ -19,6 +19,7 @@
 - [18. [已解决]如何设置分支文件夹(20201010)](#18-已解决如何设置分支文件夹20201010)
 - [19. [已解决]本地无法查看远程分支(20210105)](#19-已解决本地无法查看远程分支20210105)
 - [20. [已解决].gitattributes 文件的作用是啥(20220415)](#20-已解决gitattributes-文件的作用是啥20220415)
+- [21. 无法向 github 推送东西(2022-05-26)](#21-无法向-github-推送东西2022-05-26)
 
 ## 1. mac 上的 XCode 命令行是啥(20220303)
 
@@ -437,3 +438,29 @@ node_modules linguist-vendored
 
 - [attributes 密文文档](https://git-scm.com/docs/gitattributes)
 - [linguist-vendored 用法](https://www.cnblogs.com/caiji/p/9536182.html)
+
+## 21. 无法向 github 推送东西(2022-05-26)
+
+### 问题描述
+
+昨天不知道操作了一下啥,突然就无法向 github 推送了
+
+```bash
+ssh: connect to host github.com port 22: Connection refused
+```
+
+问题排除:
+
+- gitlab 可以正常推送
+- 更换了 ssh key,照样无法推送
+- 把 ssh 协议换成 http 协议照样报错
+- 但是可以直接访问 github
+- 还以为是图书馆防火墙的问题,换成自己的热点也不行
+
+```bash
+Failed to connect to github.com port 443 after 3 ms: Connection refused
+```
+
+### 问题解决
+
+### 参考链接
