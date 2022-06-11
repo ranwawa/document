@@ -131,7 +131,7 @@ test:
  npm ERR! notarget
 ```
 
-## 7. npm audit 是干什么的(20220416)
+## 7. [已解决]npm audit 是干什么的(20220416)
 
 ### 问题描述
 
@@ -164,6 +164,14 @@ To address all issues, run:
 
 ### 问题解决
 
+20220418
+
+是什么: 用来分析依赖包的安全漏洞
+
+怎么工作的: 通过将依赖包信息发送到两个专门的网站进行分析
+
+有什么用: 在 ci 节点中,可以对整个 prod 的依赖包扫描一下,以提前查出问题
+
 ## 8. mono repo 下安装依赖包的问题(20220416)
 
 ### 问题描述
@@ -178,4 +186,70 @@ npm i 会安装哪些文件到 node_modules 目录下:
 - 所有依赖包及其子依赖包的 dependencies
 - 所有依赖包及其子依赖包的 peerDependencies
 - 如果是 monorepo
+
   - 即使 packages 中没有任何东西,也会安 packages 下面的所有包
+
+## 9. [已解决].npmrc 是干什么的(20220418)
+
+### 问题描述
+
+最近看到好几个 github 项目里面都有.npmrc 这个配置文件,到底是干什么用的.要搞清楚
+
+### 问题解决
+
+是什么: npm 的配置文件,类似 git 配置文件一样,分为命令行,全局变量,全局文件...项目配置文件,即这个.npmrc
+
+怎么用: npm config 里面的选项都可以进行设置
+
+有什么用: 目前知道除了初始化时那些默认选项可以用,其他的变量查 config 文档即可
+
+## 10. [已解决]本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
+
+### 问题描述
+
+昨天写了一个包,用来验证分支格式,但发布到 npm 后,用 npx 运行却报错
+
+```bash
+npm ERR! could not determine executable to run
+```
+
+### 问题解决
+
+参考 eslint,需要在 package 下配置一个 bin 的字段,来指向这个可执行文件.因为 npm 在运行命令时,是运行的 node_modules/.bin 下的命令,而这些命令又是从 bin 这个字段中解析过来的
+
+## 11. [已解决]在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
+
+### 问题描述
+
+本地执行成功之后,想通过 gitlab-ci 来执行.可以报这个错,
+
+```bash
+$ npm i
+$ npx --no-install @ranwawa/branchlint
+node:internal/errors:465
+    ErrorCaptureStackTrace(err);
+    ^
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/builds/learnin4/configs/node_modules/.bin/src/linter.js' imported from /builds/learnin4/configs/node_modules/.bin/branchlint.mjs
+```
+
+检查了下,本地的.bin 目录下没有.js 和.mjs 结尾的 branchlint 文件,只有下面三种形式,eslint 也一样
+
+```bash
+branchlint
+branchlint.cmd
+branchlint.ps1
+```
+
+然后替换了一下命令,试试 npx --no-install commitlint --from $COMMON_ANCESTOR 却又能成功执行.
+
+在本地切换了 node 版本和 gitlabci 一致到 v17.9.0.先 npm i 然后再执行却没有报错
+
+删除 package-lock 上传再试,在 ci 中还是报同样的错
+
+仔细看看报错,才发现是 linter 这个引入包没有找到,那就和相对路径有关系.参照 eslint 把入口文件放到 bin/index.js 下面即可,结果相对路径还是去找到根目录下的 node_modules 还是有问题
+
+干脆就不引入文件了,直接把引入的文件放到这个 bin/index.js 里面来.代码少这样做可以,可是代码多的时候,还是要解决根本问题才行呀
+
+### 问题解决
+
+将 branchlint 入口文件放到 bin/index.js,并且移出里面相对路径的引用.根因还是没找到
