@@ -47,14 +47,16 @@
 | 命令                                          | 含义                                   |
 | --------------------------------------------- | -------------------------------------- |
 | git branch                                    | 查询所有本地分支                       |
+| git branch --list -a                          | 查询所有分支(本地+远程)                |
 | git branch -d name                            | 删除指定分支                           |
 | git branch -d --force name                    | 强制删除分支                           |
 | git branch -v                                 | 查询所有本地分支及其最新提交           |
 | git branch -vv                                | 查询所有本地分支及其最新提交和跟踪分支 |
-| git branch --merged                           | 查询所有已经合并到当前分支的分支       |
-| git branch --no-merged                        | 查询所有没有合并到当前分支的分支       |
 | git branch --set-upstream-to 本地的远程分支名 | 设置跟踪分支                           |
-|                                               |                                        |
+| git branch --contains SHA                     | 查找包含 SHA 的分支                    |
+| git branch --no-contains SHA                  | 查找不包含 SHA 的分支                  |
+| git branch --merged SHA                       | 查找合并过 SHA 的分支                  |
+| git branch --no-merged SHA                    | 查找没有合并过 SHA 的分支              |
 |                                               |                                        |
 |                                               |                                        |
 |                                               |                                        |

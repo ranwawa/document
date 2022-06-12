@@ -175,9 +175,9 @@ interface {
 - 这是 umi 的一个 bug 而已.要么就用@ts-ignore,要么就换个方法
 - 参考: https://github.com/umijs/umi/issues/5278
 
-### 5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
+## 5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
 
-**报错内容**
+### 报错内容
 
 ```bash
     TypeScript diagnostics (customize using `[jest-config].globals.ts-jest.diagnostics` option):
@@ -186,7 +186,7 @@ interface {
     3 import CancelOrderButtonsThree from '../cancel-order-buttons-three'
 ```
 
-**原因分析**
+### 原因分析
 
 没有类型声明文件,就无法引用
 
@@ -196,7 +196,7 @@ interface {
 
 1. 得自己针对所有 vue 文件声明一个类型声明文件
 
-```
+```typescript
 // src/typings/vue-shim.d.ts
 
 declare module '*.vue' {
@@ -209,7 +209,7 @@ declare module '*.vue' {
 
 - 方法 1: 加入新的 type 目录
 
-```
+```json
 // tsconfig.json
 {
   "compilerOptions": {
@@ -221,7 +221,7 @@ declare module '*.vue' {
 
 - 方法 2: 指定项目目录,这样就会自动扫描该目录下所有的 d.ts.和问题 1 一样
 
-```
+```json
 {
 	"include": ["src"]
 }
@@ -229,6 +229,20 @@ declare module '*.vue' {
 
 3. 在引入的地方加上.vue 后缀名
 
-```
+```typescript
 import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue'
 ```
+
+## 6. [已解决]!.语法(2022-06-12)
+
+### 问题描述
+
+老是见到`!.`语法,忘记啥意思.记录下
+
+### 问题解决
+
+其实只能算是后置的`!`语法,表示类型断言...肯定前面这个变量不是null/undefined
+
+### 参考链接
+
+- [typescript官方文档](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)

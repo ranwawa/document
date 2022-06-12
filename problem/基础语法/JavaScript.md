@@ -458,3 +458,17 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 ### 问题解决
 
 ### 参考链接
+
+## 16. [已解决]??语法(2022-06-12)
+
+### 问题描述
+
+见过几次.老是忘记.也不清楚他是js还是ts的语法.专门来了解下.
+
+### 问题解决
+
+js中的语法,和||给默认值差不多,只是当左侧是null和undefined时才选择右侧的值
+
+### 参考链接
+
+- [mdn官方文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
