@@ -47,14 +47,17 @@
 | 命令                                          | 含义                                   |
 | --------------------------------------------- | -------------------------------------- |
 | git branch                                    | 查询所有本地分支                       |
+| git branch --list -a                          | 查询所有分支(本地+远程)                |
 | git branch -d name                            | 删除指定分支                           |
 | git branch -d --force name                    | 强制删除分支                           |
 | git branch -v                                 | 查询所有本地分支及其最新提交           |
 | git branch -vv                                | 查询所有本地分支及其最新提交和跟踪分支 |
-| git branch --merged                           | 查询所有已经合并到当前分支的分支       |
-| git branch --no-merged                        | 查询所有没有合并到当前分支的分支       |
 | git branch --set-upstream-to 本地的远程分支名 | 设置跟踪分支                           |
 | git branch --show-current                     | 查询当前分支名                         |
+| git branch --contains SHA                     | 查找包含 SHA 的分支                    |
+| git branch --no-contains SHA                  | 查找不包含 SHA 的分支                  |
+| git branch --merged SHA                       | 查找合并过 SHA 的分支                  |
+| git branch --no-merged SHA                    | 查找没有合并过 SHA 的分支              |
 |                                               |                                        |
 |                                               |                                        |
 |                                               |                                        |
@@ -126,6 +129,7 @@
 | 命令                                | 含义                                         |
 | ----------------------------------- | -------------------------------------------- |
 | git log                             | 显示所有日志                                 |
+| git log package.json                | 包含指定路径的所有日志                       |
 | git log --oneline                   | 一行中显示                                   |
 | git log --abbrev-commit             | 显示简单的 SHA1                              |
 | git log -g branch_name              | 以 log 的形式显示分支上的 reflog 信息        |
@@ -327,17 +331,19 @@
 
 ### 6.1 git rev-parse
 
-| 命令                         | 含义                               |
-| ---------------------------- | ---------------------------------- |
-| git rev-parse branch_name    | 查看分支顶部指向的 SHA1            |
-| git rev-parse --short HEAD~1 | 查看第 2 个 commit 的 SHA 简短形式 |
+| 命令                             | 含义                               |
+| -------------------------------- | ---------------------------------- |
+| git rev-parse branch_name        | 查看分支顶部指向的 SHA1            |
+| git rev-parse --short HEAD~1     | 查看第 2 个 commit 的 SHA 简短形式 |
+| git rev-parse --abbrev-ref HEAD~ | 查看当前分支名                     |
 
-### 6.2 git branch-filter
+### 6.2 git filter-branch
 
-| 命令                                                     | 含义                                     |
-| -------------------------------------------------------- | ---------------------------------------- |
-| git branch-filter --tree-filter 'rm -f 文件名' HEAD      | 删除当前分支到 HEAD 所有提交中的某个文件 |
-| git branch-filter --tree-filter -all 'rm -f 文件名' HEAD | 删除所有分支到 HEAD 所有提交中的某个文件 |
+| 命令                                                                          | 含义                                                                                    |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| git filter-branch --tree-filter 'rm -f 文件名' HEAD                           | 删除当前分支到 HEAD 所有提交中的某个文件                                                |
+| git filter-branch --tree-filter -all 'rm -f 文件名' HEAD                      | 删除所有分支到 HEAD 所有提交中的某个文件                                                |
+| git filter-branch --index-filter 'git rm --ignore-umatch --cached -r .vscode' | 删除当前分支所有提交中的.vscode 目录,`p368`和前面的删除区别在于只删索引,而非文件,速度快 |
 
 ### 6.3 git ls-files
 
@@ -356,6 +362,48 @@ git config --global rerere.enable=true
 | 命令       | 含义                   |
 | ---------- | ---------------------- |
 | git rerere | 显示保存的解决冲突纪录 |
+
+### 6.5 git gc
+
+启用垃圾回收,将所有对象文件放到包中
+
+| 命令   | 含义 |
+| ------ | ---- |
+| git gc |      |
+
+### 6.6 git count-objects
+
+统计包信息
+
+| 命令                 | 含义         |
+| -------------------- | ------------ |
+| git count-objects -v | 查看包的大小 |
+
+### 6.7 git rev-list
+
+查询两个节点之间的所有 SHA
+
+| 命令                         | 含义                            |
+| ---------------------------- | ------------------------------- |
+| git rev-list SHA1..SHA2      | 查询 SH1 到 SHA2 之间的所有 SHA |
+| git rev-list --all           | 查询所有 SHA                    |
+| git rev-list --all --objects | 查询所有 SHA 及对象名           |
+
+### 6.8 git cat-file
+
+查询两个节点之间的所有 SHA
+
+| 命令                    | 含义                        |
+| ----------------------- | --------------------------- |
+| git cat-file commit SHA | 查询对应 SHA 的原始提交信息 |
+
+### 6.9 git verify-pack
+
+查询包信息
+
+| 命令                                                | 含义       |
+| --------------------------------------------------- | ---------- |
+| git verify-pack -v .git/objects/pack/pack-29xxx.idx | 查询包信息 |
 
 ## 7. 检查与比较
 

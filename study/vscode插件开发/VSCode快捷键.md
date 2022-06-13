@@ -63,10 +63,11 @@
 
 ## 4. 侧边栏相关
 
-| 中文       | 命令                             | 系统快捷键              | 自定义快捷键 |
-| ---------- | -------------------------------- | ----------------------- | ------------ |
-| 切换侧边栏 | View: Toggle Side Bar Visibility | Ctrl + b <br /> ⌘ + b   |              |
-| 删除文件   | deleteFile                       | delete <br/> ⌘ + delete |              |
+| 中文       | 命令                                           | 系统快捷键              | 自定义快捷键 |
+| ---------- | ---------------------------------------------- | ----------------------- | ------------ |
+| 切换侧边栏 | View: Toggle Side Bar Visibility               | Ctrl + b <br /> ⌘ + b   |              |
+| 删除文件   | deleteFile                                     | delete <br/> ⌘ + delete |              |
+| 折叠目录   | workbench.files.action.collapseExplorerFolders | Alt + e, Alt + h <br/>  |              |
 
 ## 5. 项目相关
 

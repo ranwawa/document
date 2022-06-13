@@ -4,6 +4,7 @@
 - [2. [已解决]Object(obj)是干啥的?(191224)](#2-已解决objectobj是干啥的191224)
 - [3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)](#3-已解决samevalue-和-samevaluezero-是啥及区别200208)
 - [4. [已解决]各种进制的数字前面 2 个分别是啥(200213)](#4-已解决各种进制的数字前面-2-个分别是啥200213)
+- [业务背景](#业务背景)
 - [5. [已解决]Array 有哪些方法是具有副作用的(20200222)](#5-已解决array-有哪些方法是具有副作用的20200222)
 - [6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)](#6-已解决functionprototypecallbind-是什么神操作20200508)
 - [7. [已解决]performance 到底怎么用的(20200510)](#7-已解决performance-到底怎么用的20200510)
@@ -64,8 +65,10 @@ object = Object(object);
   - 如果是原始值,则转换成对应的包装对象
 - 这样转换后,就可以保证在后面的语法中正常的使用属性提取运算
   - 避免空指针异常
-- 参考网址
-  - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+### 参考网址
+
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
 
 ## 3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)
 
@@ -73,14 +76,23 @@ object = Object(object);
 
 在 lodash 的一些函数中,总是会提到通过`SameValueZero`进行对比,可业务,比较值一般只用到`===`,所以要把这些基础术语也了解一下
 
-### 参考
+### 问题解决
+
+20220420
+
+SameValue 是 Object.is,和===的区别在于, Object.is(NaN, NaN)为 true, Object.is(0, -0)为 false
+
+SameValueZero 是 includes,Set,Map 的内置比较方法,和 SameValue 的区别在于(new Set().add(0)).has(-0)为 true
+
+### 参考网址
 
 - http://ecma-international.org/ecma-262/6.0/#sec-returnifabrupt
 - http://es6.ruanyifeng.com/#docs/spec
+- [MDN 文档介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
 ## 4. [已解决]各种进制的数字前面 2 个分别是啥(200213)
 
-### 业务背景
+## 业务背景
 
 昨天在看 lodash 的 toNumber 源码时,里面针对各种字符串形式的 2,8,16 进制数进行了兼容和转换.就想彻底搞清楚,每个进制前面分别是以哪两个字符开头的
 
@@ -139,6 +151,10 @@ object = Object(object);
 |    Array.prototype.toString()    |          转换成字符串           |                            toString                             |          String          |
 |    Array.prototype.unshift()     |         在开头添加元素          |                            elementN                             |       新的 length        |    副作用    |
 |     Array.prototype.values()     |         获取所有元素值          |                                                                 |   新的 Array 迭代对象    |
+
+20220420
+其实还是没记住,应该用个助记法.[cf 泡泡热死锁死俺]
+copyWithin, fill, pop, push, reverse, shift, sort, splice, unshift
 
 ## 6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)
 
@@ -299,7 +315,7 @@ function getPerfStats() {
 
   - pageSpeed insight https://developers.google.com/speed/pagespeed/insights/
 
-## 9. [已解决]AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
+## 9.[已解决] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
 
 ### 业务背景
 
@@ -421,6 +437,14 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 
 就在问题 12 中发现的,主要是和 web 安全相关.虽然现在不着重于 web 安全,但这个 CSP 是用在 HTML 还是 HTTP 中还是浏览器插件中,得搞清楚.以及具体有哪些值还是要搞清楚的,和安全相关的东西暂不用去深究
 
+## 9. requestAnimationFrame 的用法(20220422)
+
+### 问题描述
+
+前几天在牛客上答题时遇到这个函数,从题目上来看是一个异步函数.从字面来看和动画有关.但具体是什么,有什么应用场景,兼容性怎么样还需要深入了解
+
+后来看了看文档,也没看出个所以然来.必须得手动实现一下才行
+
 ### 问题解决
 
 ### 参考链接
@@ -434,3 +458,17 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 ### 问题解决
 
 ### 参考链接
+
+## 16. [已解决]??语法(2022-06-12)
+
+### 问题描述
+
+见过几次.老是忘记.也不清楚他是js还是ts的语法.专门来了解下.
+
+### 问题解决
+
+js中的语法,和||给默认值差不多,只是当左侧是null和undefined时才选择右侧的值
+
+### 参考链接
+
+- [mdn官方文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
