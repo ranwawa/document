@@ -1,4 +1,4 @@
-### 1. style-resoures-loader 如何直接引入 node_modules 里面的文件
+## 1. style-resoures-loader 如何直接引入 node_modules 里面的文件
 
 ### 业务背景
 
@@ -33,7 +33,7 @@ module.exports = {
     ...
 ```
 
-### 2. [已解决]proxy 代理 404 的问题(20200218)
+## 2. [已解决]proxy 代理 404 的问题(20200218)
 
 ### 业务背景
 
@@ -92,7 +92,7 @@ module.exports = {
 
 ###
 
-### 3. [已解决]在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)
+## 3. [已解决]在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)
 
 ### 业务背景
 
@@ -123,7 +123,7 @@ module.exports = {
 
 ```
 
-### 3. 如何分析打包后的 js 文件内容(20200520)
+## 3. 如何分析打包后的 js 文件内容(20200520)
 
 ### 业务背景
 

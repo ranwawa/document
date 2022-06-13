@@ -1,4 +1,4 @@
-### 1. vscode 里面无法格式化 tsx 里面的内容（20210214）
+## 1. vscode 里面无法格式化 tsx 里面的内容（20210214）
 
 ### 问题描述
 
@@ -8,7 +8,7 @@
 
 在 vscode 的 prettier 配置中增加了 tsx,tsx，没有生效
 
-### 2. 自动格式化超宽 HTML 标签时，格式化之后的格式还是有问题（20210305）
+## 2. 自动格式化超宽 HTML 标签时，格式化之后的格式还是有问题（20210305）
 
 ### 业务背景
 
@@ -26,7 +26,7 @@
 
 ![image-20210305104452250](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210305104452250.png)
 
-### 3. prettier 官方文档中有提示到一个 JSON $schema 有什么用
+## 3. prettier 官方文档中有提示到一个 JSON $schema 有什么用
 
 从字面上是指整个 prettier 配置文件的结构,还可以验证配置文件
 

@@ -1,6 +1,6 @@
 # node QA
 
-## 1. ESMt 和 commonjs 的冲突(2022-05-04)
+## 1. [已解决]ESM 和 commonjs 的冲突(2022-05-04)
 
 ### 问题描述
 
@@ -22,4 +22,10 @@ node 可以参照 branchlint.package.json 进行修改,但 npx 没办法
 
 ### 问题解决
 
+- 20220517
+- 只能在源代码中把.js 后缀给加上了
+- lint-staged 源码也是这样处理的
+
 ### 参考链接
+
+- [stackoverflow 讨论](https://stackoverflow.com/questions/64242186/node-cant-find-modules-without-js-extension)

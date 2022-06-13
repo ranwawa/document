@@ -36,11 +36,12 @@ styled-components 的语法高亮和智能提示
 
 ### 2. 项目质量
 
-| 插件名             | 插件简介              |
-| ------------------ | --------------------- |
-| markdownlint       | markdown 语法约束     |
-| Code Spell Checker | 英语拼写检查,提示更正 |
-| SonarLint          | 静态代码质量扫描      |
+| 插件名                              | 插件简介               |
+| ----------------------------------- | ---------------------- |
+| markdownlint                        | markdown 语法约束      |
+| Code Spell Checker                  | 英语拼写检查,提示更正  |
+| SonarLint                           | 静态代码质量扫描       |
+| EditorConfig for Visual Studio Code | 支持.editorconfig 配置 |
 
 #### Todo Tree
 

@@ -1,4 +1,4 @@
-### 1. [已解决] typescript 中安装 jest-dom 之后,没有语法提示(20210728)
+## 1. [已解决] typescript 中安装 jest-dom 之后,没有语法提示(20210728)
 
 ### 业务背景
 
@@ -16,7 +16,7 @@
 - 把问题描述了一遍历,发现可以使用
 - 之前不可以使用,是因为自己用了一个错误的 matcher 在搞搞搞
 
-### 2. 无法渲染从导出 umi.js 中的<Redirect />组件. (20210727)
+## 2. 无法渲染从导出 umi.js 中的<Redirect />组件. (20210727)
 
 ### 业务背景
 
@@ -101,7 +101,7 @@ if (token.PRODUCTION && token.SANDBOX) {
   }
 ```
 
-### 3. 组件中包含 useLocation 时报错,Invalid hook call. Hooks can only be called inside of the body of a function componen(20210804)
+## 3. 组件中包含 useLocation 时报错,Invalid hook call. Hooks can only be called inside of the body of a function componen(20210804)
 
 ### 业务背景
 

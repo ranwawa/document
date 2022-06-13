@@ -1,4 +1,4 @@
-### 1. 【已解决】height + line-height 无法垂直居中（20210105）
+## 1. 【已解决】height + line-height 无法垂直居中（20210105）
 
 ### 业务背景
 
@@ -70,7 +70,7 @@ Height + line-height 是控制文字的 content-area，而文字在 content-area
 - https://www.zhihu.com/question/39516424
 - 另外一个文章的思路也很好，作者直接看百度是怎么处理的。秒懂。
 
-### 2. 10 号字体使用 flex 无法居中的问题（20210105）
+## 2. 10 号字体使用 flex 无法居中的问题（20210105）
 
 ### 业务背景
 

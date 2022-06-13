@@ -1,4 +1,15 @@
-### [已解决] 1. 如何定义一个类型文件(20200716)
+# TypeScript QA
+
+- [1. [已解决]如何定义一个类型文件(20200716)](#1-已解决如何定义一个类型文件20200716)
+- [2. 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)](#2-如何为一个已经存在的-react-function-components-添加一个类型声明文件20210627)
+- [3. 联合类型未生效(20210725)](#3-联合类型未生效20210725)
+- [4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)](#4-已解决umi-中使用-uselocationqueryts-在-query-上报-unknown-的错误20210908)
+- [5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)](#5-已解决vue2x-项目中引入-jest在testts-测试文件中引入vue-报错20211205)
+- [6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)](#6-jest-单元测试中-spyon-始终报类型错误2022-05-16)
+- [7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)](#7-已解决引入其他包的时候不能用ts-结尾2022-05-16)
+- [8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)](#8-已解决tsc-无法重写-import-中的路径2022-05-17)
+
+## 1. [已解决]如何定义一个类型文件(20200716)
 
 ### 业务背景
 
@@ -56,7 +67,7 @@ declare module 'countdown';
 
 ![image-20210626135625146](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210626135625146.png)
 
-### 3. 联合类型未生效(20210725)
+## 3. 联合类型未生效(20210725)
 
 ### 业务背景
 
@@ -102,7 +113,7 @@ function test (options: HeadersInit2) {
 }
 ```
 
-### 4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
+## 4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
 
 ### 业务背景
 
@@ -246,3 +257,155 @@ import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue'
 ### 参考链接
 
 - [typescript官方文档](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
+
+## 6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)
+
+### 问题描述
+
+就比较奇怪,为啥会显示类型错误呢
+
+```typescript
+// /Users/macbookpro/Documents/Projects/configurations/packages/branchlint/src/index.test.ts
+
+import { cosmiconfigSync } from 'cosmiconfig';
+
+jest.spyOn(cosmiconfigSync, 'search');
+```
+
+```bash
+No overload matches this call.
+  Overload 1 of 4, '(object: (moduleName: string, options?: OptionsSync) => { search: (searchFrom?: string) => { config: any; filepath: string; isEmpty?: boolean; }; readonly load: (filepath: string) => { config: any; filepath: string; isEmpty?: boolean; }; readonly clearLoadCache: () => void; readonly clearSearchCache: () => void; readonly clearCaches: () => void; }, method: never): SpyInstance<...>', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'never'.
+```
+
+### 问题解决
+
+cosmiconfigSync 是一个函数,应该是拦截他的运行结果上的 search 方法,而不是直接拦截这个函数
+
+```typescript
+import { cosmiconfigSync } from 'cosmiconfig';
+const configSync = cosmiconfigSync();
+jest.spyOn(configSync, 'search');
+```
+
+最终怎么变成 never 的还要再研究研究
+
+### 参考链接
+
+```typescript
+declare function cosmiconfigSync(
+  moduleName: string,
+  options?: OptionsSync
+): {
+  readonly search: (searchFrom?: string) => CosmiconfigResult;
+  readonly load: (filepath: string) => CosmiconfigResult;
+  readonly clearLoadCache: () => void;
+  readonly clearSearchCache: () => void;
+  readonly clearCaches: () => void;
+};
+
+function spyOn<T extends {}, M extends FunctionPropertyNames<Required<T>>>(
+  object: T,
+  method: M
+): Required<T>[M] extends (...args: any[]) => any
+  ? SpyInstance<ReturnType<Required<T>[M]>, ArgsType<Required<T>[M]>>
+  : never;
+
+type Required<T> = {
+  [P in keyof T]-?: T[P];
+};
+
+type FunctionPropertyNames<T> = {
+  [K in keyof T]: T[K] extends (...args: any[]) => any ? K : never;
+}[keyof T] &
+  string;
+```
+
+## 7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)
+
+### 问题描述
+
+无论是 tsc 直接编译,还是 jest 运行测试用例都会报这个错
+
+```bash
+ FAIL  tests/index.test.ts
+  ● Test suite failed to run
+
+    src/linter.ts:1:39 - error TS2691: An import path cannot end with a '.ts' extension. Consider importing './config' instead.
+
+    1 import type { IProcessedConfig } from './config.ts';
+                                            ~~~~~~~~~~~~~
+```
+
+临时解决
+
+- 去掉.ts
+- 加上@ts-ignore 注释这个错误
+
+始终还是要 tsc 原生支持最好,但官方说了无法支持
+
+### 问题解决
+
+原因是 tsc 编译之后,import 中的路径并不会被重写.这就导致编译后的 js 文件还在引用 ts 文件而产生报错
+
+所以还是要去掉后缀
+
+下面是编译后的文件,但同目录里面只有 config.js 和 linter.js,所以 runtime 运行时肯定会报错
+
+```javascript
+import { Config } from './config.ts';
+// @ts-ignore
+import { Linter } from './linter.ts';
+function getBranchName() {
+```
+
+### 参考链接
+
+- [官方 issues](https://github.com/microsoft/TypeScript/issues/27481)
+
+## 8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)
+
+### 问题描述
+
+如问题 7 中描述的.因为 ts 不能加上.ts 后缀,所以去掉了
+
+但是去掉之后,又因为 tsc 不能重写引用路径,所以编译后的 import 语句中没有后缀
+
+这导致 node 直接运行文件会出错,因为在 ESM 模式下,node 不会去推断后缀名,如 node-QA 问题 1 所述
+
+进而导致 npx 运行命令时也同样会找不到引用的问题
+
+### 问题解决
+
+只能把.ts 后缀改成.js 后缀,虽然看起来怪怪的,但是 tsc 还是能够解析的出来
+
+### 参考链接
+
+- [官方 issues](https://github.com/microsoft/TypeScript/issues/16577)
+
+## 9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)
+
+### 问题描述
+
+```bash
+1 import _ from 'lodash';
+         ~
+
+  ../../node_modules/@types/lodash/index.d.ts:26:1
+    26 export = _;
+       ~~~~~~~~~~~
+    This module is declared with using 'export =', and can only be used with a default import when using the 'allowSyntheticDefaultImports' flag.
+```
+
+这是因为 lodash 的 d.ts 文件使用了 ts 独有的模块兼容语法`export=`
+
+这样在 cmd 中就可以直接 require('lodash')了,但反而导致在 esm 中又不能直接使用 default 引入
+
+### 问题解决
+
+- import \* as \_ from 'lodash'; 这种要修改源代码,显示不科学
+- 配置 allowSyntheticDefaultImports 为 true,让 ts 自己去兼容
+
+### 参考链接
+
+- [import=语法官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)

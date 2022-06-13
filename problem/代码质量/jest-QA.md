@@ -1,6 +1,20 @@
-[TOC]
+# Jest QA
 
-### 1. [已解决]为什么单元测试的后缀名要是 spec.js(191230)
+- [1. [已解决]为什么单元测试的后缀名要是 spec.js(191230)](#1-已解决为什么单元测试的后缀名要是-specjs191230)
+- [2. [已解决]vue 单元测试官方文档中提到的存根是啥玩意儿(20200107)](#2-已解决vue-单元测试官方文档中提到的存根是啥玩意儿20200107)
+- [3. [已解决]如何获取一个组件的具体 CSS 样式值,以及如何测试 prop 是否验证失败(20200108)](#3-已解决如何获取一个组件的具体-css-样式值以及如何测试-prop-是否验证失败20200108)
+- [4. [已解决]运行单元测试时,如何只运行其中一个文件(20200116)](#4-已解决运行单元测试时如何只运行其中一个文件20200116)
+- [5. [已解决]在`vue`项目中运行`jest`,引入的一个`lodash`模块报错(20210402)](#5-已解决在vue项目中运行jest引入的一个lodash模块报错20210402)
+- [13. [已解决]忽略 test.js 文件(20211230)](#13-已解决忽略-testjs-文件20211230)
+- [14. [已解决]无法识别 css 文件(20211130)](#14-已解决无法识别-css-文件20211130)
+- [17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)](#17-已解决通过-vue-cli-service-testunit---watch-运行测试报异常20211203)
+- [18. [已解决]通过 vue-cli-service test:unit --watch 运行测试无法识别到 ts 文件(20211203)](#18-已解决通过-vue-cli-service-testunit---watch-运行测试无法识别到-ts-文件20211203)
+- [19. [已解决]vue 测试中无法识别全局组件(20211212)](#19-已解决vue-测试中无法识别全局组件20211212)
+- [20. 在 jest 中如何模拟 location.href(20211212)](#20-在-jest-中如何模拟-locationhref20211212)
+- [21. 收集指定文件的覆盖率](#21-收集指定文件的覆盖率)
+- [22. [已解决]jest 引用不存在(2022-05-17)](#22-已解决jest-引用不存在2022-05-17)
+
+## 1. [已解决]为什么单元测试的后缀名要是 spec.js(191230)
 
 ### 业务背景
 
@@ -12,7 +26,7 @@
 - 就是行业潜规则,约定俗成了
 - 就像 jest 会自动遍历所有*spec.js 和*.test.js 文件一样
 
-### 2. [已解决]vue 单元测试官方文档中提到的存根是啥玩意儿(20200107)
+## 2. [已解决]vue 单元测试官方文档中提到的存根是啥玩意儿(20200107)
 
 ### 业务背景
 
@@ -23,7 +37,7 @@
 - 大概在网上搜索了一下,就是为了破除依赖,保证最小化的单元测试,而创建的一个简易对象
 - 概念是这个概念,实际有啥用还有待使用中学习了
 
-### 3. [已解决]如何获取一个组件的具体 CSS 样式值,以及如何测试 prop 是否验证失败(20200108)
+## 3. [已解决]如何获取一个组件的具体 CSS 样式值,以及如何测试 prop 是否验证失败(20200108)
 
 ### 业务背景
 
@@ -61,7 +75,7 @@ describe('prop type测试', function () {
   - 这个是属于 vue 的功能,不在我们的单元测试范畴
   - 单元测试的范围一定只是测试自己的单个业务功能
 
-### 4. [已解决]运行单元测试时,如何只运行其中一个文件(20200116)
+## 4. [已解决]运行单元测试时,如何只运行其中一个文件(20200116)
 
 ### 业务背景
 
@@ -80,7 +94,7 @@ describe('prop type测试', function () {
 }
 ```
 
-### 5. [已解决]在`vue`项目中运行`jest`,引入的一个`lodash`模块报错(20210402)
+## 5. [已解决]在`vue`项目中运行`jest`,引入的一个`lodash`模块报错(20210402)
 
 ### 业务背景
 
@@ -186,7 +200,7 @@ test('when the aggregation api  does not return invoice list, it should return 0
 
 - 参考: https://jestjs.io/zh-Hans/docs/tutorial-react-native#transformignorepatterns-customization
 
-### 6. [已解决]测试文件中引入的文件中,如果使用了 webpack 别名会报错(20210720)
+## 6. [已解决]测试文件中引入的文件中,如果使用了 webpack 别名会报错(20210720)
 
 ### 问题解决
 
@@ -195,11 +209,11 @@ test('when the aggregation api  does not return invoice list, it should return 0
 - 需要在 jest 配置文件中的`moduleNameMapper`字段再次定义一下别名
 - 参考: https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring
 
-### 7. vue 测试中,模拟$route 时报错(20210720)
+## 7. vue 测试中,模拟$route 时报错(20210720)
 
-### 8. 如何在一个老的 vue 项目中启用 jest(20210720)
+## 8. 如何在一个老的 vue 项目中启用 jest(20210720)
 
-### 9. 根据 Vue Test Utils 官网指引安装后,运行 jest 命令之后报异常(20210720)
+## 9. 根据 Vue Test Utils 官网指引安装后,运行 jest 命令之后报异常(20210720)
 
 **官网地址**
 
@@ -246,9 +260,9 @@ Ran all test suites.
 - 使用`@vue/cli-plugin-unit-jest`插件
 - 参考网址: https://cli.vuejs.org/core-plugins/unit-jest.html#injected-commands
 
-### 10. 如何 mock 一个基于 axios 的实际的接口函数(20210720
+## 10. 如何 mock 一个基于 axios 的实际的接口函数(20210720
 
-### 11. [已解决]运行完 test:coverrage 后,pakeage.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)
+## 11. [已解决]运行完 test:coverrage 后,pakeage.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)
 
 ### 业务背景
 
@@ -274,7 +288,7 @@ coverage thresholds ratcheted 🔧
 - 20211205
 - 使用插件 jest-ratchet: https://www.npmjs.com/package/jest-ratchet
 
-### 12. [已解决] 如何使用`setSystemTime`模拟一个时间(20211028)
+## 12. [已解决] 如何使用`setSystemTime`模拟一个时间(20211028)
 
 ### 业务背景
 
@@ -305,7 +319,7 @@ expect(spyGetLogs.mock.calls[1][0]).toEqual({
 
 4. 使用插件`[MockDate](https://github.com/boblauer/MockDate)`
 
-### 13. [已解决]忽略 test.js 文件(20211230)
+## 13. [已解决]忽略 test.js 文件(20211230)
 
 ### 业务背景
 
@@ -317,7 +331,7 @@ expect(spyGetLogs.mock.calls[1][0]).toEqual({
 - 需要在 jest 配置文件中的 testPathIgnorePatterns 配置中忽略这些文件
 - 参考: https://jestjs.io/docs/configuration#testpathignorepatterns-arraystring
 
-### 14. [已解决]无法识别 css 文件(20211130)
+## 14. [已解决]无法识别 css 文件(20211130)
 
 ### 业务背景
 
@@ -331,7 +345,7 @@ expect(spyGetLogs.mock.calls[1][0]).toEqual({
 
 15. 通过@vue/cli-plugin-unit-jest 运行测试,无法识别 jest.config.ts 文件.只能识别 jest.config.js 文件
 
-### 17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)
+## 17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)
 
 **异常内容**
 
@@ -357,7 +371,7 @@ Error: EMFILE: too many open files, watch
 brew install watchman
 ```
 
-### 18. [已解决]通过 vue-cli-service test:unit --watch 运行测试无法识别到 ts 文件(20211203)
+## 18. [已解决]通过 vue-cli-service test:unit --watch 运行测试无法识别到 ts 文件(20211203)
 
 ### 问题描述
 
@@ -420,7 +434,7 @@ const config = {
 module.exports = config;
 ```
 
-### 19. [已解决]vue 测试中无法识别全局组件(20211212)
+## 19. [已解决]vue 测试中无法识别全局组件(20211212)
 
 #### 问题描述
 
@@ -474,7 +488,7 @@ Vue.use(HllUI);
 
 - https://github.com/vuejs/vue-test-utils/issues/1459
 
-### 20. 在 jest 中如何模拟 location.href(20211212)
+## 20. 在 jest 中如何模拟 location.href(20211212)
 
 #### 问题描述
 
@@ -509,8 +523,106 @@ window.location = new URL('https://www.example.com');
 
 - https://stackoverflow.com/questions/54021037/how-to-mock-window-location-href-with-jest-vuejs
 
-收集指定文件的覆盖率
+## 21. 收集指定文件的覆盖率
 
 ​ "test-temp": "cp env/.env.test .env.test; TZ=utc craco test --coverage=true --collectCoverageFrom=src/interfaces/global/store/modules/auth/sagas/register.js register.test.js"
 
-参考: https://stackoverflow.com/questions/53342824/temporarily-get-jest-coverage-to-show-only-files-in-a-specific-folder
+### 参考链接
+
+- https://stackoverflow.com/questions/53342824/temporarily-get-jest-coverage-to-show-only-files-in-a-specific-folder
+
+## 22. [已解决]jest 对象引用不存在(2022-05-17)
+
+### 问题描述
+
+@ranwawa/branchlint 项目中使用 jest 进行单元测试,这个项目是 ESM 项目,在运行 jest 时报错
+
+```bash
+FAIL  tests/index.test.js
+  ● Test suite failed to run
+
+    ReferenceError: jest is not defined
+
+      4 |
+      5 | const configSync = cosmiconfigSync(BRANCHLINT);
+    > 6 | const spySearch = jest.spyOn(configSync, 'search');
+```
+
+### 问题解决
+
+根据官方文档描述,需要手动引入或者使用 import.meta.jest
+
+文件少直接加文件里,如果多的话就放 setupFiles 里面
+
+```javascript
+import { jest } from '@jest/globals';
+import.meta.jest.useFakeTimers();
+```
+
+### 参考链接
+
+- [官方文档](https://jestjs.io/docs/ecmascript-modules)
+
+## 22. [已解决]ts 文件引入 lodash 时引入进来的是 undefined(2022-05-17)
+
+### 问题描述
+
+在@ranwawa/branchlint 项目使用 ts 来写单元测试,包括所有项目文件也是 ts.运行测试时却报下面的错误
+
+import \_ from 'lodash',之前一直这样引用没问题呀
+
+```javascript
+    TypeError: Cannot read properties of undefined (reading 'isArray')
+    > 75 |     if (_.isArray(pattern)) {
+```
+
+在 tsc 时也遇到类问题参照 typescript-qa 问题 9
+
+想想这应该是 ts-jest 的配置问题,查一查
+
+### 问题解决
+
+- 把 import `_ from 'lodash'改成 import \* as _`,但这显示不科学
+- 设置 jest 的属性 extensionsToTreatAsEsm,让 jest 自动兼容
+
+### 参考链接
+
+- [jest extensionsToTreatAsEsm 属性官方文档](https://jestjs.io/docs/next/configuration#extensionstotreatasesm-arraystring)
+- [ts-loader 关于 支持 ESM 的文档](https://kulshekhar.github.io/ts-jest/docs/guides/esm-support)
+
+## 23. spyOn 无法生效(2022-05-17)
+
+### 问题描述
+
+@ranwawa/branchlint 项目的单测中,想要模拟 cosmiconfigSync 方法
+
+测试文件中是通过 default 形式导入,而 config.ts 中是通过具名导入
+
+```javascript
+describe.only('Config', () => {
+  const spy = jest.spyOn(cosmiconfig, 'cosmiconfigSync');
+
+  it('如果传了配置对象,则不去搜索默认配置', () => {
+    const conf = new Config();
+    conf.initConfig(DEFAULT_CONFIG);
+
+    expect(spy).toBeCalledTimes(0);
+  });
+```
+
+```typescript
+// config.ts
+import { cosmiconfigSync } from 'cosmiconfig';
+```
+
+在测试文件中加 log 发现 cosmiconfig.cosmiconfigSync 确实被拦截
+
+然后把 config.ts 中的导入也改成 default 形式导入,然后再通过`.`来运行 cosmiconfigSync 方法就可以正常模拟
+
+原因在于 spyOn 是拦截的 get 方法,而具名导致又不是通过 get 拿导致的,还是要 ESM 和 CMD 兼容性有关
+
+### 问题解决
+
+- 临时解决,修改下 config.ts 中的引入方式,但这样不科学
+
+### 参考链接
