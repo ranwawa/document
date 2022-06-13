@@ -29,3 +29,29 @@ node 可以参照 branchlint.package.json 进行修改,但 npx 没办法
 ### 参考链接
 
 - [stackoverflow 讨论](https://stackoverflow.com/questions/64242186/node-cant-find-modules-without-js-extension)
+
+## 2. [已解决]require chalk 时提示不支持(2022-05-19)
+
+### 问题描述
+
+由于在 branchlint 项目中使用 ESM 模式,出现很多兼容性问题,为了彻底搞清楚他们之间的区别,所以在 treelint 中使用 CMD 模式
+
+果不其然,又报错了
+
+```bash
+const chalk = require('chalk');
+              ^
+
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/macbookpro/Documents/Projects/configurations/packages/treelint/node_modules/chalk/source/index.js from /Users/macbookpro/Documents/Projects/configurations/packages/treelint/src/index.js not supported.
+```
+
+### 问题解决
+
+因为 chalk5.x 使用了 ESM 模式,而 CMD 不支持 ESM 模式,所以报错.
+
+把 chalk 降级到 4.x 就可以了
+
+### 参考链接
+
+- [stackoverflow 讨论](https://stackoverflow.com/questions/70309135/chalk-error-err-require-esm-require-of-es-module)
+- [chalk 官方解释](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)

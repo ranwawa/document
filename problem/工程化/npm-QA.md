@@ -306,3 +306,36 @@ branchlint.ps1
 ### 问题解决
 
 将 branchlint 入口文件放到 bin/index.js,并且移出里面相对路径的引用.根因还是没找到
+
+## 10. lerna 项目中 chalk 依赖版本异常(2022-05-19)
+
+### 问题描述
+
+branchlint 包依赖 zx,zx 依赖 5.0.1 版本的 chalk
+treelint 包直接依赖 4.1.2 版本的 chalk
+无论是在项目根目录下还是 treelint 下执行 npm i
+treelint 的 node_modules 都是安装的 5.0.1 版本的 chalk 包
+这是为啥
+
+1. 因为 branchlint 在 treelint 前面
+2. 先安装 branchlint 依赖
+3. branchlint 依赖 zx,zx 依赖 5.0.1
+4. 将 5.0.1 安装到 node_modules 根目录
+5. 安装 treelint 依赖
+6. 正常来说应该要把 4.1.2 安装到 treelint 的 node_modules 里面
+7. 可能是 bug 或啥,对 workspaces 支持有问题,导致在 treelint 的 node_modules 下面安装了 5.0.1
+
+上面的推断错了.实际 node_modules 根目录是 4.1.2,只是为什么 treelint 下的又成了 5.0.1 了呢.只能理解成是 npm 的 bug 了
+
+### 问题解决
+
+那就使用别名安装 chalk4.x
+
+```bash
+npm install chalk4@npm:chalk@4.1.2
+```
+
+### 参考链接
+
+- [npm 官方依赖解析原理](http://npm.github.io/npm-like-im-5/npm3/dependency-resolution.html)
+- [npm 别名的用法](https://docs.npmjs.com/cli/v8/commands/npm-install#workspace)

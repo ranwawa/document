@@ -409,3 +409,29 @@ function getBranchName() {
 ### 参考链接
 
 - [import=语法官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
+
+## 10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)
+
+### 问题描述
+
+treelint 项目使用 CMD 模块加载方案.在 index 和 lint 文件中同时引入 path 依赖包.结果两边都报错了
+
+```bash
+Cannot redeclare block-scoped variable 'path'.ts(2451)
+index.ts(4, 7): 'path' was also declared here.
+```
+
+### 问题解决
+
+ts 默认将所有文件放在全局作用域下.除非文件中有顶级的 import 或 export
+
+这就是出错的原因.那就只能手动在每个文件中加这样一条语句了
+
+只是这样看起来怪怪的,在 CMD 模式下又使用了一个 ESM 的语句
+
+简书那个回答说是修改 tsconfig.json.lib 属性的无效.因为 lib 的目的只是为了注入一些全局变量
+
+### 参考链接
+
+- [简书讨论](https://www.jianshu.com/p/78268bd9af0a)
+- [github 官方 issue](https://github.com/microsoft/TypeScript/issues/47229)
