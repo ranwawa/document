@@ -1,10 +1,20 @@
+# HTML QA
+
+- [1. [已解决]`a`标称`href`值为`javascript:void(0)`的原理(20200212)](#1-已解决a标称href值为javascriptvoid0的原理20200212)
+- [2. [已解决]字体大小导致 IDE 中的换行会导致最终生成的页面超出固定宽度(20200212)](#2-已解决字体大小导致-ide-中的换行会导致最终生成的页面超出固定宽度20200212)
+- [3. 如何去掉浏览器 input 自动保存帐号密码导致的内置样式?(20200317)](#3-如何去掉浏览器-input-自动保存帐号密码导致的内置样式20200317)
+- [4. [已解决]img.srcset 到底有什么用?(20200515)](#4-已解决imgsrcset-到底有什么用20200515)
+- [5. [已解决]fieldset 和 legend 标签有什么具体作用呢?(20201008)](#5-已解决fieldset-和-legend-标签有什么具体作用呢20201008)
+- [[已解决]5. iframe页面302后为啥顶级页面也302了?(2022-06-10)](#已解决5-iframe页面302后为啥顶级页面也302了2022-06-10)
+
 ## 1. [已解决]`a`标称`href`值为`javascript:void(0)`的原理(20200212)
 
 ### 业务背景
 
 最近又在写静态页面,链接要暂时做个占位,要可以点击,但也别跳转.一直都知道有两种方案
 
-- ####
+### 问题描述
+
 - javascript:void(0)
 
 之前查过`####`的原理,现在忘记了,javascript 这个好像和 html 里面可以执行 javascript 代码相关,但也无法详细说出来,干脆趁这个机会就整理一下
@@ -12,18 +22,18 @@
 ### 问题解决
 
 - 20200212
-- javascipt:void(0)
+- javascript:void(0)
   - html 嵌入 javascript 代码有 4 种方式,其中一种就是通过链接 javascript 协议.所以这里的 javascript:是一个协议
   - void 是一个运算符,用于返回 undefined.所以这里的 void(0)可以换成其他任何表达式比如 void(1)或`;`
   - 参考
-    - https://ranwawa.github.io/document/#/study/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/%E7%AC%AC13%E7%AB%A0_%E5%AE%A2%E6%88%B7%E7%AB%AFJavaScript?id=_132-%e5%9c%a8html%e9%87%8c%e5%b5%8c%e5%85%a5javascript
-    - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/void
-- ####
+    - [自己的文档](https://ranwawa.github.io/document/#/study/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/%E7%AC%AC13%E7%AB%A0_%E5%AE%A2%E6%88%B7%E7%AB%AFJavaScript?id=_132-%e5%9c%a8html%e9%87%8c%e5%b5%8c%e5%85%a5javascript)
+    - [mdn void](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/void)
+- \####
   - \#后面的是页面标记
   - 浏览器会自动滚动到该标记
   - 如果是一个无意义的标记的话,就不会进行滚动,所以这个###可以换成其他任何值比如#xxxxx,前提是 target 属性必须是\_self
   - 参考
-    - https://html.spec.whatwg.org/multipage/browsing-the-web.html#scroll-to-fragid
+    - [rfc](https://html.spec.whatwg.org/multipage/browsing-the-web.html#scroll-to-fragid)
 
 ## 2. [已解决]字体大小导致 IDE 中的换行会导致最终生成的页面超出固定宽度(20200212)
 
@@ -134,3 +144,28 @@ jsfiddle 被墙了,要 10 块钱才能过去,忍一下吧....
 睡了个午觉起来,还是觉得要花这个钱,前面业务背景明明写着的,一定要搞示例示例.这会又在打退堂鼓.况且还有另外一个问题,也是需要写示例的.
 
 <script async src="//jsfiddle.net/ranwawa/tn9mv6fc/36/embed/"></script>
+
+
+## [已解决]5. iframe页面302后为啥顶级页面也302了?(2022-06-10)
+
+### 问题描述
+
+一个页面嵌套了iframe,这个iframe发生了302,结果父页面即浏览器窗口中也发生了302
+
+按理来说子级的iframe不可能影响父级中转呀.这是为啥
+
+```html
+<body>
+  外面也重定向到login.com
+  <iframe href="example.com">
+    302到 login.com
+  </iframe>
+</body>
+````
+
+### 问题解决
+
+实际上子页302并不会影响父级页面.只是chrome会弹出一个框,像定位那样,是否允许跳转,允许之后浏览器地址栏中的url才会发生变化
+
+### 参考链接
+

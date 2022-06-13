@@ -23,9 +23,26 @@
 | Code Spell Checker                  | 英语拼写检查,提示更正  |
 | SonarLint                           | 静态代码质量扫描       |
 | EditorConfig for Visual Studio Code | 支持.editorconfig 配置 |
+| eslint | eslint官方插件 |
+| stylelint | stylelint官方插件 |
 
 ## 3. windows 专属
 
 | 插件名     | 插件简介                                                                             |
 | ---------- | ------------------------------------------------------------------------------------ |
 | remote-wsl | 在 windows 环境下集成 linux 开发<br/> 前提是要在 windows 上安装 wsl 和 ubuntu 等系统 |
+
+## 4.vue专属
+
+| 插件名     | 插件简介                                                                             |
+| ---------- | ------------------------------------------------------------------------------------ |
+| Vetur | vue2x官方插件 |
+| volar | vue3x官方插件 |
+| TypeScript Vue Plugin | 支持vue的ts类型检查 |
+
+## 5. 其他
+
+
+| 插件名     | 插件简介                                                                             |
+| ---------- | ------------------------------------------------------------------------------------ |
+| Svelte for VS Code | svelte官方插件 |

@@ -62,7 +62,6 @@
 | git branch -m 旧分支名 新分支名               | 修改分支名                             |
 |                                               |                                        |
 |                                               |                                        |
-|                                               |                                        |
 
 ### 1.2 git checkout
 
@@ -70,16 +69,12 @@
 
 | 命令                            | 含义                                 |
 | ------------------------------- | ------------------------------------ |
+| git checkout 分支名    | 切换到指定分支                             |
 | git checkout 分支名 源分支名    | 切换分支                             |
 | git checkout 文件名             | 撤消对工作目录中文件的更改           |
 | git checkout SHA1 文件名        | 将仓库中 SHA1 处的文件检出到暂存区中 |
 | git checkout -b 分支名 源分支名 | 创建并切换分支                       |
 | git checkout --orphan 分支名    | 创建一个没有父节点的分支             |
-|                                 |                                      |
-|                                 |                                      |
-|                                 |                                      |
-|                                 |                                      |
-|                                 |                                      |
 |                                 |                                      |
 |                                 |                                      |
 
@@ -531,3 +526,9 @@ git config --global rerere.enable=true
 | git bisect good SHA1 | 好的提交           |
 | git bisect good      | 当前提交 ok        |
 | git bisect reest     | 重置到排查前的状态 |
+
+### 9.4 git count-objects
+
+| 命令                 | 含义               |
+| -------------------- | ------------------ |
+| git count-objects -vH      | verbose, human以人类可读的格式显示所有包的大小信息       |

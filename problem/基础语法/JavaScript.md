@@ -9,7 +9,7 @@
 - [6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)](#6-已解决functionprototypecallbind-是什么神操作20200508)
 - [7. [已解决]performance 到底怎么用的(20200510)](#7-已解决performance-到底怎么用的20200510)
 - [8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)](#8-performance-的时间差函数以及正常值-以及异常的解决办法20200511)
-- [9.[已解决] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)](#9已解决-amdcmdumd-以及-requirejscommonjsseajs-之间到底有什么关系及区别20200717)
+- [9.[**已**] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)](#9已解决-amdcmdumd-以及-requirejscommonjsseajs-之间到底有什么关系及区别20200717)
 - [10. [已解决]for 循环各语句执行顺序(2022-04-30)](#10-已解决for-循环各语句执行顺序2022-04-30)
 
 ## 1. [已解决]为什么 replace 用正则替换失效?
@@ -472,3 +472,29 @@ js中的语法,和||给默认值差不多,只是当左侧是null和undefined时�
 ### 参考链接
 
 - [mdn官方文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+## 16. [已解决]import.meta语法(2022-06-09)
+
+### 问题描述
+
+最近老是看到import.meta,昨天在项目中又看到了.这下务必搞清楚才行
+
+1. import.meta语法
+2. 这些值是从哪里注入进来的
+
+```javascript
+// src/config/index.ts
+export const IS_DEV_ENV = import.meta.env.DEV;
+export const CURRENT_MODE = import.meta.env.VITE_CURRENT_MODE;
+````
+
+### 问题解决
+
+指当前模块的源数据.这些数据由外部注入进来
+
+问题中的env对象是由vite注入进来的
+
+### 参考链接
+
+- [mdn文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import.meta)
+- [阮一峰教程](https://www.bookstack.cn/read/es6-3rd/spilt.10.docs-proposals.md)
+- [vite文档](https://vitejs.dev/guide/env-and-mode.html#env-variables)

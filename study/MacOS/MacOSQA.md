@@ -1,7 +1,9 @@
-# MacOSQA
+# MacOS QA
 
 - [1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)](#1-已解决安装-vue-成功后提示-zsh-command-not-found-vue20201110)
 - [2. [已解决]安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)](#2-已解决安装-nrm-成功后提示-error-cannot-find-module-semver20201111)
+- [3. 如何更改Mac系统用户名及文件夹的名字(20220413)](#3-如何更改mac系统用户名及文件夹的名字20220413)
+- [4. [已解决]如何更改bash的默认权限(20220414)](#4-已解决如何更改bash的默认权限20220414)
 
 ## 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
 
@@ -66,10 +68,39 @@ drwxr-xr-x  1012 root  wheel  32384  3 26 15:21 bin
 
 - 切换到root用户 `sudo -i`
 
-
 ### 参考文档
 
 - [mac启用root帐户](https://support.apple.com/en-us/HT204012)
 - [sudo禁用密码](https://apple.stackexchange.com/questions/257813/enable-sudo-without-a-password-on-macos)
 - [用户和组相关操作](https://www.jianshu.com/p/7e795b3e7bfc)
 - [权限介绍](https://baike.baidu.com/item/Linux%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90/4089164?fr=aladdin)
+
+## 5. dev server在80端口上启动时报权限问题(2022-06-10)
+
+### 问题描述
+
+使用vue3.x + vite的项目.配置的是监听80端口(不能修改),npm run serve时报下面的错误
+
+```javascript
+error when starting dev server:
+Error: listen EACCES: permission denied 127.0.0.1:80
+    at Server.setupListenHandle [as _listen2] (node:net:1313:21)
+    at listenInCluster (node:net:1378:12)
+    at doListen (node:net:1516:7)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+```
+
+### 问题解决
+
+1. package.json.script.server修改成 sudo vite
+   1. 每次都要输入密码
+   2. windows系统不存在这个问题,会增加windows开发人员的负担
+2. 转发80端口流量到8081等大于1024的端口
+   1. 相当于是修改了端口,也会影响到其他开发人员
+3. MacOSX这个给普通用户添加80端口权限
+   1. 好像有用,但是在m1 make失败
+
+### 参考链接
+
+- [stackoverflow讨论](https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode)
+- [转发教程](https://www.jianshu.com/p/26ae3c5b7155)

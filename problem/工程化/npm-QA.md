@@ -8,7 +8,10 @@
 - [6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)](#6-npm-在服务器上执行-install-时报没有合适包的错误20211214)
 - [7. npm audit 是干什么的(20220416)](#7-npm-audit-是干什么的20220416)
 - [8. mono repo 下安装依赖包的问题(20220416)](#8-mono-repo-下安装依赖包的问题20220416)
-- [9. 创建一个 npm package.json 模板(2022-05-04)](#9-创建一个-npm-packagejson-模板2022-05-04)
+- [9. [已解决]创建一个 npm package.json 模板(2022-05-04)](#9-已解决创建一个-npm-packagejson-模板2022-05-04)
+- [10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)](#10-已解决lerna-项目中-chalk-依赖版本异常2022-05-19)
+- [11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)](#11-npm-link-包后无法自动安装-peerdependencies2022-05-24)
+- [12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)](#12-已解决packagejson-中-mainbrowser-以及-module-等字段的区别2022-05-27)
 
 ## 1.[已解决] 发布 npm 包之前如何自动更新版本号
 
