@@ -5,9 +5,12 @@
 - [3. 联合类型未生效(20210725)](#3-联合类型未生效20210725)
 - [4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)](#4-已解决umi-中使用-uselocationqueryts-在-query-上报-unknown-的错误20210908)
 - [5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)](#5-已解决vue2x-项目中引入-jest在testts-测试文件中引入vue-报错20211205)
+- [6. [已解决]!.语法(2022-06-12)](#6-已解决语法2022-06-12)
 - [6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)](#6-jest-单元测试中-spyon-始终报类型错误2022-05-16)
 - [7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)](#7-已解决引入其他包的时候不能用ts-结尾2022-05-16)
 - [8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)](#8-已解决tsc-无法重写-import-中的路径2022-05-17)
+- [9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)](#9-已解决tsc-编译时引入-lodash-报错2022-05-17)
+- [10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)](#10-已解决cmd-模式下多个文件引入同一个包会报错2022-05-19)
 
 ## 1. [已解决]如何定义一个类型文件(20200716)
 
@@ -435,3 +438,19 @@ ts 默认将所有文件放在全局作用域下.除非文件中有顶级的 imp
 
 - [简书讨论](https://www.jianshu.com/p/78268bd9af0a)
 - [github 官方 issue](https://github.com/microsoft/TypeScript/issues/47229)
+
+## 11. [已解决]无法识别require引入的包类型(2022-06-15)
+
+### 问题描述
+
+configurations/treelint项目使用的是commonjs模块方案.通过require引入path,无类型提示,但换成import之后就有类型提示了
+
+### 问题解决
+
+在ts中,即使是commonjs规范.也不要使用require和module.exports
+
+得使用ts的兼容语法import = / export =
+
+### 参考链接
+
+- [typescript官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
