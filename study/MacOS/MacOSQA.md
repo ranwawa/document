@@ -104,3 +104,34 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 
 - [stackoverflow讨论](https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode)
 - [转发教程](https://www.jianshu.com/p/26ae3c5b7155)
+
+## 6. 休眠后扩展显示器的窗口跑主显示器去了(2022-06-21)
+
+### 问题描述
+
+常规情况下分4个窗口,扩展显示器2个窗口用来打开IDE和内部IT系统.主显示器用来打开调试界面和聊天界面
+
+可是每次休眠电脑,重新打开电脑后,扩展显示器中的所有窗口都跑到主显示器的第2个窗口中
+
+这应该有地方设置保留,但没搜索到
+
+另一个关键词: 窗口排列位置
+### 问题解决
+
+### 参考链接
+
+## 7.  [已解决]mac vscode中老自动生成.DS_Store文件(2022-06-23)
+
+### 问题描述
+
+如题,最近几次在改代码时总会生成这个文件.又没啥规律,每次都要从git中清除掉
+
+### 问题解决
+
+这是因为自己在访达中操作过一些文件,系统自动生成的
+
+直接在gitignore里面忽略掉就行了
+
+### 参考链接
+
+- [知乎讨论](https://www.zhihu.com/question/20345704)
