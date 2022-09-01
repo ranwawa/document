@@ -263,4 +263,67 @@ settings: {
   },
 ```
 
-### 参考链接
+
+## [已解决]Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-attribute-name) (2022-08-02)
+
+### 问题描述
+
+在配置文件中报vue的eslint规则错误
+
+```shell
+module export=
+(property) export=: {
+    preset: string;
+}
+File is a CommonJS module; it may be converted to an ES module.ts(80001)
+Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-attribute-name)
+```
+
+### 问题解决
+
+这个一般是eslint插件升级导致的,rules中有配置这个规则,但是相应的插件里面却没有这个规则.
+
+- 升级插件
+- 降级插件
+- 删除规则
+
+## [已解决]vue文件报parsing error(2022-08-02)
+
+### 问题描述
+
+如果vue文件是以注释开头的话,则会在第一个字符处报下面这个错误
+
+```vue
+<!--
+ * @Description: 
+ * @Date: 2022-06-16 09:51:29
+ * @Author: lizhiqiang <lizhiqiang@zmn.cn>
+-->
+```
+
+```shell
+Parsing error: Type expected.eslint
+```
+
+如果删掉注释,则会在router-view处报下面的错误
+
+```vue
+<template>
+  <router-view />
+</template>
+```
+
+```shell
+const RouterView: any
+Parsing error: '>' expected.eslint
+```
+
+### 问题解决
+
+这是因为eslint parser错误导致的.要配置成eslint-parser-vue
+
+引入各种plugin时可能会被覆盖掉.所以要查看最终生成的配置文件,使用如下命令
+
+```shell
+npx eslint --print-config .eslintrc.js > test.json
+```

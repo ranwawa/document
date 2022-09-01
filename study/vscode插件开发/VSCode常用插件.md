@@ -12,7 +12,7 @@
 | Bracket Pair Colorizer 2  | 快速识别对应的括号<br /> 快速选中括号内容     |
 | vscode-styled-components  | styled-components 的语法高亮和智能提示        |
 | Todo Tree                 | 快速查看所有待办                              |
-| Markdown Preview Enhanced | 更清晰的界面 <br /> 支持大纲和幻灯片预览      |
+| Markdown Preview Enhanced | 更漂亮的预览界面 <br /> 支持大纲和幻灯片预览      |
 | Material Icon Theme       | 容易识别的图标                                |
 
 ## 2. 项目质量

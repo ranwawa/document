@@ -116,6 +116,7 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 这应该有地方设置保留,但没搜索到
 
 另一个关键词: 窗口排列位置
+
 ### 问题解决
 
 ### 参考链接
@@ -135,3 +136,23 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 ### 参考链接
 
 - [知乎讨论](https://www.zhihu.com/question/20345704)
+
+## 8. [已解决]安装nvm后总是提示命令不存在(2022-07-22)
+
+### 问题描述
+
+明明通过curl成功安装了nvm,运行nvm命令却提示命令不存在
+
+### 问题解决
+
+这是因为没有将nvm添加到环境变量中,所以要手动添加一下
+
+```shell
+source ~/.nvm/nvm.sh
+```
+
+可这样每次重启电脑后,又会失效,需要手动重新执行一次
+
+### 参考链接
+
+- [stackoverflow讨论](https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found/17707224#17707224)

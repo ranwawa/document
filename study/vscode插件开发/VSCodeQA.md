@@ -158,6 +158,15 @@
 1. 安装 vetur 插件
 2. 启用插件的 Experimental: Template Interpolation Service 功能
 3. 声明 vue 文件时使用 export default Vue.extend({语法
+4. tsconfig.json配置
+  
+```json
+{
+  "compilerOptions": {
+    "checkJs": true
+  }
+}
+```
 
 ## 11. 启动 IDE 时自动打开上次关闭时的项目
 

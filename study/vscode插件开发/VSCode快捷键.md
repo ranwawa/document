@@ -50,8 +50,8 @@
 
 | 中文       | 命令                             | 系统快捷键  |
 | ---------- | -------------------------------- | ----------- |
-| 前一个光标 | workbench.action.navigateForward | Alt + Right |
-| 后一个光标 | workbench.action.navigateBack    | Alt + Left  |
+| 前一个光标 | workbench.action.navigateForward | Alt + Right <br />  ⌃ + ⇧ + -|
+| 后一个光标 | workbench.action.navigateBack    | Alt + Left  <br /> ⌃ + -|
 |            |                                  |
 
 ## 3. 信息栏相关

@@ -73,7 +73,7 @@
 | git checkout 分支名 源分支名    | 切换分支                             |
 | git checkout 文件名             | 撤消对工作目录中文件的更改           |
 | git checkout SHA1 文件名        | 将仓库中 SHA1 处的文件检出到暂存区中 |
-| git checkout -b 分支名 源分支名 | 创建并切换分支                       |
+| git checkout -b 分支名 [源分支名,默认当前分支] | 创建并切换分支                       |
 | git checkout --orphan 分支名    | 创建一个没有父节点的分支             |
 |                                 |                                      |
 |                                 |                                      |
@@ -182,6 +182,13 @@
 | ---------- | ---------------------- |
 | git reflog | 查看所有 HEAD 变动纪录 |
 |            |                        |
+
+### 5.6 git tag
+
+| 命令       | 含义                   |
+| ---------- | ---------------------- |
+| git tag -d v0.0.1 | 删除本地tag |
+| git push origin :refs/tags/v0.0.1           |  删除远程tag                      |
 
 ## 2. 远程仓库相关命令
 

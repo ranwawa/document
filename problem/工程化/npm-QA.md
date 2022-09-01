@@ -66,6 +66,9 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 - 重新安装一个 2.x 版本的即可
   - 注意在安装的过程中,选择自动添加环境变量
 
+- 20220722更新: mac m1上无法安装python,把node版本降低到v14.x也可以解决这个问题
+- 20220901更新: 这个最终是node-sass导致的. node-sass依赖node-gyp,而node-gyp又依赖于python.而node-sass的版本问题很混乱,和系统以及node版本是强关联,具体可以看node-sass官方changelog.最根本的解决办法还是直接使用dart-sass替代node-sass
+
 ## 3. [已解决]发包时提示未登陆(20200302)
 
 ### 业务背景
@@ -388,3 +391,52 @@ npm install chalk4@npm:chalk@4.1.2
 - [VTL 文档](https://testing-library.com/docs/dom-testing-library/install/)
 - [npm 文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main)
 - [node 文件](https://nodejs.org/api/packages.html#packages_conditional_exports)
+
+## 13. [已解决]publish到npm仓库报E403(2022-08-02)
+
+### 问题描述
+
+```shell
+code E403
+npm ERR! 403 403 Forbidden - PUT https://registry.npmjs.org/@zmn%2feslint-plugin - Forbidden
+npm ERR! 403 In most cases, you or one of your dependencies are requesting
+npm ERR! 403 a package version that is forbidden by your security policy, or
+npm ERR! 403 on a server you do not have access to.
+```
+
+### 问题解决
+
+- 作用域已经被别人注册了....
+- 换个名字或者用私有包
+
+### 参考链接
+
+- [csdn文章](https://blog.csdn.net/example440982/article/details/122100666)
+
+## 14. npm install --force和--legacy-peer-deps的区别(2022-08-30)
+
+### 问题描述
+
+最近在使用npmv7+安装@zmn/eslint-plugin的时候,总是会报peerDep依赖冲突的问题.自己可以将一些不必要的依赖删除掉然后重新安装,但是提供给其他人使用,则会显得比较麻烦
+
+```shell
+npm ERR! Could not resolve dependency:
+npm ERR! peer @typescript-eslint/eslint-plugin@"^5.31.0" from @zmn/eslint-plugin@0.0.6
+npm ERR! node_modules/@zmn/eslint-plugin
+npm ERR!   dev @zmn/eslint-plugin@"*" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+```
+
+### 问题解决
+
+- --legacy-peer-deps参照老的逻辑,不自动安装peerDep依赖
+- --force使用一套优先级算法安装,如果算法没算出来就跳过安装
+
+这两种方案都不好.还是要自己解决依赖冲突的问题
+
+### 参考链接
+
+- [官方文档](https://github.com/npm/rfcs/blob/main/implemented/0031-handling-peer-conflicts.md)
