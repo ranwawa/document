@@ -1,3 +1,11 @@
+- [1. style-resoures-loader 如何直接引入 node_modules 里面的文件](#1-style-resoures-loader-如何直接引入-node_modules-里面的文件)
+- [2. [已解决]proxy 代理 404 的问题(20200218)](#2-已解决proxy-代理-404-的问题20200218)
+- [3. [已解决]在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)](#3-已解决在-vueconfigjs-里面如何设置-eslint-的-fix-为-true20200223)
+- [4. 如何分析打包后的 js 文件内容(20200520)](#4-如何分析打包后的-js-文件内容20200520)
+- [5.初始化项目时报 stack Error: `gyp` failed with exit code: 1（20210116）](#5初始化项目时报-stack-error-gyp-failed-with-exit-code-120210116)
+- [6. 如何对 webpack 配置文件进行智能提示自动完成(2022-09-15)](#6-如何对-webpack-配置文件进行智能提示自动完成2022-09-15)
+- [7. webpack-dev-server(2022-09-15)](#7-webpack-dev-server2022-09-15)
+
 ## 1. style-resoures-loader 如何直接引入 node_modules 里面的文件
 
 ### 业务背景
@@ -123,7 +131,7 @@ module.exports = {
 
 ```
 
-## 3. 如何分析打包后的 js 文件内容(20200520)
+## 4. 如何分析打包后的 js 文件内容(20200520)
 
 ### 业务背景
 
@@ -138,4 +146,111 @@ module.exports = {
 
 ![](.webpack_images/a33d70c1.png)
 
-### 4.初始化项目时报 stack Error: `gyp` failed with exit code: 1（20210116）
+## 5.初始化项目时报 stack Error: `gyp` failed with exit code: 1（20210116）
+
+## 6. 如何对 webpack 配置文件进行智能提示自动完成(2022-09-15)
+
+### 问题描述
+
+最近在重新整理 amis 这个项目,需要将自定义的 dev server 转换成 webpack 内置的 dev server,并且进行开发生产打包速度和何种优化,可配置实在太多.有没有办法在 js 配置文件里面,像 tsconfig 配置那样,自动提示呢?
+
+### 问题解决
+
+看了官方文档,虽然可以直接使用 ts 配置文件,但略微有点儿麻烦,也没合适的 vscode 插件.
+
+最后还是得利用 ts 的 js 注释语法来解决
+
+- 在对象上引入类型
+
+webpack.config.js
+
+```js
+/** @type {import('webpack').Configuration & import('webpack-dev-server').Configuration} */
+const webpackConfig = {
+  mode: 'development',
+};
+```
+
+- 配置 tsconfig 支持 webpack 配置文件
+
+tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": ["src", "./webpack.config.js"]
+}
+```
+
+- 然后重启 vscode 让 ts 识别到这个改动即可
+
+### 参考链接
+
+- [webpack 官网](https://webpack.js.org/configuration/configuration-languages/)
+- [devServer 不存在的问题](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27570)
+
+## 7. webpack-dev-server(2022-09-15)
+
+### 问题描述
+
+还是 amis 项目,之前是用 webpack-dev-server+webpack-dev-middleware+express 自己启的一个项目.现在换成用 webpack 内置的 devServer,运行后却总是报下面这个错
+
+```shell
+<i> [webpack-dev-server] Project is running at:
+<i> [webpack-dev-server] Loopback: http://localhost:8081/
+<i> [webpack-dev-server] On Your Network (IPv4): http://192.168.82.209:8081/
+<i> [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:8081/
+<i> [webpack-dev-server] Content not from webpack is served from '/Users/macbookpro/Documents/zmn/amis-admin/public' directory
+asset main.d818861b.js 241 KiB [emitted] [immutable] (name: main)
+```
+
+并且打开域名,提示 doc 文件请求 404`Cannot GET /`,网页 Title 是 Error
+
+目录结构如下
+
+```shell
+src
+  index.js
+  index.html
+webpack.config.js
+```
+
+webpack.config.js 配置如下
+
+```js
+const path = require('path');
+
+/** @type {import('webpack').Configuration & import('webpack-dev-server').Configuration} */
+const webpackConfig = {
+  mode: 'development',
+  entry: './src/index.js',
+  output: {
+    filename: 'main.[fullhash:8].js', //通过热加载输出script文件挂载在目录与index.HTML一样
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    port: 8081,
+  },
+};
+
+module.exports = webpackConfig;
+```
+
+### 问题解决
+
+添加 html-webpack-plugin 后可以正常访问网页,并且有输出 index.js 中的日志输出,但是 webpack 的错误提示还是出现在 cli 中
+
+```js
+{
+  "plugins": [
+    new HtmlWebpackPlugin({
+      "title": "Development"
+    })
+  ]
+}
+```
+
+### 参考链接

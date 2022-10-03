@@ -6,14 +6,15 @@
 - [4. [已解决]运行单元测试时,如何只运行其中一个文件(20200116)](#4-已解决运行单元测试时如何只运行其中一个文件20200116)
 - [5. [已解决]在`vue`项目中运行`jest`,引入的一个`lodash`模块报错(20210402)](#5-已解决在vue项目中运行jest引入的一个lodash模块报错20210402)
 - [6. [已解决]测试文件中引入的文件中,如果使用了 webpack 别名会报错(20210720)](#6-已解决测试文件中引入的文件中如果使用了-webpack-别名会报错20210720)
-- [7. vue 测试中,模拟$route 时报错(20210720)](#7-vue-测试中模拟route-时报错20210720)
+- [7. vue 测试中,模拟\$route 时报错(20210720)](#7-vue-测试中模拟route-时报错20210720)
 - [8. 如何在一个老的 vue 项目中启用 jest(20210720)](#8-如何在一个老的-vue-项目中启用-jest20210720)
 - [9. 根据 Vue Test Utils 官网指引安装后,运行 jest 命令之后报异常(20210720)](#9-根据-vue-test-utils-官网指引安装后运行-jest-命令之后报异常20210720)
 - [10. 如何 mock 一个基于 axios 的实际的接口函数(20210720](#10-如何-mock-一个基于-axios-的实际的接口函数20210720)
-- [11. [已解决]运行完 test:coverrage 后,pakeage.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)](#11-已解决运行完-testcoverrage-后pakeagejson-里面的-thresholds-自动更新的逻辑是怎么实现的20211013)
+- [11. [已解决]运行完 test:coverage 后,package.json 里面的 thresholds 自动更新的逻辑是怎么实现的(20211013)](#11-已解决运行完-testcoverage-后packagejson-里面的-thresholds-自动更新的逻辑是怎么实现的20211013)
 - [12. [已解决] 如何使用`setSystemTime`模拟一个时间(20211028)](#12-已解决-如何使用setsystemtime模拟一个时间20211028)
 - [13. [已解决]忽略 test.js 文件(20211230)](#13-已解决忽略-testjs-文件20211230)
 - [14. [已解决]无法识别 css 文件(20211130)](#14-已解决无法识别-css-文件20211130)
+- [15. 通过@vue/cli-plugin-unit-jest 运行测试,无法识别 jest.config.ts 文件.只能识别 jest.config.js 文件](#15-通过vuecli-plugin-unit-jest-运行测试无法识别-jestconfigts-文件只能识别-jestconfigjs-文件)
 - [17. [已解决]通过 vue-cli-service test:unit --watch 运行测试报异常(20211203)](#17-已解决通过-vue-cli-service-testunit---watch-运行测试报异常20211203)
 - [18. [已解决]通过 vue-cli-service test:unit --watch 运行测试无法识别到 ts 文件(20211203)](#18-已解决通过-vue-cli-service-testunit---watch-运行测试无法识别到-ts-文件20211203)
 - [19. [已解决]vue 测试中无法识别全局组件(20211212)](#19-已解决vue-测试中无法识别全局组件20211212)
@@ -22,6 +23,7 @@
 - [22. [已解决]jest 对象引用不存在(2022-05-17)](#22-已解决jest-对象引用不存在2022-05-17)
 - [22. [已解决]ts 文件引入 lodash 时引入进来的是 undefined(2022-05-17)](#22-已解决ts-文件引入-lodash-时引入进来的是-undefined2022-05-17)
 - [23. spyOn 无法生效(2022-05-17)](#23-spyon-无法生效2022-05-17)
+- [23. [已解决]testEnvironment 详解(2022-05-27)](#23-已解决testenvironment-详解2022-05-27)
 
 ## 1. [已解决]为什么单元测试的后缀名要是 spec.js(191230)
 
@@ -55,7 +57,7 @@
 - 另外,对 type 这个 prop 也添加了 validate,只能够传入 primary,info 等指定值,就是想要测试一下,如果传入 other,是否返回了一个异常,可实测下来,setProps 方法始终也是返回的 undefined
 
 ```javascript
-describe('prop type测试', function () {
+describe('prop type测试', function() {
   const wrapper = mount(Button, {
     propsData: {
       type: 'primary',
@@ -216,7 +218,7 @@ test('when the aggregation api  does not return invoice list, it should return 0
 - 需要在 jest 配置文件中的`moduleNameMapper`字段再次定义一下别名
 - 参考: https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring
 
-## 7. vue 测试中,模拟$route 时报错(20210720)
+## 7. vue 测试中,模拟\$route 时报错(20210720)
 
 ## 8. 如何在一个老的 vue 项目中启用 jest(20210720)
 
