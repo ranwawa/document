@@ -12,11 +12,11 @@
 
 #### 1.1.1 移动 tab
 
-| 中文                     | 命令                                     | 系统快捷键                       | 自定义快捷键     |
-| :----------------------- | :--------------------------------------- | :------------------------------- | :--------------- |
-| 切换到右边的 editor      | workbench.action.nextEditor              | Ctrl + PageDown <br /> ⌥ + ⌘ + → |                  |
-| 切换到左边的 editor      | workbench.action.previousEditor          | Ctrl + PageUp <br /> ⌥ + ⌘ + ←   |                  |
-| 将 editor 移动到右边分组 | workbench.action.splitEditorToRightGroup |                                  | Alt + e, Alt + r |
+| 中文                     | 命令                            | 系统快捷键                       | 自定义快捷键 |
+| :----------------------- | :------------------------------ | :------------------------------- | :----------- |
+| 切换到右边的 editor      | workbench.action.nextEditor     | Ctrl + PageDown <br /> ⌥ + ⌘ + → |              |
+| 切换到左边的 editor      | workbench.action.previousEditor | Ctrl + PageUp <br /> ⌥ + ⌘ + ←   |              |
+| 将 editor 移动到右边分组 | View: Split Editor              | ⌘ + \                            |              |
 
 #### 1.1.2 关闭 tab
 
@@ -48,10 +48,10 @@
 
 ### 2.3 代码导航
 
-| 中文       | 命令                             | 系统快捷键  |
-| ---------- | -------------------------------- | ----------- |
-| 前一个光标 | workbench.action.navigateForward | Alt + Right <br />  ⌃ + ⇧ + -|
-| 后一个光标 | workbench.action.navigateBack    | Alt + Left  <br /> ⌃ + -|
+| 中文       | 命令                             | 系统快捷键                   |
+| ---------- | -------------------------------- | ---------------------------- |
+| 前一个光标 | workbench.action.navigateForward | Alt + Right <br /> ⌃ + ⇧ + - |
+| 后一个光标 | workbench.action.navigateBack    | Alt + Left <br /> ⌃ + -      |
 |            |                                  |
 
 ## 3. 信息栏相关
@@ -75,3 +75,24 @@
 | ---------------- | -------------------------------- | -------------------- | ------------ |
 | 新窗口中打在项目 | View: Toggle Side Bar Visibility | Ctrl + b <br/> ⌃ + r |              |
 | 打开最近项目     | workbench.action.openRecent      | Ctrl + r             |              |
+
+## 6. git 相关
+
+| 中文                           | 命令                                         | 系统快捷键       | 自定义快捷键 |
+| ------------------------------ | -------------------------------------------- | ---------------- | ------------ |
+| 打开 git 面板                  | View: Show Source Control                    | ⌃ + ⇧ + G        |              |
+| 显示当前分支 commit 列表       | GitLens: Show Current Branch History         | ⌥ + ⌘ + G, ⇧ + H |              |
+| 显示当前文件和下一个修订的差异 | GitLens: Open Changes with Next Revision     | ⌥ + ⌘ + G, .     |              |
+| 显示当前文件和上一个修订的差异 | GitLens: Open Changes with Previous Revision | ⌥ + ⌘ + G, ,     |              |
+|                                |                                              |                  |              |
+|                                |                                              |                  |              |
+
+## 7. 快捷查找相关
+
+| 中文           | 命令                      | 系统快捷键 | 自定义快捷键 |
+| -------------- | ------------------------- | ---------- | ------------ |
+| 快捷命令输入框 | Show All Commands         | ⇧ + ⌘ + P  |              |
+| 快捷标识符导航 | Go to Symbol in Editor... | ⇧ + ⌘ + O  |              |
+|                |                           |            |              |
+|                |                           |            |              |
+|                |                           |            |              |

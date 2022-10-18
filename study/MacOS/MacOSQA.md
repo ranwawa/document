@@ -1,9 +1,15 @@
 # MacOS QA
 
-- [1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)](#1-已解决安装-vue-成功后提示-zsh-command-not-found-vue20201110)
-- [2. [已解决]安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)](#2-已解决安装-nrm-成功后提示-error-cannot-find-module-semver20201111)
-- [3. 如何更改 Mac 系统用户名及文件夹的名字(20220413)](#3-如何更改mac系统用户名及文件夹的名字20220413)
-- [4. [已解决]如何更改 bash 的默认权限(20220414)](#4-已解决如何更改bash的默认权限20220414)
+- 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
+- 2. [已解决]安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)
+- 3. 如何更改 Mac 系统用户名及文件夹的名字(20220413)
+- 4. [已解决]如何更改 bash 的默认权限(20220414)
+- 5. dev server 在 80 端口上启动时报权限问题(2022-06-10)
+- 6. 休眠后扩展显示器的窗口跑主显示器去了(2022-06-21)
+- 7. [已解决]mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
+- 8. [已解决]安装 nvm 后总是提示命令不存在(2022-07-22)
+- 9. 80 端口被占用(2022-09-08)
+- 10. 怎么强制退出右上角小图标中的进程(2022-10-18)
 
 ## 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
 
@@ -174,3 +180,19 @@ kill PID # 结束掉对应的进程
 
 - [superuser](https://superuser.com/questions/597398/no-idea-what-is-listening-on-port-80-in-os-x)
 - [lsof 手册](https://ss64.com/osx/lsof.html)
+
+## 10. 怎么强制退出右上角小图标中的进程(2022-10-18)
+
+### 问题描述
+
+最近老是因为 vpn 的问题导致电脑无法联网.需要关掉那个 tunelblick 软件,他在程序坞中没有显示,所以点左上角的强制退出看不到,直接点关闭又是卡死状态
+
+每次都是用问题 9 中的方法干掉进程,但是这样很麻烦.有没有 windows 那种进程管理直接关掉呢
+
+### 问题解决
+
+`command + P` -> 活动监视器
+
+### 参考链接
+
+- [百度经验](https://jingyan.baidu.com/article/d169e18641c841026611d8e0.html)

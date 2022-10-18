@@ -17,6 +17,8 @@
 | Live Server               | 快速生成一个前端服务                          |
 | koroFileHeader            | 自动生成文件头注释                            |
 | GitLens                   | 更丰富的 git 管理工具                         |
+| npm Intellisense          | 引入 npm 包时的智能提示                       |
+| Fig                       | 命令行智能提示插件                            |
 
 ## 2. 项目质量
 

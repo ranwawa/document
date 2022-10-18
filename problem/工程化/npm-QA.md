@@ -64,10 +64,11 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 - 往上拉错误日志,会看到最开始是找的 python2.找了 3 次没找到
 - 就直接运行的 Python.而我装的 Python 是 3.x 版本的
 - 重新安装一个 2.x 版本的即可
+
   - 注意在安装的过程中,选择自动添加环境变量
 
-- 20220722更新: mac m1上无法安装python,把node版本降低到v14.x也可以解决这个问题
-- 20220901更新: 这个最终是node-sass导致的. node-sass依赖node-gyp,而node-gyp又依赖于python.而node-sass的版本问题很混乱,和系统以及node版本是强关联,具体可以看node-sass官方changelog.最根本的解决办法还是直接使用dart-sass替代node-sass
+- 20220722 更新: mac m1 上无法安装 python,把 node 版本降低到 v14.x 也可以解决这个问题
+- 20220901 更新: 这个最终是 node-sass 导致的. node-sass 依赖 node-gyp,而 node-gyp 又依赖于 python.而 node-sass 的版本问题很混乱,和系统以及 node 版本是强关联,具体可以看 node-sass 官方 changelog.最根本的解决办法还是直接使用 dart-sass 替代 node-sass
 
 ## 3. [已解决]发包时提示未登陆(20200302)
 
@@ -274,7 +275,7 @@ module.exports = {
 
 - [npm 配置项](https://docs.npmjs.com/cli/v8/using-npm/config#init-author-email)
 - [.npm-init.js](https://docs.npmjs.com/creating-a-package-json-file#customizing-the-packagejson-questionnaire)
-参考 eslint,需要在 package 下配置一个 bin 的字段,来指向这个可执行文件.因为 npm 在运行命令时,是运行的 node_modules/.bin 下的命令,而这些命令又是从 bin 这个字段中解析过来的
+  参考 eslint,需要在 package 下配置一个 bin 的字段,来指向这个可执行文件.因为 npm 在运行命令时,是运行的 node_modules/.bin 下的命令,而这些命令又是从 bin 这个字段中解析过来的
 
 ## 12. [已解决]在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
 
@@ -392,7 +393,7 @@ npm install chalk4@npm:chalk@4.1.2
 - [npm 文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main)
 - [node 文件](https://nodejs.org/api/packages.html#packages_conditional_exports)
 
-## 13. [已解决]publish到npm仓库报E403(2022-08-02)
+## 13. [已解决]publish 到 npm 仓库报 E403(2022-08-02)
 
 ### 问题描述
 
@@ -411,13 +412,13 @@ npm ERR! 403 on a server you do not have access to.
 
 ### 参考链接
 
-- [csdn文章](https://blog.csdn.net/example440982/article/details/122100666)
+- [csdn 文章](https://blog.csdn.net/example440982/article/details/122100666)
 
-## 14. npm install --force和--legacy-peer-deps的区别(2022-08-30)
+## 14. npm install --force 和--legacy-peer-deps 的区别(2022-08-30)
 
 ### 问题描述
 
-最近在使用npmv7+安装@zmn/eslint-plugin的时候,总是会报peerDep依赖冲突的问题.自己可以将一些不必要的依赖删除掉然后重新安装,但是提供给其他人使用,则会显得比较麻烦
+最近在使用 npmv7+安装@zmn/eslint-plugin 的时候,总是会报 peerDep 依赖冲突的问题.自己可以将一些不必要的依赖删除掉然后重新安装,但是提供给其他人使用,则会显得比较麻烦
 
 ```shell
 npm ERR! Could not resolve dependency:
@@ -432,11 +433,35 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 
 ### 问题解决
 
-- --legacy-peer-deps参照老的逻辑,不自动安装peerDep依赖
-- --force使用一套优先级算法安装,如果算法没算出来就跳过安装
+- --legacy-peer-deps 参照老的逻辑,不自动安装 peerDep 依赖
+- --force 使用一套优先级算法安装,如果算法没算出来就跳过安装
 
 这两种方案都不好.还是要自己解决依赖冲突的问题
 
 ### 参考链接
 
 - [官方文档](https://github.com/npm/rfcs/blob/main/implemented/0031-handling-peer-conflicts.md)
+
+## 15. 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
+
+### 问题描述
+
+package.json 中依赖了私有仓库的包,在公网安装时私有包会报 405 的错误.如何忽略这个错误,继续安装其他外网的依赖呢
+
+### 问题解决
+
+### 参考链接
+
+## 16.[已解决] 查看当前包的所有版本(2022-10-08)
+
+### 问题描述
+
+私有仓库安装amis-core@2.3.0时报 404 错误.应该是私有仓库没有同步元仓库数据导致的,所以想查看下这个包在私有仓库可下载的版本
+
+### 问题解决
+
+npm view amis-core versions
+
+### 参考链接
+
+- [stackoverflow](https://stackoverflow.com/questions/41415945/how-to-list-all-versions-of-an-npm-module)
