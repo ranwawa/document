@@ -1,8 +1,9 @@
 # chrome QA
 
-- [1. [已解决]开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)](#1-已解决开了-vpn-后之-http-请求-http-会跨域-2022-06-22)
-- [2. [已解决]如何复现 chrome 本地的 307 跳转(2022-06-22)](#2-已解决如何复现-chrome-本地的-307-跳转2022-06-22)
-- [3. [已解决]快速禁用 chrome 的跨域限制(2022-09-16)](#3-已解决快速禁用-chrome-的跨域限制2022-09-16)
+- 1. [已解决]开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
+- 2. [已解决]如何复现 chrome 本地的 307 跳转(2022-06-22)
+- 3. [已解决]快速禁用 chrome 的跨域限制(2022-09-16)
+- 4. [已解决]mac 下怎么安装 crx 文件(20210322)
 
 ## 1. [已解决]开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
 
@@ -58,9 +59,37 @@ mac
 2. 执行下面命令
 
 ```shell
+# mac
 open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+```
+
+```shell
+# Right click on desktop, add new shortcut
+# `Add the target as "[PATH_TO_CHROME]\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp
+
+NOTE: On Windows 10 command will be: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp
 ```
 
 ### 参考链接
 
 - [stackoverflow](https://stackoverflow.com/questions/57552185/how-to-disable-cors-in-chrome-mac/69543668#69543668)
+
+## 4. [已解决]mac 下怎么安装 crx 文件(20210322)
+
+### 业务背景
+
+要抄代发兔的发货插件,下载下来后是一个 rar 文件,找了个工具解压出来是 crx 文件,拖到扩展程序里面安装,但是无法使用.如下图
+
+![image-20210322113645932](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210322113645932.png)
+
+记得可以解压 crx 文件,然后在扩展工具里面加载已解压的扩展程序,但是在 mac 里面无法解压
+
+### 问题解决
+
+- 20210322
+- 将后缀名修改为.zip
+- 打开`终端`,通过终端命令解压
+
+```shell
+unzip 你的插件名.zip -d 解压后的目录名
+```

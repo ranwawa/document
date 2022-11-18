@@ -1,16 +1,18 @@
 # TypeScript QA
 
-- [1. [已解决]如何定义一个类型文件(20200716)](#1-已解决如何定义一个类型文件20200716)
-- [2. 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)](#2-如何为一个已经存在的-react-function-components-添加一个类型声明文件20210627)
-- [3. 联合类型未生效(20210725)](#3-联合类型未生效20210725)
-- [4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)](#4-已解决umi-中使用-uselocationqueryts-在-query-上报-unknown-的错误20210908)
-- [5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)](#5-已解决vue2x-项目中引入-jest在testts-测试文件中引入vue-报错20211205)
-- [6. [已解决]!.语法(2022-06-12)](#6-已解决语法2022-06-12)
-- [6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)](#6-jest-单元测试中-spyon-始终报类型错误2022-05-16)
-- [7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)](#7-已解决引入其他包的时候不能用ts-结尾2022-05-16)
-- [8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)](#8-已解决tsc-无法重写-import-中的路径2022-05-17)
-- [9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)](#9-已解决tsc-编译时引入-lodash-报错2022-05-17)
-- [10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)](#10-已解决cmd-模式下多个文件引入同一个包会报错2022-05-19)
+- 1. [已解决]如何定义一个类型文件(20200716)
+- 2. 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)
+- 3. 联合类型未生效(20210725)
+- 4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
+- 5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
+- 6. [已解决]!.语法(2022-06-12)
+- 6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)
+- 7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)
+- 8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)
+- 9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)
+- 10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)
+- 11. [已解决]无法识别 require 引入的包类型(2022-06-15)
+- 12. [已解决]引入 qs 报错(2022-11-02)
 
 ## 1. [已解决]如何定义一个类型文件(20200716)
 
@@ -214,8 +216,8 @@ interface {
 // src/typings/vue-shim.d.ts
 
 declare module '*.vue' {
-  import Vue from 'vue'
-  export default Vue
+  import Vue from 'vue';
+  export default Vue;
 }
 ```
 
@@ -227,8 +229,8 @@ declare module '*.vue' {
 // tsconfig.json
 {
   "compilerOptions": {
-     // 一定要保留"./node_modules/@types",否则只会识别./src/typings,导致无法@types类型
-		"typeRoots": ["./node_modules/@types", "./src/typings", ]
+    // 一定要保留"./node_modules/@types",否则只会识别./src/typings,导致无法@types类型
+    "typeRoots": ["./node_modules/@types", "./src/typings"]
   }
 }
 ```
@@ -237,14 +239,14 @@ declare module '*.vue' {
 
 ```json
 {
-	"include": ["src"]
+  "include": ["src"]
 }
 ```
 
 3. 在引入的地方加上.vue 后缀名
 
 ```typescript
-import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue'
+import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue';
 ```
 
 ## 6. [已解决]!.语法(2022-06-12)
@@ -255,11 +257,11 @@ import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue'
 
 ### 问题解决
 
-其实只能算是后置的`!`语法,表示类型断言...肯定前面这个变量不是null/undefined
+其实只能算是后置的`!`语法,表示类型断言...肯定前面这个变量不是 null/undefined
 
 ### 参考链接
 
-- [typescript官方文档](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
+- [typescript 官方文档](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
 
 ## 6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)
 
@@ -439,18 +441,50 @@ ts 默认将所有文件放在全局作用域下.除非文件中有顶级的 imp
 - [简书讨论](https://www.jianshu.com/p/78268bd9af0a)
 - [github 官方 issue](https://github.com/microsoft/TypeScript/issues/47229)
 
-## 11. [已解决]无法识别require引入的包类型(2022-06-15)
+## 11. [已解决]无法识别 require 引入的包类型(2022-06-15)
 
 ### 问题描述
 
-configurations/treelint项目使用的是commonjs模块方案.通过require引入path,无类型提示,但换成import之后就有类型提示了
+configurations/treelint 项目使用的是 commonjs 模块方案.通过 require 引入 path,无类型提示,但换成 import 之后就有类型提示了
 
 ### 问题解决
 
-在ts中,即使是commonjs规范.也不要使用require和module.exports
+在 ts 中,即使是 commonjs 规范.也不要使用 require 和 module.exports
 
-得使用ts的兼容语法import = / export =
+得使用 ts 的兼容语法 import = / export =
 
 ### 参考链接
 
-- [typescript官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
+- [typescript 官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
+
+## 12. [已解决]引入 qs 报错(2022-11-02)
+
+### 问题描述
+
+之前引入没报错,今天新一起个项目没配置 tsconfig 的情况下报错了
+
+```js
+import qs from 'qs';
+```
+
+```shell
+Module '"/Users/macbookpro/Documents/zmn/zmn/node_modules/@types/qs/index"' can only be default-imported using the 'esModuleInterop' flag
+
+This module is declared with 'export =', and can only be used with a default import when using the 'esModuleInterop' flag.
+```
+
+### 问题解决
+
+1. export = xx 只能用 import qs = require(qs)引入
+
+2. 或者在 tsconfig 中配置进行兼容
+
+```json
+"compilerOptions": {
+    "esModuleInterop": true
+  }
+```
+
+### 参考链接
+
+- [ts 文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)

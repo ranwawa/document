@@ -1,17 +1,25 @@
 # npm QA
 
-- [1.[已解决] 发布 npm 包之前如何自动更新版本号](#1已解决-发布-npm-包之前如何自动更新版本号)
-- [2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)](#2-已解决初始化安装项目时老是报这样一个错误-print-sss--sysversion_info200204)
-- [3. [已解决]发包时提示未登陆(20200302)](#3-已解决发包时提示未登陆20200302)
-- [4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)](#4-dependency-devdependency-peerdependency-之间到底有啥区别20210603)
-- [5. yarn install --frozen-lockfile 这个参数起什么作用](#5-yarn-install---frozen-lockfile-这个参数起什么作用)
-- [6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)](#6-npm-在服务器上执行-install-时报没有合适包的错误20211214)
-- [7. npm audit 是干什么的(20220416)](#7-npm-audit-是干什么的20220416)
-- [8. mono repo 下安装依赖包的问题(20220416)](#8-mono-repo-下安装依赖包的问题20220416)
-- [9. [已解决]创建一个 npm package.json 模板(2022-05-04)](#9-已解决创建一个-npm-packagejson-模板2022-05-04)
-- [10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)](#10-已解决lerna-项目中-chalk-依赖版本异常2022-05-19)
-- [11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)](#11-npm-link-包后无法自动安装-peerdependencies2022-05-24)
-- [12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)](#12-已解决packagejson-中-mainbrowser-以及-module-等字段的区别2022-05-27)
+- 1.[已解决] 发布 npm 包之前如何自动更新版本号
+- 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
+- 3. [已解决]发包时提示未登陆(20200302)
+- 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
+- 5. yarn install --frozen-lockfile 这个参数起什么作用
+- 6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)
+- 7. [已解决]npm audit 是干什么的(20220416)
+- 8. mono repo 下安装依赖包的问题(20220416)
+- 9. [已解决]创建一个 npm package.json 模板(2022-05-04)
+- 10. [已解决].npmrc 是干什么的(20220418)
+- 11. [已解决]本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
+- 12. [已解决]在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
+- 10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)
+- 11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)
+- 12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
+- 13. [已解决]publish 到 npm 仓库报 E403(2022-08-02)
+- 14. npm install --force 和--legacy-peer-deps 的区别(2022-08-30)
+- 15. 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
+- 16. [已解决] 查看当前包的所有版本(2022-10-08)
+- 17. [已解决]package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
 
 ## 1.[已解决] 发布 npm 包之前如何自动更新版本号
 
@@ -448,11 +456,27 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 
 package.json 中依赖了私有仓库的包,在公网安装时私有包会报 405 的错误.如何忽略这个错误,继续安装其他外网的依赖呢
 
+比如,内网镜像无法摘取最新的 amis
+
+```shell
+npm ERR! code E504
+npm ERR! 504 Gateway Time-out - GET https://maven.xiujiadian.com/repository/npm_public/amis/-/amis-2.4.0.tgz
+```
+
 ### 问题解决
+
+1. 先切到官方镜像源`npm`,把这个包缓存起来.再切回私有镜像源`zmn`安装
+
+```shell
+nrm use npm
+npm cache amis@latest
+npm use zmn
+npm i
+```
 
 ### 参考链接
 
-## 16.[已解决] 查看当前包的所有版本(2022-10-08)
+## 16. [已解决] 查看当前包的所有版本(2022-10-08)
 
 ### 问题描述
 
@@ -465,3 +489,36 @@ npm view amis-core versions
 ### 参考链接
 
 - [stackoverflow](https://stackoverflow.com/questions/41415945/how-to-list-all-versions-of-an-npm-module)
+
+## 17. [已解决]package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
+
+### 问题描述
+
+如题.
+
+安装成功之后查看 node_modules 里面.实际版本不是想要的 ab.5.并且 node_modules/zmn/package.json 中多了很多下划线开头的字段
+
+### 问题解决
+
+应该和 npm i 的逻辑有关
+
+猜测 npm i 会自动更新`semver range operator`值,就像 npm update 一样.不同的写法,实际更新的不一样
+
+解决 1:
+
+那就精确安装版本.不使用范围操作符
+
+```shell
+npm install --save-exact --save-prod --legacy-peer-deps zmn@9.0.1-ab. 5
+```
+
+解决 2:
+
+还和 npm 版本有关.本地切换到 node 16 后就不存在这个问题了,但是 node 14 就有这个问题
+
+升级服务器上 node 版本也是可以的
+
+### 参考链接
+
+- [npm update](https://docs.npmjs.com/cli/v8/commands/npm-update)
+- [npm version range](https://docs.npmjs.com/about-semantic-versioning)

@@ -9,7 +9,8 @@
 - 7. [已解决]mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
 - 8. [已解决]安装 nvm 后总是提示命令不存在(2022-07-22)
 - 9. 80 端口被占用(2022-09-08)
-- 10. 怎么强制退出右上角小图标中的进程(2022-10-18)
+- 10. [已解决]怎么强制退出右上角小图标中的进程(2022-10-18)
+- 11. [已解决]怎么将命令添加到环境变量里面(2022-10-28)
 
 ## 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
 
@@ -181,7 +182,7 @@ kill PID # 结束掉对应的进程
 - [superuser](https://superuser.com/questions/597398/no-idea-what-is-listening-on-port-80-in-os-x)
 - [lsof 手册](https://ss64.com/osx/lsof.html)
 
-## 10. 怎么强制退出右上角小图标中的进程(2022-10-18)
+## 10. [已解决]怎么强制退出右上角小图标中的进程(2022-10-18)
 
 ### 问题描述
 
@@ -196,3 +197,31 @@ kill PID # 结束掉对应的进程
 ### 参考链接
 
 - [百度经验](https://jingyan.baidu.com/article/d169e18641c841026611d8e0.html)
+
+## 11. [已解决]怎么将命令添加到环境变量里面(2022-10-28)
+
+### 问题描述
+
+如题.新装一个工具时,直接执行会遇到没有命令的情况,比如 sonarscanner
+
+这就得手动将其添加到环境变量里面
+
+### 问题解决
+
+临时添加
+
+```shell
+export PATH=$PATH:~/Downloads/sonar-scanner-4.7.0.2747-macosx/bin/
+```
+
+永久添加
+
+```shell
+vim ~/.bash_profile
+
+# 再把上面这个代码添加到文件里面,对其他shell工具一样
+```
+
+### 参考链接
+
+- [web](https://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/)
