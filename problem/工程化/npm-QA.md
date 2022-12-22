@@ -1,6 +1,6 @@
 # npm QA
 
-- 1.[已解决] 发布 npm 包之前如何自动更新版本号
+- 1. [已解决]发布 npm 包之前如何自动更新版本号
 - 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
 - 3. [已解决]发包时提示未登陆(20200302)
 - 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
@@ -20,8 +20,9 @@
 - 15. 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
 - 16. [已解决] 查看当前包的所有版本(2022-10-08)
 - 17. [已解决]package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
+- 18. [已解决]axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
 
-## 1.[已解决] 发布 npm 包之前如何自动更新版本号
+## 1. [已解决]发布 npm 包之前如何自动更新版本号
 
 ### 业务背景
 
@@ -522,3 +523,145 @@ npm install --save-exact --save-prod --legacy-peer-deps zmn@9.0.1-ab. 5
 
 - [npm update](https://docs.npmjs.com/cli/v8/commands/npm-update)
 - [npm version range](https://docs.npmjs.com/about-semantic-versioning)
+
+## 18. [已解决]axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
+
+### 问题描述
+
+使用 ts 开发了一个 sdk,其中引用了 axios,在本地运行正常,但是发布到 npm 后其他项目引用则报了异常
+
+源码
+
+```ts
+import axios from 'axios';
+
+axios({});
+```
+
+ts 转义成 commonjs 模块,转义后的代码
+
+```js
+const axios_1 = require(axios);
+
+axios_1.default({});
+```
+
+```shell
+axios_1.default is not a function
+```
+
+### 问题解决
+
+这是由于 axios package.json 中的配置导致
+
+```json
+  "main": "./index.js",
+  "exports": {
+    ".": {
+      "browser": {
+        "require": "./dist/node/axios.cjs",
+        "default": "./index.js"
+      },
+      "default": {
+        "require": "./dist/node/axios.cjs",
+        "default": "./index.js"
+      }
+    }
+  },
+```
+
+本地运行时始终是引用的 main 字段对应的入口文件,而发布后其他项目引用的始终是 exports.default.require 字段对应的入口文件
+
+这应该是 node 的 bug,因为规范上说的只要有 exports 就会以 export 为准,但本地开发的时候却并没有这样做
+
+想个办法让开发环境和生产环境引入同一个输出的文件即可
+
+```js
+import axios from 'axios/index';
+axios({});
+```
+
+ts 编译后的代码
+
+```js
+const axios_1 = require('axios/index');
+axios_1.default({});
+```
+
+要查看实际引用的哪个文件,可以在 require 的地方加个 log,webpack 编译之后的路径就是真实的引用路径
+
+```js
+var index_1 = __webpack_require__(
+  /*! axios/index */ '../gray-ab/node_modules/axios/index.js'
+);
+console.log('===========');
+```
+
+### 参考链接
+
+[node exports 文档](https://nodejs.org/api/packages.html#subpath-exports)
+
+## 19. [已解决]package.json 中的 engines 配置无效(2022-11-27)
+
+### 问题描述
+
+前端时间由于升级了 webpack 打包配置,其中 css-mini 这个插件升级后依赖的最低版本是 14.x node,导致 jenkins 打包时失败,因为在 jenkins 上的 node 版本是 12.x
+
+所以就想在自己的项目里面也限制一下 node 包版本,从而设置了 package.json
+
+```json
+{
+  "name": "zmn",
+  "engines": {
+    "node": ">= 14.15.0"
+  }
+}
+```
+
+但这样无论是在当前项目,还是其他项目引用这个包
+无论是 16 还是 12 的 node 版本,都没有报版本过低的错
+无论是安装还是运行都没有报错,可以正常进行
+
+### 问题解决
+
+原来设置这个不够,还需要在`.npmrc`或者 npm 配置中设置强制使用引擎版本的配置才行
+
+```shell
+# .npmrc
+engine-strict=true
+```
+
+或者
+
+```shell
+npm config set engine-strict true
+```
+
+### 参考链接
+
+- [npm engins 官方文档](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#engines)
+- [stackoverflow 问答](https://stackoverflow.com/questions/29349684/how-can-i-specify-the-required-node-js-version-in-package-json)
+
+## 20. [已解决]解决某个包无法下载的情况(2022-12-17)
+
+### 问题描述
+
+要么是网络问题,在 node_sass 上经常遇到
+要么是私有库配置问题,在私有镜像时经常遇到,私有镜像不自动去拉最新的 npm 包
+
+### 问题解决
+
+如果无法下载的是作用域包,则可以在配置文件中配置镜像处理
+
+```shell
+@eslint:registry=https://registry.npmjs.org/
+@zmn:registry=https://maven.xiujiadian.com/repository/npm_public/
+```
+
+如果是一个非作用域包,则可以通过 config 配置镜像
+
+```shell
+npm install zmn-ratel-sdk --registry=https://maven.xiujiadian.com/repository/npm_public/
+```
+
+### 参考链接

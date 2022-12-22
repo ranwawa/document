@@ -488,3 +488,13 @@ This module is declared with 'export =', and can only be used with a default imp
 ### 参考链接
 
 - [ts 文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
+
+## 13. [string, ...number]这种类型怎么声明(2022-11-30)
+
+### 问题描述
+
+数组的第一个元素类型固定,后面统一为一个类型.好像之前在文档上看到过,但是找不到了
+
+### 问题解决
+
+### 参考链接

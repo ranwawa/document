@@ -71,3 +71,4 @@
 | Sort lines          | 对选中的行进行排序 |
 | Material Icon Theme | 容易识别的图标     |
 | Better Comments     | 更容易识别的注释   |
+| vscode-pdf          | pdf 预览           |
