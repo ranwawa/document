@@ -1,6 +1,6 @@
 # vue3.x QA
 
-## 1. 为什么要使用组合式 api以及jsx(2022-05-27)
+## 1 为什么要使用组合式 api 以及 jsx(2022-05-27)
 
 ### 问题描述
 
@@ -14,7 +14,7 @@
 - 选项 api 也是基于组合式 api 构建起来的,所以直接使用更底层的逻辑无论是从性能还是问题排查上都会更方便
 - 在 setup 选项函数中无法访问 this,这种同时混合选项 api 和组合 api 的方式不仅麻烦,也容易使人产生混淆
 - 其他诸如少打点儿字,ts 支持,ide 性能等看这个[官方文档](https://vuejs.org/api/sfc-script-setup.html)
-- options模式下很多语法糖,才开始真让人摸不着头脑,比如下面示例代码中的a-config-provider从哪儿引入的,Component从哪儿来的
+- options 模式下很多语法糖,才开始真让人摸不着头脑,比如下面示例代码中的 a-config-provider 从哪儿引入的,Component 从哪儿来的
 
 ```vue
 <script setup lang="ts">
@@ -45,7 +45,7 @@ store.dispatch('user/generateRoutes');
     </router-view>
   </a-config-provider>
 </template>
-````
+```
 
 ### 参考链接
 

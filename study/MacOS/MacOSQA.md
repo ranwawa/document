@@ -1,18 +1,18 @@
 # MacOS QA
 
-- 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
-- 2. [已解决]安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)
+- 1. :已解决:安装 VUE 成功后提示 zsh: command not found: vue(20201110)
+- 2. :已解决:安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)
 - 3. 如何更改 Mac 系统用户名及文件夹的名字(20220413)
-- 4. [已解决]如何更改 bash 的默认权限(20220414)
+- 4. :已解决:如何更改 bash 的默认权限(20220414)
 - 5. dev server 在 80 端口上启动时报权限问题(2022-06-10)
 - 6. 休眠后扩展显示器的窗口跑主显示器去了(2022-06-21)
-- 7. [已解决]mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
-- 8. [已解决]安装 nvm 后总是提示命令不存在(2022-07-22)
+- 7. :已解决:mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
+- 8. :已解决:安装 nvm 后总是提示命令不存在(2022-07-22)
 - 9. 80 端口被占用(2022-09-08)
-- 10. [已解决]怎么强制退出右上角小图标中的进程(2022-10-18)
-- 11. [已解决]怎么将命令添加到环境变量里面(2022-10-28)
+- 10. :已解决:怎么强制退出右上角小图标中的进程(2022-10-18)
+- 11. :已解决:怎么将命令添加到环境变量里面(2022-10-28)
 
-## 1. [已解决]安装 VUE 成功后提示 zsh: command not found: vue(20201110)
+## 1 :已解决:安装 VUE 成功后提示 zsh: command not found: vue(20201110)
 
 ### 业务背景
 
@@ -37,11 +37,11 @@ nvm 时也遇到同样的问题
 - .profile 是 bash 命令行工具的配置文件
 - 加上上面的代码,是让 zsh 也能识别 bash 的环境亦是
 
-## 2. [已解决]安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)
+## 2 :已解决:安装 nrm 成功后提示 Error: Cannot find module 'semver'(20201111)
 
 问题同上
 
-## 3. 如何更改 Mac 系统用户名及文件夹的名字(20220413)
+## 3 如何更改 Mac 系统用户名及文件夹的名字(20220413)
 
 ### 问题描述
 
@@ -51,7 +51,7 @@ nvm 时也遇到同样的问题
 
 - [知乎](https://zhuanlan.zhihu.com/p/361131804)
 
-## 4. [已解决]如何更改 bash 的默认权限(20220414)
+## 4 :已解决:如何更改 bash 的默认权限(20220414)
 
 ### 问题描述
 
@@ -82,7 +82,7 @@ drwxr-xr-x  1012 root  wheel  32384  3 26 15:21 bin
 - [用户和组相关操作](https://www.jianshu.com/p/7e795b3e7bfc)
 - [权限介绍](https://baike.baidu.com/item/Linux%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90/4089164?fr=aladdin)
 
-## 5. dev server 在 80 端口上启动时报权限问题(2022-06-10)
+## 5 dev server 在 80 端口上启动时报权限问题(2022-06-10)
 
 ### 问题描述
 
@@ -112,7 +112,7 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 - [stackoverflow 讨论](https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode)
 - [转发教程](https://www.jianshu.com/p/26ae3c5b7155)
 
-## 6. 休眠后扩展显示器的窗口跑主显示器去了(2022-06-21)
+## 6 休眠后扩展显示器的窗口跑主显示器去了(2022-06-21)
 
 ### 问题描述
 
@@ -128,7 +128,7 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 
 ### 参考链接
 
-## 7. [已解决]mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
+## 7 :已解决:mac vscode 中老自动生成.DS_Store 文件(2022-06-23)
 
 ### 问题描述
 
@@ -144,7 +144,7 @@ Error: listen EACCES: permission denied 127.0.0.1:80
 
 - [知乎讨论](https://www.zhihu.com/question/20345704)
 
-## 8. [已解决]安装 nvm 后总是提示命令不存在(2022-07-22)
+## 8 :已解决:安装 nvm 后总是提示命令不存在(2022-07-22)
 
 ### 问题描述
 
@@ -164,7 +164,7 @@ source ~/.nvm/nvm.sh
 
 - [stackoverflow 讨论](https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found/17707224#17707224)
 
-## 9. 80 端口被占用(2022-09-08)
+## 9 80 端口被占用(2022-09-08)
 
 ### 问题描述
 
@@ -182,7 +182,7 @@ kill PID # 结束掉对应的进程
 - [superuser](https://superuser.com/questions/597398/no-idea-what-is-listening-on-port-80-in-os-x)
 - [lsof 手册](https://ss64.com/osx/lsof.html)
 
-## 10. [已解决]怎么强制退出右上角小图标中的进程(2022-10-18)
+## 10 :已解决:怎么强制退出右上角小图标中的进程(2022-10-18)
 
 ### 问题描述
 
@@ -198,7 +198,7 @@ kill PID # 结束掉对应的进程
 
 - [百度经验](https://jingyan.baidu.com/article/d169e18641c841026611d8e0.html)
 
-## 11. [已解决]怎么将命令添加到环境变量里面(2022-10-28)
+## 11 :已解决:怎么将命令添加到环境变量里面(2022-10-28)
 
 ### 问题描述
 

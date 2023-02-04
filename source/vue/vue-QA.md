@@ -1,10 +1,10 @@
 # vue-QA
 
 - [1. 源码中的`istanbul`有什么用(20200309)](#1-源码中的istanbul有什么用20200309)
-- [2. [已解决]scoped 原理(2022-05-09)](#2-已解决scoped-原理2022-05-09)
+- [2. :已解决:scoped 原理(2022-05-09)](#2-已解决scoped-原理2022-05-09)
 - [3. vue3.x + volar + ts + vsocde 在 template 无法进行智能提示(2022-05-23)](#3-vue3x--volar--ts--vsocde-在-template-无法进行智能提示2022-05-23)
 
-## 1. 源码中的`istanbul`有什么用(20200309)
+## 1 源码中的`istanbul`有什么用(20200309)
 
 ### 业务背景
 
@@ -18,7 +18,7 @@
 
 ### 问题解决
 
-## 2. [已解决]scoped 原理(2022-05-09)
+## 2 :已解决:scoped 原理(2022-05-09)
 
 ### 问题描述
 
@@ -39,7 +39,7 @@
 - [vue-loader 原理官方文档](https://github.com/vuejs/vue-loader#how-it-works)
 - [转换单文件中块的底层函数](https://github.com/vuejs/component-compiler-utils)
 
-## 3. vue3.x + volar + ts + vsocde 在 template 无法进行智能提示(2022-05-23)
+## 3 vue3.x + volar + ts + vsocde 在 template 无法进行智能提示(2022-05-23)
 
 ### 问题描述
 

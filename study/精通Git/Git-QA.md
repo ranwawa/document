@@ -22,11 +22,11 @@
 - 21. 无法向 github 推送东西(2022-05-26)
 - 22. \[已解决\]批量删除分支(2022-12-09)
 
-## 1. mac 上的 XCode 命令行是啥(20220303)
+## 1 mac 上的 XCode 命令行是啥(20220303)
 
 现在不用 mac 了,暂时不看这个问题
 
-## 2. [已解决]如何使用 git 上的个人编辑器(20220303)
+## 2 :已解决:如何使用 git 上的个人编辑器(20220303)
 
 ### 问题描述
 
@@ -40,7 +40,7 @@
 - 安装时可以选择一个默认编辑器
 - 或者通过配置命令 git config --global core.editor xxx
 
-## 3. [已解决]grep 的英文全称(20220303)
+## 3 :已解决:grep 的英文全称(20220303)
 
 ### 问题描述
 
@@ -52,7 +52,7 @@ Global Regular Expression Parser
 
 全局正则表达式解析器
 
-## 4. [已解决]branch 和 ref 的区别(20220308)
+## 4 :已解决:branch 和 ref 的区别(20220308)
 
 ### 问题描述
 
@@ -72,7 +72,7 @@ Global Regular Expression Parser
 
 - https://git-scm.com/book/en/v2/Git-Internals-Git-References
 
-## 5. [已解决]glob 模式(20200303)
+## 5 :已解决:glob 模式(20200303)
 
 ### 问题描述
 
@@ -96,7 +96,7 @@ Global Regular Expression Parser
 
 参考： https://www.npmjs.com/package/glob
 
-## 6. git mergetool 的使用(20220303)
+## 6 git mergetool 的使用(20220303)
 
 ### 问题描述
 
@@ -116,7 +116,7 @@ Global Regular Expression Parser
 
 不过这里有个问题，目录中的空格无法识别，所以最终还是没有看到效果
 
-## 7. 提交对象和树对象的区别(20220305)
+## 7 提交对象和树对象的区别(20220305)
 
 ### 问题描述
 
@@ -132,7 +132,7 @@ Global Regular Expression Parser
 
 7.4 有提到用 GPG 对 commit 或 tag 进行更加安全的签名，可这个 GPG 是啥
 
-## 9. [已解决]stdin 是什么(20220307)
+## 9 :已解决:stdin 是什么(20220307)
 
 ### 问题描述
 
@@ -149,7 +149,7 @@ Global Regular Expression Parser
 - https://stackoverflow.com/questions/3385201/confused-about-stdin-stdout-and-stderr
 - http://c.biancheng.net/view/942.html
 
-## 10. [已解决]Unix 风格是什么(20220308)
+## 10 :已解决:Unix 风格是什么(20220308)
 
 ### 问题描述
 
@@ -171,7 +171,7 @@ unix 是操作系统,linux 也是操作系统.linux 是模仿 unix 写出来的,
 - http://c.biancheng.net/view/707.html
 - https://blog.csdn.net/ruibin_cao/article/details/84660224
 
-## 11. github 操作老是超时(20220411)
+## 11 github 操作老是超时(20220411)
 
 ### 问题描述
 
@@ -212,7 +212,7 @@ fatal: unable to access 'https://github.com/ranwawa/uni-vant/': OpenSSL SSL_conn
 
 - file:///C:/Program%20Files/Git/mingw64/share/doc/git-doc/git-config.html
 
-## 12. [已解决]bash 中输入的中文是编码后的(20220304)
+## 12 :已解决:bash 中输入的中文是编码后的(20220304)
 
 ### 问题描述
 
@@ -230,7 +230,7 @@ git config --global core.quotePath false
 
 这个值默认是 true,会将超过 0x80 的字符视为特殊字符进行转义
 
-## 14.[已解决] .gitignore 里面设置了忽略文件但是不生效(191101)
+## 14.:已解决: .gitignore 里面设置了忽略文件但是不生效(191101)
 
 ### 业务背景
 
@@ -248,7 +248,7 @@ dist/
 - 先清空一下 git 缓存`git rm -r --cached dist`
 - 然后再提交就可以了 - 参考链接: https://blog.csdn.net/qq_31325079/article/details/82701208
 
-## 15. [已解决]git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)
+## 15 :已解决:git push 完代码后,自动发布 npm 包(git 钩子使用)(191224)
 
 ### 业务背景
 
@@ -262,7 +262,7 @@ dist/
   - https://github.com/typicode/husky
   - https://www.git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90
 
-## 16. [已解决]git clone 仓库时总是失败(20200208)
+## 16 :已解决:git clone 仓库时总是失败(20200208)
 
 ### 业务背景
 
@@ -279,7 +279,7 @@ RPC failed; curl 56 OpenSSL SSL_read: Connection was reset, errno 10054 the remo
 - 20210105
 - 这个就是被墙的问题，唯有梯子才能搞定
 
-## 17. [已解决]仓库帐号密码相关逻辑(20200422)
+## 17 :已解决:仓库帐号密码相关逻辑(20200422)
 
 ### 业务背景
 
@@ -370,7 +370,7 @@ Password: <type your password>
   - $XDG_CONFIG_HOME/git/credentials
   - $HOME/.config/git/credentials
 
-## 18. [已解决]如何设置分支文件夹(20201010)
+## 18 :已解决:如何设置分支文件夹(20201010)
 
 ### 业务背景
 
@@ -392,7 +392,7 @@ Password: <type your password>
 - ide 会自动识别为目录
 - 所以以后可以按人员进行目录划分,以便于 ide 进行处理
 
-## 19. [已解决]本地无法查看远程分支(20210105)
+## 19 :已解决:本地无法查看远程分支(20210105)
 
 ### 业务背景
 
@@ -413,7 +413,7 @@ Password: <type your password>
 
 不知道为什么会出现这种情况，反正多试几次就 ok 了
 
-## 20. [已解决].gitattributes 文件的作用是啥(20220415)
+## 20 :已解决:.gitattributes 文件的作用是啥(20220415)
 
 ### 问题描述
 
@@ -440,7 +440,7 @@ node_modules linguist-vendored
 - [attributes 密文文档](https://git-scm.com/docs/gitattributes)
 - [linguist-vendored 用法](https://www.cnblogs.com/caiji/p/9536182.html)
 
-## 21. 无法向 github 推送东西(2022-05-26)
+## 21 无法向 github 推送东西(2022-05-26)
 
 ### 问题描述
 
@@ -466,7 +466,7 @@ Failed to connect to github.com port 443 after 3 ms: Connection refused
 
 ### 参考链接
 
-## 22. [已解决]批量删除分支(2022-12-09)
+## 22 :已解决:批量删除分支(2022-12-09)
 
 ### 问题描述
 
@@ -484,7 +484,7 @@ git branch --merged | grep -v \* | xargs git branch -D
 
 - [不知道哪儿的网页](https://www.lmlphp.com/user/152079/article/item/3612134/)
 
-## 23. [已解决]git 没有遵循.edtorconfig 配置(2022-12-22)
+## 23 :已解决:git 没有遵循.edtorconfig 配置(2022-12-22)
 
 ### 问题描述
 

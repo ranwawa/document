@@ -1,6 +1,6 @@
 # tl QA
 
-## 1. [已解决]输入文字和删除文字的几种方式(2022-05-26)
+## 1 :已解决:输入文字和删除文字的几种方式(2022-05-26)
 
 ### 问题描述
 
@@ -42,7 +42,7 @@ user.keyboard('[Backspace]');
 - [官方 fireEvent 文档](https://testing-library.com/docs/dom-testing-library/api-events)
 - [user event 文档](https://testing-library.com/docs/user-event/keyboard)
 
-## 2. [已解决]keyboard 输入文字时,第一个文字总被忽略掉(2022-05-27)
+## 2 :已解决:keyboard 输入文字时,第一个文字总被忽略掉(2022-05-27)
 
 ### 问题描述
 

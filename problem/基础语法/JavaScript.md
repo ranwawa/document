@@ -1,18 +1,18 @@
 # JavaScript QA
 
-- [1. [已解决]为什么 replace 用正则替换失效?](#1-已解决为什么-replace-用正则替换失效)
-- [2. [已解决]Object(obj)是干啥的?(191224)](#2-已解决objectobj是干啥的191224)
-- [3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)](#3-已解决samevalue-和-samevaluezero-是啥及区别200208)
-- [4. [已解决]各种进制的数字前面 2 个分别是啥(200213)](#4-已解决各种进制的数字前面-2-个分别是啥200213)
+- [1. :已解决:为什么 replace 用正则替换失效?](#1-已解决为什么-replace-用正则替换失效)
+- [2. :已解决:Object(obj)是干啥的?(191224)](#2-已解决objectobj是干啥的191224)
+- [3. :已解决:SameValue 和 SameValueZero 是啥及区别(200208)](#3-已解决samevalue-和-samevaluezero-是啥及区别200208)
+- [4. :已解决:各种进制的数字前面 2 个分别是啥(200213)](#4-已解决各种进制的数字前面-2-个分别是啥200213)
 - [业务背景](#业务背景)
-- [5. [已解决]Array 有哪些方法是具有副作用的(20200222)](#5-已解决array-有哪些方法是具有副作用的20200222)
-- [6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)](#6-已解决functionprototypecallbind-是什么神操作20200508)
-- [7. [已解决]performance 到底怎么用的(20200510)](#7-已解决performance-到底怎么用的20200510)
+- [5. :已解决:Array 有哪些方法是具有副作用的(20200222)](#5-已解决array-有哪些方法是具有副作用的20200222)
+- [6. :已解决:Function.prototype.call.bind 是什么神操作(20200508)](#6-已解决functionprototypecallbind-是什么神操作20200508)
+- [7. :已解决:performance 到底怎么用的(20200510)](#7-已解决performance-到底怎么用的20200510)
 - [8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)](#8-performance-的时间差函数以及正常值-以及异常的解决办法20200511)
 - [9.[**已**] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)](#9已解决-amdcmdumd-以及-requirejscommonjsseajs-之间到底有什么关系及区别20200717)
-- [10. [已解决]for 循环各语句执行顺序(2022-04-30)](#10-已解决for-循环各语句执行顺序2022-04-30)
+- [10. :已解决:for 循环各语句执行顺序(2022-04-30)](#10-已解决for-循环各语句执行顺序2022-04-30)
 
-## 1. [已解决]为什么 replace 用正则替换失效?
+## 1. :已解决:为什么 replace 用正则替换失效?
 
 ### 业务背景
 
@@ -46,7 +46,7 @@ url.replace(/\/pages\/(.*?)\/(.)(.*?)(?=\?)/, function (m, p1, p2, p3) {
 });
 ```
 
-## 2. [已解决]Object(obj)是干啥的?(191224)
+## 2 :已解决:Object(obj)是干啥的?(191224)
 
 ### 业务背景
 
@@ -70,7 +70,7 @@ object = Object(object);
 
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-## 3. [已解决]SameValue 和 SameValueZero 是啥及区别(200208)
+## 3 :已解决:SameValue 和 SameValueZero 是啥及区别(200208)
 
 ### 业务背景
 
@@ -90,7 +90,7 @@ SameValueZero 是 includes,Set,Map 的内置比较方法,和 SameValue 的区别
 - http://es6.ruanyifeng.com/#docs/spec
 - [MDN 文档介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
-## 4. [已解决]各种进制的数字前面 2 个分别是啥(200213)
+## 4 :已解决:各种进制的数字前面 2 个分别是啥(200213)
 
 ## 业务背景
 
@@ -105,7 +105,7 @@ SameValueZero 是 includes,Set,Map 的内置比较方法,和 SameValue 的区别
 - 参考
   - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number 最后一个示例
 
-## 5. [已解决]Array 有哪些方法是具有副作用的(20200222)
+## 5 :已解决:Array 有哪些方法是具有副作用的(20200222)
 
 ### 业务背景
 
@@ -156,7 +156,7 @@ SameValueZero 是 includes,Set,Map 的内置比较方法,和 SameValue 的区别
 其实还是没记住,应该用个助记法.[cf 泡泡热死锁死俺]
 copyWithin, fill, pop, push, reverse, shift, sort, splice, unshift
 
-## 6. [已解决]Function.prototype.call.bind 是什么神操作(20200508)
+## 6 :已解决:Function.prototype.call.bind 是什么神操作(20200508)
 
 ### 业务背景
 
@@ -208,7 +208,7 @@ while (--num) {
 console.timeEnd('list2');
 ```
 
-## 7. [已解决]performance 到底怎么用的(20200510)
+## 7 :已解决:performance 到底怎么用的(20200510)
 
 ### 业务背景
 
@@ -280,7 +280,7 @@ function bubbleSort(arr) {
 bubbleSort(sortTiming).forEach((ele) => console.log(ele.time, ele.name));
 ```
 
-## 8. performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)
+## 8 performance 的时间差函数,以及正常值 ,以及异常的解决办法(20200511)
 
 ### 业务背景
 
@@ -315,7 +315,7 @@ function getPerfStats() {
 
   - pageSpeed insight https://developers.google.com/speed/pagespeed/insights/
 
-## 9.[已解决] AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
+## 9.:已解决: AMD,CMD,UMD 以及 require.js,common.js,sea.js 之间到底有什么关系及区别?(20200717)
 
 ### 业务背景
 
@@ -343,7 +343,7 @@ function getPerfStats() {
 - 参考示例
   - https://www.cnblogs.com/adhehe/p/10182989.html
 
-## 10. [已解决]for 循环各语句执行顺序及作用域(2022-04-30)
+## 10 :已解决:for 循环各语句执行顺序及作用域(2022-04-30)
 
 ### 问题描述
 
@@ -369,7 +369,7 @@ for ([initialization]; [condition]; [final-expression])
 
 - [MDN for 语句](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for)
 
-## 11. [已解决]Function 构造函数的用法(2022-04-30)
+## 11 :已解决:Function 构造函数的用法(2022-04-30)
 
 ### 问题描述
 
@@ -395,7 +395,7 @@ Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-e
 - [Function 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
 - [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy)
 
-## 12. [已解决]for...in 和 for...of 的区别(2022-04-30)
+## 12 :已解决:for...in 和 for...of 的区别(2022-04-30)
 
 ### 问题描述
 
@@ -410,7 +410,7 @@ Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-e
 
 for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所以才会报错
 
-## 13. [已解决]ASCII 具体是怎么对比大小的?(2022-04-30)
+## 13 :已解决:ASCII 具体是怎么对比大小的?(2022-04-30)
 
 ### 问题描述
 
@@ -431,13 +431,13 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 - [MDN](https://developer.mozilla.org/zh-CN/docs/Glossary/ASCII#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86)
 - [百科介绍](https://baike.baidu.com/item/ASCII/309296?fr=aladdin)
 
-## 14. Content Security Policy 详情(2022-04-30)
+## 14 Content Security Policy 详情(2022-04-30)
 
 ### 问题描述
 
 就在问题 12 中发现的,主要是和 web 安全相关.虽然现在不着重于 web 安全,但这个 CSP 是用在 HTML 还是 HTTP 中还是浏览器插件中,得搞清楚.以及具体有哪些值还是要搞清楚的,和安全相关的东西暂不用去深究
 
-## 9. requestAnimationFrame 的用法(20220422)
+## 9 requestAnimationFrame 的用法(20220422)
 
 ### 问题描述
 
@@ -449,7 +449,7 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 
 ### 参考链接
 
-## 15. UTF-16 代码单元序列详情(2022-04-30)
+## 15 UTF-16 代码单元序列详情(2022-04-30)
 
 ### 问题描述
 
@@ -459,42 +459,43 @@ for...of 是 es6 的新语法,迭代的实现了生成器的接口的对象,所�
 
 ### 参考链接
 
-## 16. [已解决]??语法(2022-06-12)
+## 16 :已解决:??语法(2022-06-12)
 
 ### 问题描述
 
-见过几次.老是忘记.也不清楚他是js还是ts的语法.专门来了解下.
+见过几次.老是忘记.也不清楚他是 js 还是 ts 的语法.专门来了解下.
 
 ### 问题解决
 
-js中的语法,和||给默认值差不多,只是当左侧是null和undefined时才选择右侧的值
+js 中的语法,和||给默认值差不多,只是当左侧是 null 和 undefined 时才选择右侧的值
 
 ### 参考链接
 
-- [mdn官方文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
-## 16. [已解决]import.meta语法(2022-06-09)
+- [mdn 官方文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+
+## 16 :已解决:import.meta 语法(2022-06-09)
 
 ### 问题描述
 
-最近老是看到import.meta,昨天在项目中又看到了.这下务必搞清楚才行
+最近老是看到 import.meta,昨天在项目中又看到了.这下务必搞清楚才行
 
-1. import.meta语法
+1. import.meta 语法
 2. 这些值是从哪里注入进来的
 
 ```javascript
 // src/config/index.ts
 export const IS_DEV_ENV = import.meta.env.DEV;
 export const CURRENT_MODE = import.meta.env.VITE_CURRENT_MODE;
-````
+```
 
 ### 问题解决
 
 指当前模块的源数据.这些数据由外部注入进来
 
-问题中的env对象是由vite注入进来的
+问题中的 env 对象是由 vite 注入进来的
 
 ### 参考链接
 
-- [mdn文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import.meta)
+- [mdn 文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import.meta)
 - [阮一峰教程](https://www.bookstack.cn/read/es6-3rd/spilt.10.docs-proposals.md)
-- [vite文档](https://vitejs.dev/guide/env-and-mode.html#env-variables)
+- [vite 文档](https://vitejs.dev/guide/env-and-mode.html#env-variables)

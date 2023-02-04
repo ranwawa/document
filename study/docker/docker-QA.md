@@ -1,6 +1,6 @@
 # docker QA
 
-## 1. 在 mac 上运行命令时提示 "no matching manifest for linux/arm64/v8 in the manifest list entries"(2022-05-17)
+## 1 在 mac 上运行命令时提示 "no matching manifest for linux/arm64/v8 in the manifest list entries"(2022-05-17)
 
 ### 问题描述
 

@@ -1,11 +1,11 @@
 # chrome QA
 
-- 1. [已解决]开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
-- 2. [已解决]如何复现 chrome 本地的 307 跳转(2022-06-22)
-- 3. [已解决]快速禁用 chrome 的跨域限制(2022-09-16)
-- 4. [已解决]mac 下怎么安装 crx 文件(20210322)
+- 1. :已解决:开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
+- 2. :已解决:如何复现 chrome 本地的 307 跳转(2022-06-22)
+- 3. :已解决:快速禁用 chrome 的跨域限制(2022-09-16)
+- 4. :已解决:mac 下怎么安装 crx 文件(20210322)
 
-## 1. [已解决]开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
+## 1 :已解决:开了 vpn 后之 http 请求 http 会跨域 (2022-06-22)
 
 ### 问题描述
 
@@ -23,7 +23,7 @@
 
 - [chrome 官方文档](https://developer.chrome.com/blog/private-network-access-preflight/)
 
-## 2. [已解决]如何复现 chrome 本地的 307 跳转(2022-06-22)
+## 2 :已解决:如何复现 chrome 本地的 307 跳转(2022-06-22)
 
 ### 问题描述
 
@@ -45,7 +45,7 @@
 - [chrome 官方介绍 hsts](https://www.chromium.org/hsts/)
 - [知乎翻译 hsts](https://zhuanlan.zhihu.com/p/130946490)
 
-## 3. [已解决]快速禁用 chrome 的跨域限制(2022-09-16)
+## 3 :已解决:快速禁用 chrome 的跨域限制(2022-09-16)
 
 ### 问题描述
 
@@ -74,7 +74,7 @@ NOTE: On Windows 10 command will be: "C:\Program Files (x86)\Google\Chrome\Appli
 
 - [stackoverflow](https://stackoverflow.com/questions/57552185/how-to-disable-cors-in-chrome-mac/69543668#69543668)
 
-## 4. [已解决]mac 下怎么安装 crx 文件(20210322)
+## 4 :已解决:mac 下怎么安装 crx 文件(20210322)
 
 ### 业务背景
 

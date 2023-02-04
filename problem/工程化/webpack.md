@@ -1,6 +1,6 @@
 - [1. style-resoures-loader 如何直接引入 node_modules 里面的文件](#1-style-resoures-loader-如何直接引入-node_modules-里面的文件)
-- [2. [已解决]proxy 代理 404 的问题(20200218)](#2-已解决proxy-代理-404-的问题20200218)
-- [3. [已解决]在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)](#3-已解决在-vueconfigjs-里面如何设置-eslint-的-fix-为-true20200223)
+- [2. :已解决:proxy 代理 404 的问题(20200218)](#2-已解决proxy-代理-404-的问题20200218)
+- [3. :已解决:在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)](#3-已解决在-vueconfigjs-里面如何设置-eslint-的-fix-为-true20200223)
 - [4. 如何分析打包后的 js 文件内容(20200520)](#4-如何分析打包后的-js-文件内容20200520)
 - [5.初始化项目时报 stack Error: `gyp` failed with exit code: 1（20210116）](#5初始化项目时报-stack-error-gyp-failed-with-exit-code-120210116)
 - [6. 如何对 webpack 配置文件进行智能提示自动完成(2022-09-15)](#6-如何对-webpack-配置文件进行智能提示自动完成2022-09-15)
@@ -41,7 +41,7 @@ module.exports = {
     ...
 ```
 
-## 2. [已解决]proxy 代理 404 的问题(20200218)
+## 2 :已解决:proxy 代理 404 的问题(20200218)
 
 ### 业务背景
 
@@ -100,7 +100,7 @@ module.exports = {
 
 ###
 
-## 3. [已解决]在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)
+## 3 :已解决:在 vue.config.js 里面如何设置 eslint 的 fix 为 true(20200223)
 
 ### 业务背景
 
@@ -131,7 +131,7 @@ module.exports = {
 
 ```
 
-## 4. 如何分析打包后的 js 文件内容(20200520)
+## 4 如何分析打包后的 js 文件内容(20200520)
 
 ### 业务背景
 
@@ -148,7 +148,7 @@ module.exports = {
 
 ## 5.初始化项目时报 stack Error: `gyp` failed with exit code: 1（20210116）
 
-## 6. 如何对 webpack 配置文件进行智能提示自动完成(2022-09-15)
+## 6 如何对 webpack 配置文件进行智能提示自动完成(2022-09-15)
 
 ### 问题描述
 
@@ -192,7 +192,7 @@ tsconfig.json
 - [webpack 官网](https://webpack.js.org/configuration/configuration-languages/)
 - [devServer 不存在的问题](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27570)
 
-## 7. webpack-dev-server(2022-09-15)
+## 7 webpack-dev-server(2022-09-15)
 
 ### 问题描述
 

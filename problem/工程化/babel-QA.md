@@ -1,6 +1,6 @@
 # babel QA
 
-## 1. 如何让@babel/preset-env 支持可选链(2022-12-01)
+## 1 如何让@babel/preset-env 支持可选链(2022-12-01)
 
 ### 问题描述
 

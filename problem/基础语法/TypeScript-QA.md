@@ -1,24 +1,27 @@
 # TypeScript QA
 
-- 1. [已解决]如何定义一个类型文件(20200716)
-- 2. 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)
-- 3. 联合类型未生效(20210725)
-- 4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
-- 5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
-- 6. [已解决]!.语法(2022-06-12)
-- 6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)
-- 7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)
-- 8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)
-- 9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)
-- 10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)
-- 11. [已解决]无法识别 require 引入的包类型(2022-06-15)
-- 12. [已解决]引入 qs 报错(2022-11-02)
+- 1 :已解决:如何定义一个类型文件(20200716)
+- 2 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)
+- 3 联合类型未生效(20210725)
+- 4 :已解决:umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
+- 5 :已解决:vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
+- 6 :已解决:!.语法(2022-06-12)
+- 6 jest 单元测试中 spyon 始终报类型错误(2022-05-16)
+- 7 :已解决:引入其他包的时候,不能用.ts 结尾(2022-05-16)
+- 8 :已解决:tsc 无法重写 import 中的路径(2022-05-17)
+- 9 :已解决:tsc 编译时,引入 lodash 报错(2022-05-17)
+- 10 :已解决:cmd 模式下多个文件引入同一个包会报错(2022-05-19)
+- 11 :已解决:无法识别 require 引入的包类型(2022-06-15)
+- 12 :已解决:引入 qs 报错(2022-11-02)
+- 13 \[string, ...number\]这种类型怎么声明(2022-11-30)
+- 14 如何给外部模块添加属性(2022-12-30)
+- 15 如何根据已有的 npm 包添加一个全局变量(2023-01-01)
 
-## 1. [已解决]如何定义一个类型文件(20200716)
+## 1 :已解决:如何定义一个类型文件(20200716)
 
 ### 业务背景
 
-在`vue`里面用`typescript `已经快两个月了,感觉自己现在已经无法回到弱类型的语言了.强类型虽然写的时候麻烦一点,要各种接口类型,但是可以避免很多潜在的错误,
+在`vue`里面用`typescript`已经快两个月了,感觉自己现在已经无法回到弱类型的语言了.强类型虽然写的时候麻烦一点,要各种接口类型,但是可以避免很多潜在的错误,
 特别是当某个类型发生变化后,所有引用地方如果忘记修改,就会自动报错.在 js 里面就等着 bug 吧
 
 以前经常遇到这种情况,重构了一个函数,引用的地方没有全部改到,就把本来正常的功能改成了不正常了.有了 ts 在这方面就可以避免.
@@ -60,7 +63,7 @@ declare module 'countdown';
 
 话说回来.还是木有根本熟悉整个 d.ts 的编写流程.这两天要把官方原版的相关文档过一下.项目里面的 d.ts 就跟着按照官方文档的格式重做一下
 
-## 2. 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)
+## 2 如何为一个已经存在的 react function components 添加一个类型声明文件(20210627)
 
 ### 业务背景
 
@@ -72,7 +75,7 @@ declare module 'countdown';
 
 ![image-20210626135625146](/Users/ranwawa/Library/Application Support/typora-user-images/image-20210626135625146.png)
 
-## 3. 联合类型未生效(20210725)
+## 3 联合类型未生效(20210725)
 
 ### 业务背景
 
@@ -110,15 +113,15 @@ function test(options: HeadersInit2) {
 }
 ```
 
-```
+```ts
 type HeadersInit2 = string | number | boolean;
 
-function test (options: HeadersInit2) {
+function test(options: HeadersInit2) {
   options = true;
 }
 ```
 
-## 4. [已解决]umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
+## 4 :已解决:umi 中使用 useLocation().query,ts 在 query 上报 unknown 的错误(20210908)
 
 ### 业务背景
 
@@ -132,11 +135,7 @@ const location = useLocation();
 const query = initState(location.query);
 ```
 
-**报错信息**
-
-![image-20210908171248699](/Users/ranwawa/Documents/personal/document/problem/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/img/image-20210908171248699.png)
-
-**问题排查**
+### 问题排查
 
 排查到的类型声明文件如下:
 
@@ -189,9 +188,12 @@ interface {
 - umi 是直接导出的 react-router-dom 的 useLocation 定义
 - 不存在是很正常的,而 react-router-dom 里面本身就没有 query
 - 这是 umi 的一个 bug 而已.要么就用@ts-ignore,要么就换个方法
-- 参考: https://github.com/umijs/umi/issues/5278
 
-## 5. [已解决]vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
+### 参考
+
+- [umi](https://github.com/umijs/umi/issues/5278)
+
+## 5 :已解决:vue2.x 项目中引入 jest,在\*.test.ts 测试文件中引入\*.vue 报错(20211205)
 
 ### 报错内容
 
@@ -210,7 +212,7 @@ interface {
 
 - 20211205
 
-1. 得自己针对所有 vue 文件声明一个类型声明文件
+#### 1. 得自己针对所有 vue 文件声明一个类型声明文件
 
 ```typescript
 // src/typings/vue-shim.d.ts
@@ -221,7 +223,7 @@ declare module '*.vue' {
 }
 ```
 
-2. 然后让 ts 来加载这个类型声明文件
+#### 2. 然后让 ts 来加载这个类型声明文件
 
 - 方法 1: 加入新的 type 目录
 
@@ -243,13 +245,13 @@ declare module '*.vue' {
 }
 ```
 
-3. 在引入的地方加上.vue 后缀名
+#### 3. 在引入的地方加上.vue 后缀名
 
 ```typescript
 import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue';
 ```
 
-## 6. [已解决]!.语法(2022-06-12)
+## 6 :已解决:!.语法(2022-06-12)
 
 ### 问题描述
 
@@ -263,7 +265,7 @@ import CancelOrderButtonsThree from '../cancel-order-buttons-three.vue';
 
 - [typescript 官方文档](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
 
-## 6. jest 单元测试中 spyon 始终报类型错误(2022-05-16)
+## 6 jest 单元测试中 spyon 始终报类型错误(2022-05-16)
 
 ### 问题描述
 
@@ -326,7 +328,7 @@ type FunctionPropertyNames<T> = {
   string;
 ```
 
-## 7. [已解决]引入其他包的时候,不能用.ts 结尾(2022-05-16)
+## 7 :已解决:引入其他包的时候,不能用.ts 结尾(2022-05-16)
 
 ### 问题描述
 
@@ -368,7 +370,7 @@ function getBranchName() {
 
 - [官方 issues](https://github.com/microsoft/TypeScript/issues/27481)
 
-## 8. [已解决]tsc 无法重写 import 中的路径(2022-05-17)
+## 8 :已解决:tsc 无法重写 import 中的路径(2022-05-17)
 
 ### 问题描述
 
@@ -388,7 +390,7 @@ function getBranchName() {
 
 - [官方 issues](https://github.com/microsoft/TypeScript/issues/16577)
 
-## 9. [已解决]tsc 编译时,引入 lodash 报错(2022-05-17)
+## 9 :已解决:tsc 编译时,引入 lodash 报错(2022-05-17)
 
 ### 问题描述
 
@@ -415,7 +417,7 @@ function getBranchName() {
 
 - [import=语法官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
 
-## 10. [已解决]cmd 模式下多个文件引入同一个包会报错(2022-05-19)
+## 10 :已解决:cmd 模式下多个文件引入同一个包会报错(2022-05-19)
 
 ### 问题描述
 
@@ -441,7 +443,7 @@ ts 默认将所有文件放在全局作用域下.除非文件中有顶级的 imp
 - [简书讨论](https://www.jianshu.com/p/78268bd9af0a)
 - [github 官方 issue](https://github.com/microsoft/TypeScript/issues/47229)
 
-## 11. [已解决]无法识别 require 引入的包类型(2022-06-15)
+## 11 :已解决:无法识别 require 引入的包类型(2022-06-15)
 
 ### 问题描述
 
@@ -457,7 +459,7 @@ configurations/treelint 项目使用的是 commonjs 模块方案.通过 require 
 
 - [typescript 官方文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
 
-## 12. [已解决]引入 qs 报错(2022-11-02)
+## 12 :已解决:引入 qs 报错(2022-11-02)
 
 ### 问题描述
 
@@ -489,11 +491,59 @@ This module is declared with 'export =', and can only be used with a default imp
 
 - [ts 文档](https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require)
 
-## 13. [string, ...number]这种类型怎么声明(2022-11-30)
+## 13 \[string, ...number\]这种类型怎么声明(2022-11-30)
 
 ### 问题描述
 
 数组的第一个元素类型固定,后面统一为一个类型.好像之前在文档上看到过,但是找不到了
+
+### 问题解决
+
+```ts
+export type IBreadcrumbs = [RootMenu, ...Menu[]] | [];
+```
+
+### 参考链接
+
+- [tuple](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types)
+
+## 14 如何给外部模块添加属性(2022-12-30)
+
+### 问题描述
+
+scrollIntoViewIfNeeded 这是个非标属性,ts 默认未实现,自己怎么去添加一个?
+
+```ts
+document.querySelector('menu-item')?.scrollIntoViewIfNeeded();
+```
+
+报错内容
+
+```shell
+Property 'scrollIntoViewIfNeeded' does not exist on type 'Element'.ts(2339)
+```
+
+### 问题解决
+
+### 参考链接
+
+- [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded)
+
+## 15 如何根据已有的 npm 包添加一个全局变量(2023-01-01)
+
+### 问题描述
+
+ts 开发项目,在 html 引入了一个 cdn 链接`@vue/reactivity`,这个包本身是具有类型声明的,但因为没有通过 import 引入,所以 ts 识别不了
+
+```ts
+const { effect, ref } = VueReactivity;
+```
+
+报错内容
+
+```shell
+Cannot find name 'VueReactivity'.ts(2304)
+```
 
 ### 问题解决
 

@@ -1,6 +1,6 @@
 # React QA
 
-## 1. 学习并了解 FaCC(20211223)
+## 1 学习并了解 FaCC(20211223)
 
 ### 问题描述
 
@@ -70,7 +70,7 @@
             </StyledRadioGroup
 ```
 
-## 2. 为什么 constructor 构造函数中，必须要在 super 之后调用 this 对象(20220425)
+## 2 为什么 constructor 构造函数中，必须要在 super 之后调用 this 对象(20220425)
 
 ### 问题描述
 
@@ -104,7 +104,7 @@ Uncaught ReferenceError: Must call super constructor in derived class before acc
 
 - [阮一峰，类继承](https://es6.ruanyifeng.com/#docs/class-extends)
 
-## 3. 为什么生命周期钩子 getDerivedStateFromProps 和 getDerivedStateFromError 要设计成静态方法(20220425)
+## 3 为什么生命周期钩子 getDerivedStateFromProps 和 getDerivedStateFromError 要设计成静态方法(20220425)
 
 ### 问题描述
 
@@ -114,7 +114,7 @@ Uncaught ReferenceError: Must call super constructor in derived class before acc
 
 ### 参考文档
 
-## 4. 为什么在严格模式下要执行 componentWillUnmount 钩子？(20220425)
+## 4 为什么在严格模式下要执行 componentWillUnmount 钩子？(20220425)
 
 ### 问题描述
 
@@ -124,7 +124,7 @@ Uncaught ReferenceError: Must call super constructor in derived class before acc
 
 ### 参考文档
 
-## 5. 为什么 getDerivedStateFromError 会执行多次？(20220425)
+## 5 为什么 getDerivedStateFromError 会执行多次？(20220425)
 
 ### 问题描述
 
@@ -248,7 +248,7 @@ lifecycle.tsx:79 erroring: componentDidCatch
 
 ### 参考文档
 
-## 6. input 组件老是报受控非受控的异常(20220427)
+## 6 input 组件老是报受控非受控的异常(20220427)
 
 ### 问题描述
 

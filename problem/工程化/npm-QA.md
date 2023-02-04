@@ -1,28 +1,28 @@
 # npm QA
 
-- 1. [已解决]发布 npm 包之前如何自动更新版本号
-- 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
-- 3. [已解决]发包时提示未登陆(20200302)
+- 1. :已解决:发布 npm 包之前如何自动更新版本号
+- 2. :已解决:初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
+- 3. :已解决:发包时提示未登陆(20200302)
 - 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
 - 5. yarn install --frozen-lockfile 这个参数起什么作用
 - 6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)
-- 7. [已解决]npm audit 是干什么的(20220416)
+- 7. :已解决:npm audit 是干什么的(20220416)
 - 8. mono repo 下安装依赖包的问题(20220416)
-- 9. [已解决]创建一个 npm package.json 模板(2022-05-04)
-- 10. [已解决].npmrc 是干什么的(20220418)
-- 11. [已解决]本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
-- 12. [已解决]在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
-- 10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)
+- 9. :已解决:创建一个 npm package.json 模板(2022-05-04)
+- 10. :已解决:.npmrc 是干什么的(20220418)
+- 11. :已解决:本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
+- 12. :已解决:在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
+- 10. :已解决:lerna 项目中 chalk 依赖版本异常(2022-05-19)
 - 11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)
-- 12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
-- 13. [已解决]publish 到 npm 仓库报 E403(2022-08-02)
+- 12. :已解决:package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
+- 13. :已解决:publish 到 npm 仓库报 E403(2022-08-02)
 - 14. npm install --force 和--legacy-peer-deps 的区别(2022-08-30)
 - 15. 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
-- 16. [已解决] 查看当前包的所有版本(2022-10-08)
-- 17. [已解决]package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
-- 18. [已解决]axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
+- 16. :已解决: 查看当前包的所有版本(2022-10-08)
+- 17. :已解决:package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
+- 18. :已解决:axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
 
-## 1. [已解决]发布 npm 包之前如何自动更新版本号
+## 1. :已解决:发布 npm 包之前如何自动更新版本号
 
 ### 业务背景
 
@@ -46,7 +46,7 @@ module.exports = {
 };
 ```
 
-## 2. [已解决]初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
+## 2 :已解决:初始化安装项目时,老是报这样一个错误 print "%s.%s.%s" % sys.version_info(200204)
 
 ### 业务背景
 
@@ -79,7 +79,7 @@ gyp ERR! stack     at ChildProcess.exithandler (child_process.js:295:12)
 - 20220722 更新: mac m1 上无法安装 python,把 node 版本降低到 v14.x 也可以解决这个问题
 - 20220901 更新: 这个最终是 node-sass 导致的. node-sass 依赖 node-gyp,而 node-gyp 又依赖于 python.而 node-sass 的版本问题很混乱,和系统以及 node 版本是强关联,具体可以看 node-sass 官方 changelog.最根本的解决办法还是直接使用 dart-sass 替代 node-sass
 
-## 3. [已解决]发包时提示未登陆(20200302)
+## 3 :已解决:发包时提示未登陆(20200302)
 
 ### 业务背景
 
@@ -102,7 +102,7 @@ npm config set registry http://registry.npmjs.org
 npm config set registry https://registry.npm.taobao.org
 ```
 
-## 4. Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
+## 4 Dependency devdependency peerdependency 之间到底有啥区别?(20210603)
 
 ### 业务背景
 
@@ -130,7 +130,7 @@ test:
     - yarn install --frozen-lockfil
 ```
 
-## 6. npm 在服务器上执行 install 时报没有合适包的错误(20211214)
+## 6 npm 在服务器上执行 install 时报没有合适包的错误(20211214)
 
 ### 问题描述
 
@@ -154,7 +154,7 @@ test:
  npm ERR! notarget
 ```
 
-## 7. [已解决]npm audit 是干什么的(20220416)
+## 7 :已解决:npm audit 是干什么的(20220416)
 
 ### 问题描述
 
@@ -195,7 +195,7 @@ To address all issues, run:
 
 有什么用: 在 ci 节点中,可以对整个 prod 的依赖包扫描一下,以提前查出问题
 
-## 8. mono repo 下安装依赖包的问题(20220416)
+## 8 mono repo 下安装依赖包的问题(20220416)
 
 ### 问题描述
 
@@ -212,7 +212,7 @@ npm i 会安装哪些文件到 node_modules 目录下:
 
   - 即使 packages 中没有任何东西,也会安 packages 下面的所有包
 
-## 9. [已解决]创建一个 npm package.json 模板(2022-05-04)
+## 9 :已解决:创建一个 npm package.json 模板(2022-05-04)
 
 ### 问题描述
 
@@ -230,7 +230,7 @@ npm config set init-author-url "https://github.com/ranwawa"
 npm config set init-version "0.0.0"
 ```
 
-## 10. [已解决].npmrc 是干什么的(20220418)
+## 10 :已解决:.npmrc 是干什么的(20220418)
 
 ### 问题描述
 
@@ -244,7 +244,7 @@ npm config set init-version "0.0.0"
 
 有什么用: 目前知道除了初始化时那些默认选项可以用,其他的变量查 config 文档即可
 
-## 11. [已解决]本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
+## 11 :已解决:本地执行 npx @ranwawa/branchlint 为什么报错(20220419)
 
 ### 问题描述
 
@@ -286,7 +286,7 @@ module.exports = {
 - [.npm-init.js](https://docs.npmjs.com/creating-a-package-json-file#customizing-the-packagejson-questionnaire)
   参考 eslint,需要在 package 下配置一个 bin 的字段,来指向这个可执行文件.因为 npm 在运行命令时,是运行的 node_modules/.bin 下的命令,而这些命令又是从 bin 这个字段中解析过来的
 
-## 12. [已解决]在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
+## 12 :已解决:在 gitlab-ci 上执行 npx @ranwawa/branchlint 失败(20220419)
 
 ### 问题描述
 
@@ -323,7 +323,7 @@ branchlint.ps1
 
 将 branchlint 入口文件放到 bin/index.js,并且移出里面相对路径的引用.根因还是没找到
 
-## 10. [已解决]lerna 项目中 chalk 依赖版本异常(2022-05-19)
+## 10 :已解决:lerna 项目中 chalk 依赖版本异常(2022-05-19)
 
 ### 问题描述
 
@@ -356,7 +356,7 @@ npm install chalk4@npm:chalk@4.1.2
 - [npm 官方依赖解析原理](http://npm.github.io/npm-like-im-5/npm3/dependency-resolution.html)
 - [npm 别名的用法](https://docs.npmjs.com/cli/v8/commands/npm-install#workspace)
 
-## 11. npm link 包后,无法自动安装 peerDependencies(2022-05-24)
+## 11 npm link 包后,无法自动安装 peerDependencies(2022-05-24)
 
 ### 问题描述
 
@@ -373,7 +373,7 @@ npm install chalk4@npm:chalk@4.1.2
 - [npm link 官方文档](https://docs.npmjs.com/cli/v8/commands/npm-link#save)
 - [node 中的解决办法](https://www.chevtek.io/you-can-finally-npm-link-packages-that-contain-peer-dependencies/)
 
-## 12. [已解决]package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
+## 12 :已解决:package.json 中 main,browser 以及 module 等字段的区别(2022-05-27)
 
 ### 问题描述
 
@@ -402,7 +402,7 @@ npm install chalk4@npm:chalk@4.1.2
 - [npm 文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#main)
 - [node 文件](https://nodejs.org/api/packages.html#packages_conditional_exports)
 
-## 13. [已解决]publish 到 npm 仓库报 E403(2022-08-02)
+## 13 :已解决:publish 到 npm 仓库报 E403(2022-08-02)
 
 ### 问题描述
 
@@ -423,7 +423,7 @@ npm ERR! 403 on a server you do not have access to.
 
 - [csdn 文章](https://blog.csdn.net/example440982/article/details/122100666)
 
-## 14. npm install --force 和--legacy-peer-deps 的区别(2022-08-30)
+## 14 npm install --force 和--legacy-peer-deps 的区别(2022-08-30)
 
 ### 问题描述
 
@@ -451,7 +451,7 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 
 - [官方文档](https://github.com/npm/rfcs/blob/main/implemented/0031-handling-peer-conflicts.md)
 
-## 15. 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
+## 15 安装依赖时如何忽略失败的安装继续安装其他依赖(2022-10-08)
 
 ### 问题描述
 
@@ -477,7 +477,7 @@ npm i
 
 ### 参考链接
 
-## 16. [已解决] 查看当前包的所有版本(2022-10-08)
+## 16 :已解决: 查看当前包的所有版本(2022-10-08)
 
 ### 问题描述
 
@@ -491,7 +491,7 @@ npm view amis-core versions
 
 - [stackoverflow](https://stackoverflow.com/questions/41415945/how-to-list-all-versions-of-an-npm-module)
 
-## 17. [已解决]package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
+## 17 :已解决:package.json 中 zmn: ^9.0.1-ab.5,但实际 npm install 后是安装的 9.0.1(2022-10-26)
 
 ### 问题描述
 
@@ -524,7 +524,7 @@ npm install --save-exact --save-prod --legacy-peer-deps zmn@9.0.1-ab. 5
 - [npm update](https://docs.npmjs.com/cli/v8/commands/npm-update)
 - [npm version range](https://docs.npmjs.com/about-semantic-versioning)
 
-## 18. [已解决]axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
+## 18 :已解决:axios 在一个项目中能成功运行,但另外一个项目中无法运行(2022-11-20)
 
 ### 问题描述
 
@@ -601,7 +601,7 @@ console.log('===========');
 
 [node exports 文档](https://nodejs.org/api/packages.html#subpath-exports)
 
-## 19. [已解决]package.json 中的 engines 配置无效(2022-11-27)
+## 19 :已解决:package.json 中的 engines 配置无效(2022-11-27)
 
 ### 问题描述
 
@@ -642,7 +642,7 @@ npm config set engine-strict true
 - [npm engins 官方文档](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#engines)
 - [stackoverflow 问答](https://stackoverflow.com/questions/29349684/how-can-i-specify-the-required-node-js-version-in-package-json)
 
-## 20. [已解决]解决某个包无法下载的情况(2022-12-17)
+## 20 :已解决:解决某个包无法下载的情况(2022-12-17)
 
 ### 问题描述
 

@@ -1,8 +1,8 @@
 # GitLabQA
 
-- [1. [已解决]如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)](#1-已解决如何在-gitlib-ciyml-中把本次提交改变的文件赋值给一个变量20210927)
-- [2. [已解决]windows 上安装 gitlab-ci runner 的步骤(20220412)](#2-已解决windows-上安装-gitlab-ci-runner-的步骤20220412)
-- [3. [已解决]Mac 上安装 gitlab-runner 后无法启动（20220414）](#3-已解决mac上安装gitlab-runner后无法启动20220414)
+- [1. :已解决:如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)](#1-已解决如何在-gitlib-ciyml-中把本次提交改变的文件赋值给一个变量20210927)
+- [2. :已解决:windows 上安装 gitlab-ci runner 的步骤(20220412)](#2-已解决windows-上安装-gitlab-ci-runner-的步骤20220412)
+- [3. :已解决:Mac 上安装 gitlab-runner 后无法启动（20220414）](#3-已解决mac上安装gitlab-runner后无法启动20220414)
 
 关键节点通知:
 
@@ -30,7 +30,7 @@ Hook:
   - @commitlint/config-conventional 风格配置
 - Branch name
 
-## 1. [已解决]如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)
+## 1 :已解决:如何在 gitlib-ci.yml 中把本次提交改变的文件赋值给一个变量(20210927)
 
 ### 业务背景
 
@@ -83,7 +83,7 @@ script:
   - yarn prettier --ignore-unknown --check $(git diff --diff-filter=d --no-commit-id --name-only -r $CI_COMMIT_BEFORE_SHA HEAD)
 ```
 
-## 2. [已解决]windows 上安装 gitlab-ci runner 的步骤(20220412)
+## 2 :已解决:windows 上安装 gitlab-ci runner 的步骤(20220412)
 
 ### 问题描述
 
@@ -105,7 +105,7 @@ script:
 - [官方 windows 安装包](https://docs.gitlab.com/runner/install/index.html)
 - [官方注册教程](https://docs.gitlab.com/runner/register/#windows)
 
-## 3. [已解决]Mac 上安装 gitlab-runner 后无法启动（20220414）
+## 3. :已解决:Mac 上安装 gitlab-runner 后无法启动（20220414）
 
 ### 问题描述
 
@@ -121,7 +121,7 @@ script:
 - [mac 注册官方文档](https://docs.gitlab.com/runner/configuration/macos_setup.html)
 - [绿色无法运行 job](https://stackoverflow.com/questions/53370840/this-job-is-stuck-because-the-project-doesnt-have-any-runners-online-assigned/53371027#53371027)
 
-## 4. [已解决]什么是 SSH(20220413)
+## 4 :已解决:什么是 SSH(20220413)
 
 ### 问题描述
 
@@ -137,7 +137,7 @@ script:
 
 - [SSH 完整介绍](https://www.techtarget.com/searchsecurity/definition/Secure-Shell)
 
-## 5. gitlab ci 中无法运行代码质量分析(2022-05-09)
+## 5 gitlab ci 中无法运行代码质量分析(2022-05-09)
 
 ### 问题描述
 

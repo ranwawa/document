@@ -1,11 +1,11 @@
 # eslint QA
 
-- [1. [已解决]通过 plugin 方式引入配置文件报错(2022-05-24)](#1-已解决通过-plugin-方式引入配置文件报错2022-05-24)
-- [2. monorepo + vue + typescript + vscode无法识别.tsx文件(2022-05-29)](#2-monorepo--vue--typescript--vscode无法识别tsx文件2022-05-29)
-- [3. [已解决]monorepo中子包中如何引入自己的tsconfig文件(2022-05-29)](#3-已解决monorepo中子包中如何引入自己的tsconfig文件2022-05-29)
-- [4. [已解决]引入vue文件报import/unresolved(2022-05-30)](#4-已解决引入vue文件报importunresolved2022-05-30)
+- [1. :已解决:通过 plugin 方式引入配置文件报错(2022-05-24)](#1-已解决通过-plugin-方式引入配置文件报错2022-05-24)
+- [2. monorepo + vue + typescript + vscode 无法识别.tsx 文件(2022-05-29)](#2-monorepo--vue--typescript--vscode无法识别tsx文件2022-05-29)
+- [3. :已解决:monorepo 中子包中如何引入自己的 tsconfig 文件(2022-05-29)](#3-已解决monorepo中子包中如何引入自己的tsconfig文件2022-05-29)
+- [4. :已解决:引入 vue 文件报 import/unresolved(2022-05-30)](#4-已解决引入vue文件报importunresolved2022-05-30)
 
-## 1. [已解决]通过 plugin 方式引入配置文件报错(2022-05-24)
+## 1 :已解决:通过 plugin 方式引入配置文件报错(2022-05-24)
 
 ### 问题描述
 
@@ -95,34 +95,34 @@ Referenced from: /Users/macbookpro/Documents/Projects/test-FE-react/node_modules
 
 - [eslint 官方文档配置文件优先级说明](https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats)
 
-## 2. monorepo + vue + typescript + vscode无法识别.tsx文件(2022-05-29)
+## 2 monorepo + vue + typescript + vscode 无法识别.tsx 文件(2022-05-29)
 
 ### 问题描述
 
-remote devtool项目
+remote devtool 项目
 
-在packages/dashboard中创建一个vue3 ts项目,并且eslintrc中引入@ranwawa/eslint-plugin/vue3x这个配置文件
+在 packages/dashboard 中创建一个 vue3 ts 项目,并且 eslintrc 中引入@ranwawa/eslint-plugin/vue3x 这个配置文件
 
-当前目录下的.ts文件可以正常验证,但是.tsx文件无法正常验证,即eslint根本就不会去验证他
+当前目录下的.ts 文件可以正常验证,但是.tsx 文件无法正常验证,即 eslint 根本就不会去验证他
 
 尝试:
 
-1. dashboard中的.vue文件也无法验证
-   1. 但在最外层的.tsconfig中加上了include:['**/*.vue']之后即可验证了
-2. vite编译时会进行验证
-3. 去掉vue-parser后就可以验证.tsx文件了
+1. dashboard 中的.vue 文件也无法验证
+   1. 但在最外层的.tsconfig 中加上了 include:['**/*.vue']之后即可验证了
+2. vite 编译时会进行验证
+3. 去掉 vue-parser 后就可以验证.tsx 文件了
 
 推测:
 
-- eslint配置文件正常加载了
-- tsconfig配置文件正常加载了
-- 那就是vue-parser的配置没对
+- eslint 配置文件正常加载了
+- tsconfig 配置文件正常加载了
+- 那就是 vue-parser 的配置没对
 
 ### 问题解决
 
 ### 参考链接
 
-## 3. [已解决]monorepo中子包中如何引入自己的tsconfig文件(2022-05-29)
+## 3 :已解决:monorepo 中子包中如何引入自己的 tsconfig 文件(2022-05-29)
 
 ### 问题描述
 
@@ -139,12 +139,12 @@ module.exports = {
 module.exports = {
   parserOptions: {
     // 这个是指向根目录的tsconfig配置文件
-    project: ['./tsconfig.json']
-  }
+    project: ['./tsconfig.json'],
+  },
 };
 ```
 
-但是vue项目中使用了ts别名,所以根目录里面配置引用会报错
+但是 vue 项目中使用了 ts 别名,所以根目录里面配置引用会报错
 
 ```javascript
 // remote-devtool/packages/dashboard/tsconfig.json
@@ -155,7 +155,7 @@ module.exports = {
 },
 ```
 
-如果多个子包都有这种别名的话,那tsconfig文件就只能引入.eslintrc同级的tsconfig配置文件了.这样如何做到
+如果多个子包都有这种别名的话,那 tsconfig 文件就只能引入.eslintrc 同级的 tsconfig 配置文件了.这样如何做到
 
 ### 问题解决
 
@@ -167,20 +167,20 @@ module.exports = {
   },
 ```
 
-packages/dashboard/.eslintrc文件里面加一个root: true,这样就不会继续向上搜索,就用当前这个eslint配置文件
+packages/dashboard/.eslintrc 文件里面加一个 root: true,这样就不会继续向上搜索,就用当前这个 eslint 配置文件
 
-tsconfigRootDir这个字段,用于定位tsconfig配置文件.相当于path.resolve(__dirname, tsconfig.json)
+tsconfigRootDir 这个字段,用于定位 tsconfig 配置文件.相当于 path.resolve(\_\_dirname, tsconfig.json)
 
 ### 参考链接
 
-- [typescript-eslint官方文档](https://typescript-eslint.io/docs/linting/monorepo)
-- [typescript-eslint仓库也是monorepo](https://github.com/typescript-eslint/typescript-eslint)
+- [typescript-eslint 官方文档](https://typescript-eslint.io/docs/linting/monorepo)
+- [typescript-eslint 仓库也是 monorepo](https://github.com/typescript-eslint/typescript-eslint)
 
-## 4. [已解决]引入vue文件报import/unresolved(2022-05-30)
+## 4 :已解决:引入 vue 文件报 import/unresolved(2022-05-30)
 
 ### 问题描述
 
-在remote-devtool这个项目中,引入一个vue组件就提示下面这个错误.
+在 remote-devtool 这个项目中,引入一个 vue 组件就提示下面这个错误.
 
 ```vue
 <!-- remote-devtool/packages/dashboard/src/App.vue -->
@@ -194,13 +194,13 @@ import UserName from '@/components/HelloWorld.vue';
 Unable to resolve path to module '@/components/HelloWorld.vue'.eslint import/no-unresolved
 ```
 
-创建一个新的vue项目也是同样报错,所以是vue和eslint-plugin-import的兼容问题,import无法识别vue的webpack别名
+创建一个新的 vue 项目也是同样报错,所以是 vue 和 eslint-plugin-import 的兼容问题,import 无法识别 vue 的 webpack 别名
 
 ### 问题解决
 
 安装`eslint-import-resolver-alias`插件,并配置.eslintrc
 
-得注意在monorepo中得用path.resolve定位到当前子包里面
+得注意在 monorepo 中得用 path.resolve 定位到当前子包里面
 
 ```javascript
 settings: {
@@ -214,10 +214,10 @@ settings: {
 
 ### 参考链接
 
-- [stackoverflow讨论](https://stackoverflow.com/questions/56190878/eslint-airbnb-base-import-no-unresolved)
-- [import resolver官方原理](https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/README.md#resolvers)
+- [stackoverflow 讨论](https://stackoverflow.com/questions/56190878/eslint-airbnb-base-import-no-unresolved)
+- [import resolver 官方原理](https://github.com/import-js/eslint-plugin-import/blob/v2.26.0/README.md#resolvers)
 
-## 5. [已解决]vue项目中引入tsx文件报import/extensions(2022-05-31)
+## 5 :已解决:vue 项目中引入 tsx 文件报 import/extensions(2022-05-31)
 
 ### 问题描述
 
@@ -233,7 +233,7 @@ Missing file extension for "@/components/UserName"eslintimport/extensions
 Unable to resolve path to module '@/components/UserName'.eslintimport/no-unresolved
 ```
 
-ts文件也会报同样的错,但是配置eslint后就可以解决,但是tsx却无法解决
+ts 文件也会报同样的错,但是配置 eslint 后就可以解决,但是 tsx 却无法解决
 
 ```javascript
 settings: {
@@ -247,9 +247,9 @@ settings: {
 
 和问题的有关
 
-之所以另外一个ts文件在import.resolver.node中增加了.ts有效,是因为他是相对路径引用,走的是node解析器
+之所以另外一个 ts 文件在 import.resolver.node 中增加了.ts 有效,是因为他是相对路径引用,走的是 node 解析器
 
-而总是中的UserName是另外引用,是走的import.resolver.alias解析器,所以要配置这个解析器的extensions
+而总是中的 UserName 是另外引用,是走的 import.resolver.alias 解析器,所以要配置这个解析器的 extensions
 
 ```javascript
 settings: {
@@ -263,12 +263,11 @@ settings: {
   },
 ```
 
-
-## [已解决]Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-attribute-name) (2022-08-02)
+## :已解决:Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-attribute-name) (2022-08-02)
 
 ### 问题描述
 
-在配置文件中报vue的eslint规则错误
+在配置文件中报 vue 的 eslint 规则错误
 
 ```shell
 module export=
@@ -281,17 +280,17 @@ Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-at
 
 ### 问题解决
 
-这个一般是eslint插件升级导致的,rules中有配置这个规则,但是相应的插件里面却没有这个规则.
+这个一般是 eslint 插件升级导致的,rules 中有配置这个规则,但是相应的插件里面却没有这个规则.
 
 - 升级插件
 - 降级插件
 - 删除规则
 
-## [已解决]vue文件报parsing error(2022-08-02)
+## :已解决:vue 文件报 parsing error(2022-08-02)
 
 ### 问题描述
 
-如果vue文件是以注释开头的话,则会在第一个字符处报下面这个错误
+如果 vue 文件是以注释开头的话,则会在第一个字符处报下面这个错误
 
 ```vue
 <!--
@@ -305,7 +304,7 @@ Definition for rule 'vue/valid-attribute-name' was not found.eslint(vue/valid-at
 Parsing error: Type expected.eslint
 ```
 
-如果删掉注释,则会在router-view处报下面的错误
+如果删掉注释,则会在 router-view 处报下面的错误
 
 ```vue
 <template>
@@ -320,9 +319,9 @@ Parsing error: '>' expected.eslint
 
 ### 问题解决
 
-这是因为eslint parser错误导致的.要配置成eslint-parser-vue
+这是因为 eslint parser 错误导致的.要配置成 eslint-parser-vue
 
-引入各种plugin时可能会被覆盖掉.所以要查看最终生成的配置文件,使用如下命令
+引入各种 plugin 时可能会被覆盖掉.所以要查看最终生成的配置文件,使用如下命令
 
 ```shell
 npx eslint --print-config .eslintrc.js > test.json

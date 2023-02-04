@@ -1,6 +1,6 @@
 # node QA
 
-## 1. [已解决]ESM 和 commonjs 的冲突(2022-05-04)
+## 1 :已解决:ESM 和 commonjs 的冲突(2022-05-04)
 
 ### 问题描述
 
@@ -30,7 +30,7 @@ node 可以参照 branchlint.package.json 进行修改,但 npx 没办法
 
 - [stackoverflow 讨论](https://stackoverflow.com/questions/64242186/node-cant-find-modules-without-js-extension)
 
-## 2. [已解决]require chalk 时提示不支持(2022-05-19)
+## 2 :已解决:require chalk 时提示不支持(2022-05-19)
 
 ### 问题描述
 

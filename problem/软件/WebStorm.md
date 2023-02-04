@@ -1,4 +1,4 @@
-## 1. [已解决]报错: ESLint: TypeError: this.cliEngine is not a constructor(190825)
+## 1 :已解决:报错: ESLint: TypeError: this.cliEngine is not a constructor(190825)
 
 ### 业务背景
 
@@ -12,7 +12,7 @@
 
 就是 ide 和 eslint 版本不兼容导致的
 
-## 2. [已解决]静态页面实时预览
+## 2. :已解决:静态页面实时预览
 
 ### 业务背景
 
@@ -53,7 +53,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 
 ![](.WebStorm_images/GIF4.gif)
 
-## 5. [已解决]WebStorm 中 push 远程代码的时候,总是报权限错误(191108)
+## 5 :已解决:WebStorm 中 push 远程代码的时候,总是报权限错误(191108)
 
 ### 业务背景
 
@@ -77,7 +77,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 
 ![](.WebStorm_images/GIF5.gif)
 
-## 7. [已解决]查看代码时,历史纪录切换的快捷键是啥(191118)
+## 7 :已解决:查看代码时,历史纪录切换的快捷键是啥(191118)
 
 ### 业务背景
 
@@ -92,7 +92,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 - [参考]
   (https://www.jetbrains.com/help/webstorm/2019.2/navigating-through-the-source-code.html)
 
-## 8. [已解决]支持`flow`语法检查(191119)
+## 8 :已解决:支持`flow`语法检查(191119)
 
 ### 业务背景
 
@@ -106,7 +106,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 - 保存即可
 - [参考](https://blog.jetbrains.com/webstorm/2016/11/using-flow-in-webstorm/)
 
-## 9. .vue 文件里面在 HTML 节点上使用$event 有警告(191121)
+## 9 .vue 文件里面在 HTML 节点上使用$event 有警告(191121)
 
 ### 业务背景
 
@@ -114,7 +114,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 
 ![](.WebStorm_images/7cc5ff30.png)
 
-## 10. [已解决]npm scripts tool 不见了(191126)
+## 10 :已解决:npm scripts tool 不见了(191126)
 
 ### 业务背景
 
@@ -127,7 +127,7 @@ IDE 自带了`live edit`功能,配合`debug`和`chorme`插件即可完成
 - 打开 package.json 文件
 - 点右键 -> show npm scripts
 
-## 11. [已解决]在 sass 变量/混合的智能提示里面显示对应的注释(191128)
+## 11 :已解决:在 sass 变量/混合的智能提示里面显示对应的注释(191128)
 
 ### 业务背景
 
@@ -159,7 +159,7 @@ $section-lg: 24;
   - 输入变量`$sec`,智能提示就会出来
   - 按下`ctrl + q` 和 `ctrl + shift + i`即可打开注释和定义窗口
 
-## 12. [已解决]快捷键切换工作区组(191128)
+## 12 :已解决:快捷键切换工作区组(191128)
 
 ### 业务背景
 
@@ -171,7 +171,7 @@ $section-lg: 24;
 - 找到`go to next/previous spliter`
 - 设置相应的快捷键即可
 
-## 13. [已解决]如何给 webstorm 添加全局变量(20200108)
+## 13 :已解决:如何给 webstorm 添加全局变量(20200108)
 
 ### 业务背景
 
@@ -186,7 +186,7 @@ $section-lg: 24;
 - 参考
   - https://www.jetbrains.com/help/webstorm/configuring-javascript-libraries.html?q=webpack%20alias
 
-## 14. [已解决]如何关联 webpack 别名@(20200108)
+## 14 :已解决:如何关联 webpack 别名@(20200108)
 
 ### 业务背景
 
@@ -213,7 +213,7 @@ module.exports = {
 };
 ```
 
-## 15. [已解决]vue 项目里面如何识别从 node_modules 里面引入的 sass 变量混合等(20200112)
+## 15 :已解决:vue 项目里面如何识别从 node_modules 里面引入的 sass 变量混合等(20200112)
 
 ### 业务背景
 
@@ -262,7 +262,7 @@ module.exports = {
 - 实在受不了了,干脆把 sass 相关的 Inspection 全部禁用掉
   - 只是这样的话,就怕有时候手误,导致 bug 更麻烦
 
-## 16. [已解决]越狱(20200116)
+## 16 :已解决:越狱(20200116)
 
 ### 业务背景
 
@@ -276,7 +276,7 @@ module.exports = {
   - 已经拷贝到当前目录`jetbrains-agent.rar`
 - 详细参考: https://zhile.io/2018/08/25/jetbrains-license-server-crack.html
 
-## 17. [已解决]file watcher 一直报错(20200516)
+## 17 :已解决:file watcher 一直报错(20200516)
 
 ### 业务背景
 
@@ -320,7 +320,7 @@ sass 正确配置
 
 ![](.images/b4c43c8e.png)
 
-## 18. 破解 markdown navigator(20201008)
+## 18 破解 markdown navigator(20201008)
 
 ### 业务背景
 
@@ -330,7 +330,7 @@ webstorm 官方提供的 markdown 插件相比与这个收费插件,简直是处
 
 还是先回退到官方提供的插件用着吧先
 
-## 19. [已解决]macos 中如何设置打开项目的根目录(20201111)
+## 19 :已解决:macos 中如何设置打开项目的根目录(20201111)
 
 ### 业务背景
 
@@ -343,7 +343,7 @@ webstorm 官方提供的 markdown 插件相比与这个收费插件,简直是处
 - setting -> Appearance & Behavior -> 直接点击 System Setting -> default project
   directory
 
-## 20. [已解决]如何把图片粘贴到 webstorm 里面(20201111)
+## 20 :已解决:如何把图片粘贴到 webstorm 里面(20201111)
 
 ### 业务背景
 
