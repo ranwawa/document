@@ -608,3 +608,29 @@ toc 链接中的中文字符导致的...在设置中把 toc 的链接功能关�
 ### 参考链接
 
 - [github issues](https://github.com/microsoft/vscode/issues/165717)
+
+## 31 vscode bash 很耗电怎么办?(2023-02-10)
+
+### 背景描述
+
+使用 mac pro m1
+
+之前一直好好的,直到前两天装`iTerm2`这个终端
+
+昨天开始电脑发热严重,即使没运行什么程序时也很发热
+
+点开 mac 菜单栏右上角的电源图标,显示大量耗电的 APP 就是`vscode`
+
+在活动监视器中查看能耗面板,vscode 下面 bash 的指标是几千,而其他应用最多也就几十
+
+在活动监视器中查看 cpu 面板,几个 bash 进程的 cpu 占比也都是 60 以上
+
+### 问题描述
+
+启动vscode时会在vscode的状态栏显示`resolving shell environment...`,十秒后就报错`Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.`
+
+可以肯定的就是vscode和shell两个引起的.我把最近安装的`iTerm`终端删除后重启电脑也没解决这个问题.
+
+### 问题解决
+
+### 参考链接

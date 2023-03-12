@@ -477,7 +477,11 @@ Failed to connect to github.com port 443 after 3 ms: Connection refused
 下面的代码是删除未合并的分支,主要是那个 xargs 命令起的作用
 
 ```shell
-git branch --merged | grep -v \* | xargs git branch -D
+git branch --merged | grep -v \* | xargs git branch - setTimeout(() => {
+            props.formStore.reset();
+          }, 0); setTimeout(() => {
+            props.formStore.reset();
+          }, 0);D
 ```
 
 ### 参考链接
@@ -517,3 +521,33 @@ git branch --merged | grep -v \* | xargs git branch -D
 
 - [热心网友](https://www.edwardthomson.com/blog/git_for_windows_line_endings.html)
 - [amis 的 git 配置](https://github.com/baidu/amis/blob/master/.gitattributes)
+
+## 24 git 无法正确地自动转换换行符(2023-02-10)
+
+### 背景说明
+
+团队开发项目时,会在不同的操作系统上 clone 同一个仓库
+
+但 window 的换行符是 CRLF,MAC 的换行符是 LF
+
+由于这个差异有时会因为换行符不一样而引起的代码冲突
+
+所以在项目中一般配置了`.editorconfig`和`.gitattributes`来统一自动转换成`LF`的换行符
+
+> .editorconfig
+
+```shell
+end_of_line = lf
+```
+
+> .gitattributes
+
+```shell
+* text eol=lf
+```
+
+### 问题描述
+
+### 问题解决
+
+### 参考链接

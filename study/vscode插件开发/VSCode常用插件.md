@@ -72,3 +72,4 @@
 | Material Icon Theme | 容易识别的图标     |
 | Better Comments     | 更容易识别的注释   |
 | vscode-pdf          | pdf 预览           |
+| Mustache            | Mustache 语法高亮  |
